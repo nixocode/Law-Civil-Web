@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Law & Civil Law — Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0e0f14;--surf:#15161e;--surf2:#1c1d29;--bord:#2a2b3d;--gold:#c9a84c;--gdim:#8a6f30;--cream:#ede8da;--muted:#7a7c95;--blue:#4a7fa5;--red:#a04040;--grn:#3a7a5a;--pur:#7a5aa5;--r:10px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--cream);font-family:'Crimson Pro',Georgia,serif;font-size:17px;line-height:1.75}
+
+/* HEADER */
+header{background:linear-gradient(135deg,#0a0b10,#12131c,#1a1225);border-bottom:1px solid var(--bord);padding:2rem;text-align:center;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;top:-50px;left:50%;transform:translateX(-50%);width:500px;height:180px;background:radial-gradient(ellipse,rgba(201,168,76,.1),transparent 70%);pointer-events:none}
+.htag{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;margin-bottom:.5rem}
+header h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);color:var(--cream);margin-bottom:.3rem}
+header h1 span{color:var(--gold);font-style:italic}
+header p{color:var(--muted);font-size:.85rem}
+
+/* BLOCK TABS */
+.btabs{background:var(--surf);border-bottom:1px solid var(--bord);display:flex;align-items:center;padding:0 1.5rem;position:sticky;top:0;z-index:200;backdrop-filter:blur(10px)}
+.btab{padding:.7rem 1.3rem;background:none;border:none;border-bottom:3px solid transparent;color:var(--muted);cursor:pointer;font-family:'Crimson Pro',serif;font-size:.92rem;font-weight:600;transition:all .2s;white-space:nowrap}
+.btab:hover{color:var(--cream)}
+.btab.on{color:var(--gold);border-bottom-color:var(--gold)}
+.btab .bdg{font-family:'JetBrains Mono',monospace;font-size:.55rem;background:rgba(201,168,76,.15);color:var(--gdim);border-radius:3px;padding:.1rem .3rem;margin-left:.35rem;vertical-align:middle}
+.tsp{flex:1}
+.pw{display:flex;align-items:center;gap:.55rem}
+.pl{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--gold);letter-spacing:.1em}
+.pt{width:90px;height:3px;background:var(--bord);border-radius:2px;overflow:hidden}
+.pf{height:100%;background:linear-gradient(90deg,var(--gdim),var(--gold));border-radius:2px;transition:width .5s;width:0}
+.pp{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--muted)}
+
+/* LAYOUT */
+.layout{display:grid;grid-template-columns:215px 1fr;max-width:1160px;margin:0 auto;padding:1.5rem 1rem;gap:0}
+@media(max-width:768px){.layout{grid-template-columns:1fr}.snav{display:none}}
+
+/* SIDEBAR */
+.snav{position:sticky;top:50px;align-self:start;padding:.75rem .75rem .75rem 0;max-height:calc(100vh - 56px);overflow-y:auto}
+.snav::-webkit-scrollbar{width:3px}.snav::-webkit-scrollbar-thumb{background:var(--bord)}
+.nbt{margin-bottom:1.2rem}
+.nbt.hid{display:none}
+.nbtitle{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gdim);padding:.3rem .5rem;margin-bottom:.3rem}
+.snav ul{list-style:none}
+.snav ul li a{display:block;padding:.28rem .5rem;color:var(--muted);text-decoration:none;font-size:.78rem;border-radius:5px;border-left:2px solid transparent;transition:all .15s;line-height:1.4}
+.snav ul li a:hover,.snav ul li a.on{color:var(--gold);background:rgba(201,168,76,.07);border-left-color:var(--gold)}
+.snav ul li.sub a{padding-left:1rem;font-size:.73rem}
+
+/* PANEL */
+.bpanel{display:none}.bpanel.on{display:block}
+
+/* SECTION CARD */
+.sc{background:var(--surf);border:1px solid var(--bord);border-radius:var(--r);margin-bottom:1.4rem;overflow:hidden}
+.sh{padding:1.1rem 1.6rem;border-bottom:1px solid var(--bord);background:linear-gradient(135deg,var(--surf2),var(--surf));display:flex;align-items:center;gap:.75rem;cursor:pointer;user-select:none}
+.sh:hover{background:linear-gradient(135deg,#222436,var(--surf2))}
+.snum{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--gold);background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.3);border-radius:4px;padding:.18rem .4rem;white-space:nowrap}
+.sh h2{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--cream);flex:1}
+.schev{color:var(--muted);transition:transform .3s;font-size:.78rem}
+.sc.col .schev{transform:rotate(-90deg)}
+.sb{padding:1.3rem 1.6rem}
+.sc.col .sb{display:none}
+
+/* SUMMARY */
+.sumbox{background:linear-gradient(135deg,rgba(74,127,165,.08),rgba(74,127,165,.03));border:1px solid rgba(74,127,165,.22);border-radius:8px;padding:.9rem 1.1rem;margin-bottom:1.1rem}
+.sumlbl{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.14em;color:var(--blue);text-transform:uppercase;margin-bottom:.55rem}
+.sumbox ul{list-style:none;display:flex;flex-direction:column;gap:.35rem}
+.sumbox ul li{font-size:.85rem;color:#b8cfe0;display:flex;gap:.45rem;line-height:1.5}
+.sumbox ul li::before{content:'→';color:var(--blue);flex-shrink:0;font-size:.78rem;margin-top:.1rem}
+.sumbox ul li strong{color:#d0e8f4}
+
+/* EXPAND */
+.etog{display:inline-flex;align-items:center;gap:.4rem;background:none;border:1px solid var(--bord);color:var(--muted);padding:.35rem .85rem;border-radius:20px;cursor:pointer;font-family:'Crimson Pro',serif;font-size:.8rem;transition:all .2s;margin-bottom:.9rem}
+.etog:hover{border-color:var(--gdim);color:var(--gold)}
+.etog.on .ei{transform:rotate(180deg)}
+.ei{transition:transform .3s;font-size:.68rem}
+.fn{display:none;border-top:1px solid var(--bord);padding-top:.9rem;margin-top:.3rem}
+.fn.on{display:block}
+.fn p{color:#cdc9bc;margin-bottom:.85rem;font-size:.9rem}
+.fn p:last-child{margin-bottom:0}
+.fn h4{font-family:'Playfair Display',serif;font-size:.98rem;color:var(--gold);margin:1.1rem 0 .45rem;border-bottom:1px solid var(--bord);padding-bottom:.2rem}
+.fn ul{margin:.35rem 0 .75rem 1.1rem;color:#cdc9bc;font-size:.88rem}
+.fn ul li{margin-bottom:.28rem}
+
+/* TEXT */
+.sb p{margin-bottom:.85rem;color:#cdc9bc;font-size:.9rem}
+.sb h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--gold);margin:1.2rem 0 .45rem;border-bottom:1px solid var(--bord);padding-bottom:.2rem}
+.sb h4{font-family:'Crimson Pro',serif;font-weight:600;font-size:.92rem;color:var(--cream);margin:.85rem 0 .3rem}
+.div{height:1px;background:linear-gradient(90deg,transparent,var(--bord),transparent);margin:1.1rem 0}
+.hi{border-left:3px solid var(--blue);border-radius:0 6px 6px 0;padding:.65rem .95rem;margin:.7rem 0;font-size:.83rem;color:#b8cfe0;background:rgba(74,127,165,.07)}
+.hi.g{border-left-color:var(--gold);background:rgba(201,168,76,.06);color:#d4c89a}
+.hi.p{border-left-color:var(--pur);background:rgba(122,90,165,.06);color:#c4b0e0}
+.hi strong{color:#d0e8f4}.hi.g strong{color:var(--gold)}
+.pills{display:flex;flex-wrap:wrap;gap:.35rem;margin:.55rem 0}
+.pill{background:var(--surf2);border:1px solid var(--bord);border-radius:20px;padding:.18rem .65rem;font-size:.73rem;color:#cdc9bc}
+.pill.g{border-color:var(--gdim);color:var(--gold);background:rgba(201,168,76,.07)}
+.pill.b{border-color:rgba(74,127,165,.4);color:#8bbfd8;background:rgba(74,127,165,.07)}
+
+/* TABLE */
+.ct{width:100%;border-collapse:collapse;font-size:.8rem;margin:.75rem 0}
+.ct th{background:var(--surf2);color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.07em;text-transform:uppercase;padding:.45rem .75rem;border:1px solid var(--bord);text-align:left}
+.ct td{padding:.45rem .75rem;border:1px solid var(--bord);color:#cdc9bc;vertical-align:top}
+.ct tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+
+/* FLASHCARDS */
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:.6rem;margin:1rem 0}
+.tlbl{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
+.fc{background:var(--surf2);border:1px solid var(--bord);border-radius:8px;cursor:pointer;perspective:1000px;height:118px;transition:transform .1s}
+.fc:hover{transform:scale(1.01)}
+.fci{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,.2,.2,1)}
+.fc.fl .fci{transform:rotateY(180deg)}
+.fcf,.fcb{position:absolute;inset:0;backface-visibility:hidden;border-radius:8px;padding:.75rem;display:flex;flex-direction:column;justify-content:center}
+.fcf{background:var(--surf2)}.fcb{background:#1a1f2e;transform:rotateY(180deg)}
+.ft{font-family:'Playfair Display',serif;font-size:.92rem;color:var(--cream);margin-bottom:.2rem}
+.fes{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--gdim)}
+.fh{font-size:.68rem;color:var(--muted);font-style:italic;margin-top:.25rem}
+.fd{font-size:.76rem;color:#cdc9bc;line-height:1.5}
+.fi{position:absolute;bottom:.35rem;right:.5rem;font-size:.56rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
+
+/* ACCORDION */
+.alist{margin:.75rem 0}
+.ai{border:1px solid var(--bord);border-radius:7px;margin-bottom:.35rem;overflow:hidden}
+.atog{width:100%;background:var(--surf2);border:none;padding:.7rem .95rem;text-align:left;color:var(--cream);cursor:pointer;display:flex;align-items:center;gap:.65rem;font-family:'Crimson Pro',serif;font-size:.88rem;transition:background .2s}
+.atog:hover{background:#222436}
+.ark{font-family:'JetBrains Mono',monospace;font-size:.56rem;background:rgba(201,168,76,.15);color:var(--gold);border-radius:3px;padding:.1rem .38rem;white-space:nowrap}
+.an{flex:1;font-weight:600}
+.aes{font-size:.72rem;color:var(--gdim);font-style:italic}
+.ach{color:var(--muted);transition:transform .3s;font-size:.76rem}
+.ai.open .ach{transform:rotate(90deg)}
+.ab{display:none;padding:.75rem .95rem 1rem;background:var(--surf);border-top:1px solid var(--bord);font-size:.83rem;color:#cdc9bc;line-height:1.63}
+.ai.open .ab{display:block}
+
+/* QUIZ */
+.qw{background:linear-gradient(135deg,#0f1420,#141824);border:1px solid var(--bord);border-radius:var(--r);padding:1.1rem;margin-top:1.1rem}
+.qlbl{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.85rem}
+.qq{margin-bottom:1.1rem}
+.qqt{font-family:'Playfair Display',serif;font-size:.93rem;color:var(--cream);margin-bottom:.65rem}
+.opts{display:flex;flex-direction:column;gap:.32rem}
+.opt{background:var(--surf2);border:1px solid var(--bord);border-radius:5px;padding:.45rem .8rem;color:#cdc9bc;cursor:pointer;text-align:left;font-family:'Crimson Pro',serif;font-size:.83rem;transition:all .2s;display:flex;align-items:flex-start;gap:.45rem}
+.opt:hover:not(:disabled){background:#222436;border-color:var(--blue);color:var(--cream)}
+.opt.ok{background:rgba(58,122,90,.2);border-color:var(--grn);color:#9decc0}
+.opt.bad{background:rgba(160,64,64,.2);border-color:var(--red);color:#f0a0a0}
+.opt:disabled{cursor:default}
+.ol{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--muted);min-width:15px;flex-shrink:0;padding-top:.1rem}
+.qfb{margin-top:.5rem;font-size:.8rem;padding:.45rem .75rem;border-radius:5px;line-height:1.5;display:none}
+.qfb.on{display:block}
+.qfb.ok{background:rgba(58,122,90,.15);color:#9decc0;border-left:3px solid var(--grn)}
+.qfb.bad{background:rgba(160,64,64,.15);color:#f0a0a0;border-left:3px solid var(--red)}
+.qrow{display:flex;justify-content:space-between;align-items:center;margin-top:.65rem}
+.qnxt{background:rgba(201,168,76,.1);border:1px solid var(--gdim);color:var(--gold);padding:.38rem .95rem;border-radius:5px;cursor:pointer;font-family:'Crimson Pro',serif;font-size:.83rem;display:none;transition:all .2s}
+.qnxt:hover{background:rgba(201,168,76,.2)}
+.qsc{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--muted)}
+.qres{text-align:center;padding:1.1rem;display:none}
+.qres.on{display:block}
+.qrs{font-family:'Playfair Display',serif;font-size:2.1rem;color:var(--gold);margin-bottom:.4rem}
+.qrm{color:var(--muted);font-size:.83rem;margin-bottom:.75rem}
+.qrst{background:rgba(201,168,76,.1);border:1px solid var(--gdim);color:var(--gold);padding:.38rem 1.1rem;border-radius:5px;cursor:pointer;font-family:'Crimson Pro',serif;font-size:.88rem;transition:all .2s}
+.qrst:hover{background:rgba(201,168,76,.2)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="htag">Business Administration · Derecho Civil y Mercantil</div>
+  <h1>Law &amp; <span>Civil Law</span></h1>
+  <p>Interactive Study Guide · Blocks I, II &amp; III · Bilingual ES/EN</p>
+</header>
+
+<div class="btabs">
+  <button class="btab on" onclick="switchBlock('b1',this)">Block I <span class="bdg">Intro to Law</span></button>
+  <button class="btab" onclick="switchBlock('b2',this)">Block II <span class="bdg">Civil Law</span></button>
+  <button class="btab" onclick="switchBlock('b3',this)">Block III <span class="bdg">Commercial Law</span></button>
+  <div class="tsp"></div>
+  <div class="pw">
+    <span class="pl">PROGRESS</span>
+    <div class="pt"><div class="pf" id="pf"></div></div>
+    <span class="pp" id="pp">0%</span>
+  </div>
+</div>
+
+<div class="layout">
+  <nav class="snav" id="snav">
+    <div class="nbt" id="nav-b1">
+      <div class="nbtitle">Block I · Intro to Law</div>
+      <ul>
+        <li><a href="#b1s1">I. Concept of Law</a></li>
+        <li><a href="#b1s2">II. Classification</a></li>
+        <li class="sub"><a href="#b1s2">↳ Public / Private</a></li>
+        <li><a href="#b1s3">III. Sources of Law</a></li>
+        <li><a href="#b1s4">IV. Legal Relationship</a></li>
+        <li><a href="#b1s5">V. State Organization</a></li>
+        <li class="sub"><a href="#b1s5">↳ Modern State / Three Powers</a></li>
+        <li class="sub"><a href="#b1s5">↳ Territorial Org.</a></li>
+      </ul>
+    </div>
+    <div class="nbt hid" id="nav-b2">
+      <div class="nbtitle">Block II · Civil Law</div>
+      <ul>
+        <li><a href="#b2s1">I. Civil Law</a></li>
+        <li class="sub"><a href="#b2s1">↳ Codification & Foral Rights</a></li>
+        <li class="sub"><a href="#b2s1">↳ Civil Code / CCC</a></li>
+        <li><a href="#b2s2">II. Rights of the Person</a></li>
+        <li class="sub"><a href="#b2s2">↳ Capacity & Law 8/2021</a></li>
+        <li class="sub"><a href="#b2s2">↳ Personality Rights</a></li>
+        <li><a href="#b2s3">III. Civil Contracts</a></li>
+        <li class="sub"><a href="#b2s3">↳ Obligations & Breach</a></li>
+        <li class="sub"><a href="#b2s3">↳ Elements & Types</a></li>
+        <li class="sub"><a href="#b2s3">↳ Invalidity / Voidability</a></li>
+        <li><a href="#b2s4">IV. Rights in Rem</a></li>
+        <li class="sub"><a href="#b2s4">↳ Possession & Property</a></li>
+        <li class="sub"><a href="#b2s4">↳ Guarantee & Land Registry</a></li>
+        <li><a href="#b2s5">V. Family Rights</a></li>
+        <li class="sub"><a href="#b2s5">↳ Marriage & Filiation</a></li>
+        <li class="sub"><a href="#b2s5">↳ Matrimonial Regime</a></li>
+      </ul>
+    </div>
+    <div class="nbt hid" id="nav-b3">
+      <div class="nbtitle">Block III · Commercial Law</div>
+      <ul>
+        <li><a href="#b3s1">I. Origin of Commercial Law</a></li>
+        <li class="sub"><a href="#b3s1">↳ Middle Ages → Modern</a></li>
+        <li><a href="#b3s2">II. Company &amp; Entrepreneur</a></li>
+        <li class="sub"><a href="#b3s2">↳ Liability Regime</a></li>
+        <li><a href="#b3s3">III. Company Law</a></li>
+        <li class="sub"><a href="#b3s3">↳ Partnerships (Colectiva/Comandita)</a></li>
+        <li class="sub"><a href="#b3s3">↳ Capital Companies (SL/SA)</a></li>
+        <li class="sub"><a href="#b3s3">↳ Commercial Registry</a></li>
+        <li><a href="#b3s4">IV. Competition &amp; IP</a></li>
+        <li class="sub"><a href="#b3s4">↳ Unfair Competition</a></li>
+        <li class="sub"><a href="#b3s4">↳ Industrial &amp; Intellectual Property</a></li>
+        <li><a href="#b3s5">V. Commercial Contracts</a></li>
+        <li class="sub"><a href="#b3s5">↳ Sale / Commission / Agency</a></li>
+        <li class="sub"><a href="#b3s5">↳ Electronic Contracts &amp; Securities</a></li>
+        <li><a href="#b3s6">VI. CSR</a></li>
+        <li class="sub"><a href="#b3s6">↳ ISO 26000 / Tax / Green</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+  <!-- ═══════════ BLOCK I ═══════════ -->
+  <div class="bpanel on" id="b1">
+
+    <div class="sc" id="b1s1">
+      <div class="sh" onclick="toggleCard(this)"><span class="snum">§ I</span><h2>Concept of Law <em style="font-size:.75rem;color:var(--muted)">— El Derecho</em></h2><span class="schev">▾</span></div>
+      <div class="sb">
+        <div class="sumbox"><div class="sumlbl">📌 Summary</div><ul>
+          <li>Law (<em>El Derecho</em>) is <strong>polysemic</strong> — best understood as the <strong>obligatory order of social relations</strong>.</li>
+          <li>Three purposes: <strong>Order · Justice · Legal Certainty</strong> (<em>Seguridad Jurídica</em>, Art. 9.3 CE).</li>
+          <li>The <strong>legal norm</strong> (<em>norma jurídica</em>) is its basic unit — external, objective, <strong>obligatory and coercible</strong>.</li>
+          <li>Unlike moral norms, legal norms depend on <em>behavior</em>, not internal intention.</li>
+        </ul></div>
+        <button class="etog" onclick="toggleExpand(this)"><span class="ei">▾</span> Full Notes</button>
+        <div class="fn">
+          <p>Law has a polysemic meaning covering a plurality of realities. The best study-oriented definition: <strong>obligatory order in social relations</strong>. Law structures the social group — creates links, delimits permitted and prohibited behaviors, and establishes rights and obligations.</p>
+          <div class="hi g"><strong>Three purposes of Law:</strong> (1) Guarantee <em>order</em>; (2) Ensure <em>justice</em> — protecting freedom, property, contracts; (3) Provide <em>legal certainty (seguridad jurídica)</em> so parties can foresee legal consequences. Essential for market confidence.</div>
+          <h4>La Norma Jurídica</h4>
+          <p>The basic unit of law. A mandate of conduct indicating what must/can/cannot be done. <strong>External and objective character</strong> — depends on behavior, not intention. Both <strong>obligatory and coercible</strong>: if not followed, the State can impose consequences (sanctions, nullity, compensation).</p>
+        </div>
+        <div class="tlbl" style="margin-top:1rem">🃏 Key Terms — click to flip</div>
+        <div class="tgrid" id="cards-b1s1"></div>
+        <div class="qw" data-quiz="q1"><div class="qlbl">📝 Self-Test — Block I §I</div><div class="qi"></div></div>
+      </div>
+    </div>
+
+    <div class="sc" id="b1s2">
+      <div class="sh" onclick="toggleCard(this)"><span class="snum">§ II</span><h2>Classification of Law <em style="font-size:.75rem;color:var(--muted)">— Clasificación</em></h2><span class="schev">▾</span></div>
+      <div class="sb">
+        <div class="sumbox"><div class="sumlbl">📌 Summary</div><ul>
+          <li><strong>Public Law</strong>: State exercises <strong>superior authority</strong> — no equality between parties. Includes Constitutional, Administrative, Criminal, Tax Law.</li>
+          <li><strong>Private Law</strong>: individuals relate on a basis of <strong>legal equality</strong>. Foundation: <em>autonomía de la voluntad</em>. Includes Civil + Commercial Law.</li>
+          <li>Criminal Law = Public: State's <em>ius puniendi</em> protects <strong>general social interest</strong>, not just the victim. Penalties cannot be "negotiated away."</li>
+        </ul></div>
+        <button class="etog" onclick="toggleExpand(this)"><span class="ei">▾</span> Full Notes</button>
+        <div class="fn">
+          <h4>Public Law — Derecho Público</h4>
+          <p>Regulates the State and State–citizen relations when the Administration acts <strong>in the exercise of its authority</strong>. One party is always a public body acting with superior powers — no equality between parties.</p>
+          <div class="pills"><span class="pill g">Constitutional</span><span class="pill g">Administrative</span><span class="pill g">Criminal</span><span class="pill g">Tax</span><span class="pill g">Public International</span></div>
+          <div class="hi"><strong>Why Criminal Law is Public:</strong> Protects the general interest of society through the State's <em>ius puniendi</em> (right to punish). No one can "negotiate" a penalty — criminal law is imperative.</div>
+          <h4>Private Law — Derecho Privado</h4>
+          <p>Regulates relations between private subjects on a basis of <strong>legal equality</strong>. Foundation: <em>autonomía de la voluntad</em> — parties freely organize their relationships within legal limits. Mandatory rules protect vulnerable parties (consumers, workers).</p>
+          <div class="pills"><span class="pill">Civil Law — <em>Derecho Civil</em></span><span class="pill">Commercial Law — <em>Derecho Mercantil</em></span></div>
+        </div>
+        <div class="tlbl" style="margin-top:1rem">🃏 Key Terms — click to flip</div>
+        <div class="tgrid" id="cards-b1s2"></div>
+        <div class="qw" data-quiz="q2"><div class="qlbl">📝 Self-Test — Block I §II</div><div class="qi"></div></div>
+      </div>
+    </div>
+
+    <div class="sc" id="b1s3">
+      <div class="sh" onclick="toggleCard(this)"><span class="snum">§ III</span><h2>Sources of Law <em style="font-size:.75rem;color:var(--muted)">— Fuentes del Derecho</em></h2><span class="schev">▾</span></div>
+      <div class="sb">
+        <div class="sumbox"><div class="sumlbl">📌 Summary</div><ul>
+          <li>Spain uses a <strong>hierarchy</strong>: Constitution → EU Law → Law → Regulation. Below these, subsidiary sources fill gaps.</li>
+          <li><strong>Subsidiary</strong> (apply only when no law exists): Custom (<em>costumbre</em>) + General Principles of Law.</li>
+          <li><strong>Auxiliary</strong> (interpret, don't create): Jurisprudence (Supreme Court) + Doctrine.</li>
+          <li>EU Regulations = <strong>directly applicable</strong>. EU Directives = require national <strong>transposition</strong>.</li>
+          <li>Custom needs: repeated practice + <em>opinio iuris</em> (belief it's legally obligatory).</li>
+        </ul></div>
+        <div class="alist" id="srclist"></div>
+        <div class="qw" data-quiz="q3"><div class="qlbl">📝 Self-Test — Block I §III</div><div class="qi"></div></div>
+      </div>
+    </div>
+
+    <div class="sc" id="b1s4">
+      <div class="sh" onclick="toggleCard(this)"><span class="snum">§ IV</span><h2>The Legal Relationship <em style="font-size:.75rem;color:var(--muted)">— La Relación Jurídica</em></h2><span class="schev">▾</span></div>
+      <div class="sb">
+        <div class="sumbox"><div class="sumlbl">📌 Summary</div><ul>
+          <li>Legal relationship = legally recognized bond between subjects from which rights and duties derive.</li>
+          <li><strong>4 structural elements</strong>: Subjective (who) · Objective (what) · Legal Nexus (why) · Temporal (when).</li>
+          <li>Object of obligation: <strong>Dar</strong> (give/deliver) · <strong>Hacer</strong> (do/perform) · <strong>No hacer</strong> (abstain).</li>
+          <li><em>Prescripción</em> (inactivity extinguishes action) vs. <em>Caducidad</em> (non-extendable period lapses) — both serve legal certainty.</li>
+        </ul></div>
+        <div class="tlbl" style="margin-top:1rem">🃏 Four Structural Elements — click to flip</div>
+        <div class="tgrid" id="cards-b1s4"></div>
+        <div class="qw" data-quiz="q4"><div class="qlbl">📝 Self-Test — Block I §IV</div><div class="qi"></div></div>
+      </div>
+    </div>
+
+    <div class="sc" id="b1s5">
+      <div class="sh" onclick="toggleCard(this)"><span class="snum">§ V</span><h2>Organization of the State <em style="font-size:.75rem;color:var(--muted)">— Organización del Estado</em></h2><span class="schev">▾</span></div>
+      <div class="sb">
+        <div class="sumbox"><div class="sumlbl">📌 Summary</div><ul>
+          <li>Art. 1.1 CE: Spain = <strong>"social and democratic State governed by the rule of law"</strong> — three distinct pillars.</li>
+          <li><strong>Three Powers</strong>: Legislative (Cortes Generales) · Executive (Gobierno) · Judicial (Jueces y Tribunales). Functional separation with mutual control.</li>
+          <li><em>Estado Autonómico</em>: 17 Autonomous Communities + local entities. Conflicts by <strong>principle of competence</strong>, not hierarchy.</li>
+          <li>Constitutional Court = guardian of constitutional supremacy + <em>recurso de amparo</em>.</li>
+        </ul></div>
+        <button class="etog" onclick="toggleExpand(this)"><span class="ei">▾</span> Full Notes</button>
+        <div class="fn">
+          <h4>Art. 1.1 CE — Three Pillars</h4>
+          <table class="ct"><thead><tr><th>Pillar</th><th>Spanish</th><th>What it means</th></tr></thead><tbody>
+            <tr><td>Rule of Law</td><td><em>Estado de Derecho</em></td><td>Power subject to Constitution. Legality, hierarchy, no arbitrariness (Art. 9.3 CE)</td></tr>
+            <tr><td>Democratic State</td><td><em>Estado Democrático</em></td><td>Power from popular will. Citizens elect representatives. Political pluralism (Art. 1.1 CE)</td></tr>
+            <tr><td>Social State</td><td><em>Estado Social</em></td><td>State intervenes to promote real equality. Social rights: education, health, employment</td></tr>
+          </tbody></table>
+          <h4>Three Powers — Los Tres Poderes</h4>
+          <ul>
+            <li><strong>Legislative — Cortes Generales</strong>: Congress + Senate. Drafts/approves laws, controls Government, approves Budget.</li>
+            <li><strong>Executive — El Gobierno</strong>: Directs policy, manages Administration, applies laws, issues regulations. Decree-Laws in urgent cases.</li>
+            <li><strong>Judicial — Jueces y Tribunales</strong>: Judges and enforces law. Constitutionally independent, irremovable, subject only to the rule of law.</li>
+          </ul>
+          <h4>Territorial Organization — Estado Autonómico</h4>
+          <p>Art. 2 CE: unity of the Spanish Nation. But recognizes the right to autonomy of nationalities and regions. 17 CCAAs governed by their Estatuto de Autonomía. Key: <strong>competence principle</strong> (not hierarchy) resolves State vs. CCAA conflicts. Constitutional Court = territorial guarantor.</p>
+        </div>
+        <div class="tlbl" style="margin-top:1rem">🃏 Key Terms — click to flip</div>
+        <div class="tgrid" id="cards-b1s5"></div>
+        <div class="qw" data-quiz="q5"><div class="qlbl">📝 Self-Test — Block I §V</div><div class="qi"></div></div>
+      </div>
+    </div>
+
+  </div><!-- /b1 -->
+
+  <!-- ═══════════ BLOCK II ═══════════ -->
+  <div class="bpanel" id="b2">
+
+    <div class="sc" id="b2s1">
+      <div class="sh" onclick="toggleCard(this)"><span class="snum">§ I</span><h2>Civil Law <em style="font-size:.75rem;color:var(--muted)">— Derecho Civil</em></h2><span class="schev">▾</span></div>
+      <div class="sb">
+        <div class="sumbox"><div class="sumlbl">📌 Summary</div><ul>
+          <li><strong>Civil Law</strong>: branch of private law regulating the <strong>legal life of individuals</strong> (persons, contracts, property, family) without requiring special status.</li>
+          <li><strong>Spanish Civil Code (1889)</strong>: Preliminary Title + 4 Books. Core text of common civil law. Many areas now in special laws (<em>descodificación</em>).</li>
+          <li><strong>Foral rights</strong> (<em>Derechos Forales</em>): special civil laws in Aragon, Balearics, Catalonia, Galicia, Navarre, Basque Country. Apply <em>preferentially</em>; CC fills gaps subsidiarily.</li>
+          <li><strong>Catalan CC (CCC)</strong>: 6 books, modern structure. Key difference: defaults to <em>separation of property</em> vs. CC's <em>community of property</em>.</li>
+          <li>Art. 149.1.8ª CE: State has exclusive civil competence, but CCAAs can <em>preserve, modify and develop</em> pre-existing civil law.</li>
+        </ul></div>
+        <button class="etog" onclick="toggleExpand(this)"><span class="ei">▾</span> Full Notes — Codification, Foral Rights, Civil Code & CCC</button>
+        <div class="fn">
+          <h4>Content of Civil Law</h4>
+          <p>Civil Law covers: (1) legal regime of the person (personality, capacity, civil status); (2) obligations and contracts; (3) rights in rem (<em>derechos reales</em>) — direct power over assets, erga omnes; (4) Land Registry — real estate legal publicity; (5) Family Law — marriage, filiation, parental authority, protection of minors.</p>
+          <h4>The Codification Process</h4>
+          <p>Codification = unifying dispersed norms into a single coherent text. In Europe, 19th-century movement inspired by the <strong>French Civil Code of 1804 (Napoleonic Code)</strong>. In Spain, process started at the Cortes de Cádiz (1812). Full unification failed because of pre-existing territorial civil systems. Result: dual system — Civil Code (1889) + <strong>foral rights</strong> for certain territories.</p>
+          <div class="hi g"><strong>Foral Rights (Derechos Forales):</strong> Special civil law of Aragon, Balearics, Catalonia, Galicia, Navarre, Basque Country. "Foral" from <em>fuero</em> — medieval royal privileges. Apply preferentially; CC fills gaps subsidiarily.</div>
+          <p>Post-codification trend: <strong>descodificación</strong> — matters progressively removed from the CC into special laws (reinforced by EU integration).</p>
+          <h4>Structure of the Civil Code</h4>
+          <ul>
+            <li><strong>Preliminary Title</strong>: Sources of law, interpretation, application, effectiveness.</li>
+            <li><strong>Book 1</strong>: Persons — personality, civil status, family, marriage, filiation, protection of minors.</li>
+            <li><strong>Book 2</strong>: Goods, property and modifications.</li>
+            <li><strong>Book 3</strong>: Ways of acquiring property (occupation, donation, succession).</li>
+            <li><strong>Book 4</strong>: Obligations and contracts — most active book in daily practice.</li>
+          </ul>
+          <h4>Catalan CC (CCC) vs. Spanish CC</h4>
+          <table class="ct"><thead><tr><th>Feature</th><th>Spanish CC (1889)</th><th>Catalan CCC</th></tr></thead><tbody>
+            <tr><td>Structure</td><td>Prelim. Title + 4 Books (classic)</td><td>6 Books (progressively approved, modern)</td></tr>
+            <tr><td>Default matrimonial regime</td><td>Community of property (<em>gananciales</em>)</td><td>Separation of property (<em>separació de béns</em>)</td></tr>
+            <tr><td>Applies when</td><td>Common law throughout Spain</td><td>Catalan <em>vecindad civil</em> present</td></tr>
+            <tr><td>Style</td><td>Historical, partially outdated</td><td>Modern terminology, systematic</td></tr>
+          </tbody></table>
+        </div>
+        <div class="tlbl" style="margin-top:1rem">🃏 Key Terms — click to flip</div>
+        <div class="tgrid" id="cards-b2s1"></div>
+        <div class="qw" data-quiz="q6"><div class="qlbl">📝 Self-Test — Block II §I</div><div class="qi"></div></div>
+      </div>
+    </div>
+
+    <div class="sc" id="b2s2">
+      <div class="sh" onclick="toggleCard(this)"><span class="snum">§ II</span><h2>Rights of the Person <em style="font-size:.75rem;color:var(--muted)">— Derechos de la Persona</em></h2><span class="schev">▾</span></div>
+      <div class="sb">
+        <div class="sumbox"><div class="sumlbl">📌 Summary</div><ul>
+          <li>Legal personality: acquired at <strong>birth</strong> (Art. 30 CC), ends at <strong>death</strong> (Art. 32 CC). Unborn child has conditional protection (Art. 29 CC).</li>
+          <li><strong>Law 8/2021</strong>: abolished judicial incapacitation. Everyone has <strong>legal capacity on equal terms</strong>. System now provides <em>support measures</em> — not replacements for the person's will.</li>
+          <li><strong>Age of majority: 18</strong> (Art. 240 CC). <strong>Emancipation</strong> from 16 — partial autonomy, but Art. 247 CC restricts major financial acts.</li>
+          <li><strong>Personality rights</strong>: life, integrity, honour, privacy, image, name. <strong>Absolute rights</strong> — erga omnes. Triple protection: constitutional + criminal + civil (LO 1/1982).</li>
+          <li><strong>Civil status</strong> elements: <em>Nationality</em> · <em>Vecindad Civil</em> · <em>Domicile</em> — determine applicable law and legal position.</li>
+        </ul></div>
+        <button class="etog" onclick="toggleExpand(this)"><span class="ei">▾</span> Full Notes — Capacity Reform (Law 8/2021), Emancipation, Personality Rights</button>
+        <div class="fn">
+          <h4>The Natural Person</h4>
+          <p>Legal personality = the legal recognition of existence as a subject of law. Acquired at birth (Art. 30 CC — even for an instant). Art. 29 CC: "birth determines personality, but the conceived child is considered born for all purposes that are favourable to him, provided he is born alive."</p>
+          <p>Legal personality ends at death (Art. 32 CC). Death triggers hereditary succession — estate and legal relationships transfer to heirs.</p>
+          <h4>Law 8/2021 — The Capacity Reform (IMPORTANT)</h4>
+          <div class="hi p"><strong>The big change:</strong> Spain abandoned the old incapacitation model. The new system: <strong>everyone has legal capacity on equal terms</strong>. Where needed: support measures that <em>assist</em>, not replace, the person's will. Key principle: proportional, individualized, reviewable, respect for the person's will, desires, and preferences.</div>
+          <p>Four support categories: (1) <strong>Voluntary measures</strong> — person designates their own support in advance; (2) <strong>De facto guardianship</strong> (<em>guarda de hecho</em>) — informal family support, now a recognized legal institution; (3) <strong>Curatela (Guardianship)</strong> — main judicial support; replaces old conservatorship; generally assists, only exceptionally represents; (4) <strong>Judicial defender</strong> (<em>defensor judicial</em>) — ad hoc for specific conflicts or interests.</p>
+          <h4>Minority & Emancipation</h4>
+          <p><strong>Age of majority: 18 (Art. 240 CC)</strong>. During minority, parental authority (<em>patria potestad</em>, Art. 154 CC) governs. Must always be exercised for the child's benefit.</p>
+          <p><strong>Emancipation (Art. 241 CC)</strong>: from age 16, by parental grant (public deed or Civil Registry) or judicial grant. Art. 247 CC restriction: cannot borrow money, encumber or sell real estate, or alienate extraordinary-value goods without parental consent.</p>
+          <h4>Personality Rights</h4>
+          <p>Rights falling on the person's own sphere (physical and mental). (a) Affect the person's own sphere; (b) <strong>absolute rights</strong> — duty of general respect from all (Art. 9.1 CE); (c) inherent to human dignity (Art. 10.1 CE). Triple protection: constitutional + criminal + civil (LO 1/1982).</p>
+          <ul>
+            <li>Right to life (Art. 15 CE)</li>
+            <li>Right to physical and moral integrity — no torture or degrading treatment (Art. 15 CE)</li>
+            <li>Rights to honour, privacy, and own image (Art. 18 CE + LO 1/1982)</li>
+            <li>Right to a name (Civil Registry Law Art. 11): freedom of choice of proper name, with limits (no names contrary to dignity, no same name as living sibling with identical surnames)</li>
+          </ul>
+        </div>
+        <div class="tlbl" style="margin-top:1rem">🃏 Key Terms — click to flip</div>
+        <div class="tgrid" id="cards-b2s2"></div>
+        <div class="qw" data-quiz="q7"><div class="qlbl">📝 Self-Test — Block II §II</div><div class="qi"></div></div>
+      </div>
+    </div>
+
+    <div class="sc" id="b2s3">
+      <div class="sh" onclick="toggleCard(this)"><span class="snum">§ III</span><h2>Civil Contracts <em style="font-size:.75rem;color:var(--muted)">— Contratos Civiles</em></h2><span class="schev">▾</span></div>
+      <div class="sb">
+        <div class="sumbox"><div class="sumlbl">📌 Summary</div><ul>
+          <li><strong>Obligation</strong>: creditor demands performance from debtor. Object = Dar/Hacer/No hacer. 5 sources: law, contracts, quasi-contracts, crimes, civil torts.</li>
+          <li><strong>Contract</strong> (Art. 1254 CC): agreement of wills. 3 essential elements (Art. 1261 CC): <strong>consent + object + cause</strong>. Based on <em>autonomía de la voluntad</em> (Art. 1255 CC).</li>
+          <li><strong>Breach types</strong>: total non-performance · defective · late. Attributable (<em>dolo</em>/<em>culpa</em>) = liability. Non-attributable (fortuitous / force majeure) = possible exoneration.</li>
+          <li><strong>Invalidity vs. Voidability vs. Rescission</strong>: key exam topic — different defects, deadlines, who can invoke, whether curable.</li>
+          <li>Freedom of form (Art. 1278 CC) — general rule. Exception: some need public deed for validity (<em>forma ad solemnitatem</em>).</li>
+        </ul></div>
+        <button class="etog" onclick="toggleExpand(this)"><span class="ei">▾</span> Full Notes — Obligations, Contract Types & Ineffectiveness Table</button>
+        <div class="fn">
+          <h4>Law of Obligations — Derecho de Obligaciones</h4>
+          <p>Every obligation has: Creditor (demands) · Debtor (must comply) · Object (dar/hacer/no hacer — must be lawful, determined, possible) · Legal nexus. <strong>5 sources of obligations</strong>: law; legal transactions/contracts; quasi-contracts (unilateral will — undue payment, management of another's affairs); crimes (Penal Code governs); civil torts (acts/omissions with fault/negligence causing damage).</p>
+          <div class="hi g"><strong>Breach types:</strong> Dolo = deliberate (max liability). Culpa = lacks diligence without intent. Caso fortuito / Fuerza mayor = external, unforeseeable → debtor may be exonerated. Exception: if debtor was already in unjustified delay, force majeure may not exonerate.</div>
+          <h4>Essential Elements (Art. 1261 CC)</h4>
+          <ul>
+            <li><strong>Consent</strong>: free manifestation of will. Vices (error, fraud, violence, intimidation) → voidability.</li>
+            <li><strong>Object</strong>: possible, lawful, determined or determinable. Unlawful/impossible → nullity.</li>
+            <li><strong>Cause</strong>: economic/social function. Must exist, be lawful and true. Absence/falsity → nullity.</li>
+          </ul>
+          <h4>Main Typical Contracts</h4>
+          <table class="ct"><thead><tr><th>Contract</th><th>Spanish</th><th>Key Feature</th><th>Arts. CC</th></tr></thead><tbody>
+            <tr><td>Purchase & Sale</td><td>Compraventa</td><td>Bilateral, onerous, commutative, consensual. Seller: delivers + saneamiento. Buyer: pays price.</td><td>1445–1537</td></tr>
+            <tr><td>Exchange</td><td>Permuta</td><td>Direct swap of goods (no money). Rules of sale apply by analogy.</td><td>1538–1541</td></tr>
+            <tr><td>Donation</td><td>Donación</td><td>Unilateral, gratuitous. Real estate → public deed required (nullity if absent). Revocable for ingratitude.</td><td>618–656</td></tr>
+            <tr><td>Lease</td><td>Arrendamiento</td><td>Bilateral, onerous. Grants temporary use (not property). Lessor assigns use; lessee pays rent.</td><td>1542–1582</td></tr>
+            <tr><td>Loan</td><td>Préstamo</td><td>Real contract (needs delivery). Comodato = free, return same thing. Mutuo = interest if agreed.</td><td>1740–1756</td></tr>
+            <tr><td>Bond/Guarantee</td><td>Fianza</td><td>Personal guarantee, accessory. Benefit of excusión (Art. 1830 CC) — debtor's assets first.</td><td>1822–1856</td></tr>
+          </tbody></table>
+          <h4>Contract Ineffectiveness — Ineficacia (KEY TOPIC)</h4>
+          <table class="ct"><thead><tr><th></th><th>Nullity (Nulidad)</th><th>Voidability (Anulabilidad)</th><th>Rescission (Rescisión)</th></tr></thead><tbody>
+            <tr><td><strong>Defect</strong></td><td>Missing essential element or illegal cause/object</td><td>Vices of consent or incapacity</td><td>Valid but causes unjust damage in assessed cases</td></tr>
+            <tr><td><strong>Valid contract?</strong></td><td>No — "born dead"</td><td>Yes — exists until challenged</td><td>Yes — fully valid</td></tr>
+            <tr><td><strong>Who can invoke?</strong></td><td>Anyone (even ex officio)</td><td>Only the protected party</td><td>The damaged party</td></tr>
+            <tr><td><strong>Deadline?</strong></td><td>None — imprescriptible</td><td>4 years (Art. 1301 CC)</td><td>4 years (Art. 1299 CC)</td></tr>
+            <tr><td><strong>Curable?</strong></td><td>No</td><td>Yes — confirmation (Art. 1310 CC)</td><td>No</td></tr>
+            <tr><td><strong>Nature</strong></td><td>Radical, automatic</td><td>Challenge-dependent</td><td>Subsidiary remedy</td></tr>
+          </tbody></table>
+        </div>
+        <div class="tlbl" style="margin-top:1rem">🃏 Key Terms — click to flip</div>
+        <div class="tgrid" id="cards-b2s3"></div>
+        <div class="qw" data-quiz="q8"><div class="qlbl">📝 Self-Test — Block II §III</div><div class="qi"></div></div>
+      </div>
+    </div>
+
+    <div class="sc" id="b2s4">
+      <div class="sh" onclick="toggleCard(this)"><span class="snum">§ IV</span><h2>Rights in Rem <em style="font-size:.75rem;color:var(--muted)">— Derechos Reales</em></h2><span class="schev">▾</span></div>
+      <div class="sb">
+        <div class="sumbox"><div class="sumlbl">📌 Summary</div><ul>
+          <li><strong>Rights in rem</strong>: direct and immediate power over a <em>thing</em>, enforceable <em>erga omnes</em> (against everyone). No need for another person's cooperation.</li>
+          <li><strong>Property</strong> (Art. 348 CC): fullest real right — use, enjoy, dispose. Not absolute: social function (Art. 33 CE), no abuse of rights (Art. 7 CC).</li>
+          <li>Limited real rights: <strong>Preferential acquisition</strong> (tanteo, retracto, opción) · <strong>Enjoyment</strong> (usufruct, use, habitation, easements) · <strong>Guarantee</strong> (pledge, mortgage).</li>
+          <li><strong>Mortgage</strong>: registration in Land Registry is <strong>constitutive</strong> (Art. 1875 CC) — no valid mortgage without it.</li>
+          <li><strong>Land Registry</strong>: public faith, priority, rogation, successive tract, speciality. Art. 34 LH protects the third party in good faith.</li>
+        </ul></div>
+        <button class="etog" onclick="toggleExpand(this)"><span class="ei">▾</span> Full Notes — All Real Rights, Land Registry Principles</button>
+        <div class="fn">
+          <h4>Classification of Rights in Rem</h4>
+          <table class="ct"><thead><tr><th>Category</th><th>Examples</th><th>What it grants</th></tr></thead><tbody>
+            <tr><td>Provisional</td><td>Possession (<em>posesión</em>)</td><td>Legally protected de facto power. Combined corpus + animus.</td></tr>
+            <tr><td>Full ownership</td><td>Property (<em>propiedad</em>)</td><td>Use + enjoy + dispose (all powers)</td></tr>
+            <tr><td>Preferential acquisition</td><td>Tanteo, retracto, opción de compra</td><td>Priority right to acquire over third parties</td></tr>
+            <tr><td>Enjoyment</td><td>Usufruct, use, habitation, easements</td><td>Use/enjoy someone else's property</td></tr>
+            <tr><td>Guarantee</td><td>Pledge (<em>prenda</em>), Mortgage (<em>hipoteca</em>)</td><td>Asset attached to securing an obligation</td></tr>
+          </tbody></table>
+          <h4>Property — Propiedad (Arts. 348–429 CC)</h4>
+          <p>Full right in rem: use, enjoy, and dispose within legal limits. Subject to: Art. 7 CC (no abuse of rights), Art. 33 CE (social function — expropriation allowed for justified cause with prior compensation). Ways to acquire (Art. 609 CC): occupation, law, donation, succession mortis causa, tradition (via contracts), usucapion.</p>
+          <h4>Preferential Acquisition Rights</h4>
+          <ul>
+            <li><strong>Tanteo</strong> (right of first refusal): exercise BEFORE the transfer — owner must notify holder; holder can match the offer.</li>
+            <li><strong>Retracto</strong> (Art. 1518 CC): exercise AFTER the transfer — subrogate in buyer's position, reimburse price + expenses.</li>
+            <li><strong>Opción de compra</strong>: unilateral right to decide whether to enter a pre-configured sale within a period. Registrable → erga omnes.</li>
+          </ul>
+          <h4>Key Enjoyment Rights</h4>
+          <ul>
+            <li><strong>Usufruct (Arts. 467–522 CC)</strong>: broadest. Use + all fruits. Owner retains <em>nuda propiedad</em>. Temporary: life (natural person) or max 30 years (legal person).</li>
+            <li><strong>Right of Use</strong>: only what's needed for personal/family needs. Non-transferable, non-seizeable.</li>
+            <li><strong>Right of Habitation</strong>: occupy necessary rooms for personal residence only. Non-transferable.</li>
+            <li><strong>Easements (Arts. 530–604 CC)</strong>: burden on <em>finca sirviente</em> for benefit of <em>finca dominante</em>. E.g., rights of way, lights and views, water.</li>
+          </ul>
+          <h4>Guarantee Rights</h4>
+          <ul>
+            <li><strong>Pledge — Prenda (Arts. 1863–1873 CC)</strong>: movable property. Possessory displacement required (thing given to creditor). Indivisible. No <em>pacto comisorio</em> (creditor cannot appropriate).</li>
+            <li><strong>Mortgage — Hipoteca (Arts. 1874–1880 CC + LH)</strong>: immovable property. No possessory displacement. Registration in Land Registry is <strong>constitutive</strong> (Art. 1875 CC). Requires public deed + registration.</li>
+          </ul>
+          <h4>Land Registry — Registro de la Propiedad</h4>
+          <p>Public body for registering ownership and real rights over real estate. Main purpose: <strong>real estate legal publicity</strong>. Distinct from Cadastre (<em>Catastro</em>): Registry = legal ownership/rights; Cadastre = physical/tax description.</p>
+          <p><strong>Registry Principles</strong>: (1) Public faith — acquirer in good faith for consideration is protected; (2) Priority — first to register prevails; (3) Rogation — registration on request; (4) Successive tract — transferor's right must be registered first; (5) Speciality/Legality — each property perfectly individualised; registrar verifies validity.</p>
+          <div class="hi g"><strong>Art. 34 LH — Tercero Hipotecario (Third Party in Good Faith):</strong> Acquirer who buys for consideration and in good faith, relying on the Registry, is protected even if the seller's title is later annulled. Requirements: onerous, good faith, reliance on Registry content, subsequent registration of acquired right.</div>
+        </div>
+        <div class="tlbl" style="margin-top:1rem">🃏 Key Terms — click to flip</div>
+        <div class="tgrid" id="cards-b2s4"></div>
+        <div class="qw" data-quiz="q9"><div class="qlbl">📝 Self-Test — Block II §IV</div><div class="qi"></div></div>
+      </div>
+    </div>
+
+    <div class="sc" id="b2s5">
+      <div class="sh" onclick="toggleCard(this)"><span class="snum">§ V</span><h2>Family Rights <em style="font-size:.75rem;color:var(--muted)">— Derecho de Familia</em></h2><span class="schev">▾</span></div>
+      <div class="sb">
+        <div class="sumbox"><div class="sumlbl">📌 Summary</div><ul>
+          <li>Family Law: <strong>mixed nature</strong> — Private Law but with mandatory rules limiting <em>autonomía de la voluntad</em>. Art. 39 CE mandates State protection of the family.</li>
+          <li><strong>Marriage</strong> (Art. 45 CC): <em>no marriage without freely given marital consent</em>. Impediments: unemancipated minors, existing marriage, blood kinship to 3rd degree.</li>
+          <li><strong>Filiation</strong> (Art. 108 CC): all children equal before law regardless of origin. By nature (marital/non-marital) or adoption.</li>
+          <li><strong>Maintenance</strong> (<em>alimentos</em>, Art. 142 CC): covers food, housing, clothing, medical care, education. Proportional to resources and needs.</li>
+          <li><strong>Matrimonial regimes</strong>: Common law default = <em>gananciales</em>. Catalonia/Balearics = <em>separación de bienes</em>. Couples choose via <em>capitulaciones matrimoniales</em>.</li>
+        </ul></div>
+        <button class="etog" onclick="toggleExpand(this)"><span class="ei">▾</span> Full Notes — Marriage, Filiation, Maintenance & Matrimonial Regimes</button>
+        <div class="fn">
+          <h4>Marriage — El Matrimonio</h4>
+          <p>Legal union of two people via freely given consent (Art. 45 CC). Bilateral and formal legal transaction — must be registered in Civil Registry. Personal effects: cohabitation, fidelity, mutual help. Patrimonial effects: triggers matrimonial property regime.</p>
+          <p><strong>Impediments (Arts. 46–47 CC)</strong>: unemancipated minors; existing valid marriage (monogamy); relatives in direct line (consanguinity or adoption); collateral relatives up to 3rd degree by consanguinity; convicted as author/accomplice of the intentional death of the other's spouse.</p>
+          <h4>De Facto Unions — Uniones de Hecho</h4>
+          <p>Stable cohabitation without marriage. <strong>No unitary state regulation</strong> — fragmented through regional rules and case law. Supreme Court (12 Sept 2005): matrimonial regime cannot apply by analogy. Economic conflicts resolved via community of property, cohabitation agreements, or unjust enrichment principles.</p>
+          <h4>Filiation (Art. 108 CC)</h4>
+          <p>All children equal regardless of origin. By nature (marital — paternity presumption operates; non-marital — by recognition, judicial decision, or possession of status) or by adoption (fully integrates into adopter's family; ties with family of origin generally extinguished). Effects: surnames, parental authority, maintenance, inheritance rights.</p>
+          <h4>Kinship & Maintenance (Arts. 142–153 CC)</h4>
+          <p>Maintenance = food, housing, clothing, medical care, education (including of minor, or adult who hasn't finished studies for non-attributable reasons). Obligors: spouses, ascendants, descendants, siblings. Amount: proportional to obligor's resources + recipient's needs (Art. 146 CC). Modifiable if circumstances change.</p>
+          <h4>Matrimonial Property Regimes</h4>
+          <table class="ct"><thead><tr><th></th><th>Gananciales (Community)</th><th>Separación de Bienes</th></tr></thead><tbody>
+            <tr><td>Default in</td><td>Common civil law (most of Spain)</td><td>Catalonia, Balearics</td></tr>
+            <tr><td>How it works</td><td>3 masses: each spouse's private assets + common property (profits/income during marriage). Split 50/50 on dissolution.</td><td>Each spouse keeps own assets, administration, and liability. No community property formed.</td></tr>
+            <tr><td>Key articles</td><td>Arts. 1344–1410 CC</td><td>Arts. 1435–1444 CC</td></tr>
+          </tbody></table>
+          <div class="hi"><strong>Capitulaciones Matrimoniales (Arts. 1325–1335 CC):</strong> Spouses choose, modify, or replace their matrimonial regime. Required form: <strong>public deed</strong>. For third-party effect: registration in Civil Registry. Can be made before or during marriage.</div>
+        </div>
+        <div class="tlbl" style="margin-top:1rem">🃏 Key Terms — click to flip</div>
+        <div class="tgrid" id="cards-b2s5"></div>
+        <div class="qw" data-quiz="q10"><div class="qlbl">📝 Self-Test — Block II §V</div><div class="qi"></div></div>
+      </div>
+    </div>
+
+  </div><!-- /b2 -->
+
+  <!-- ═══════════ BLOCK III ═══════════ -->
+  <div class="bpanel" id="b3">
+
+    <!-- §I Origin of Commercial Law -->
+    <div class="sc" id="b3s1">
+      <div class="sh" onclick="toggleCard(this)"><span class="snum">§ I</span><h2>Origin &amp; Meaning of Commercial Law <em style="font-size:.75rem;color:var(--muted)">— Derecho Mercantil</em></h2><span class="schev">▾</span></div>
+      <div class="sb">
+        <div class="sumbox"><div class="sumlbl">📌 Summary</div><ul>
+          <li><strong>Commercial Law (DM)</strong> is a branch of <em>private law</em> — a <strong>special law</strong> born because Civil Law was too slow for commercial traffic. Originally a law <em>"of and for"</em> merchants.</li>
+          <li><strong>Origins</strong>: Late Middle Ages (11th century). Merchants in guilds created the <em>Ius Mercatorum</em> — applied by <em>Consular Courts</em> based on custom and good faith (<em>ex aequo et bono</em>).</li>
+          <li><strong>19th century codification</strong>: French Commercial Code (1807) shifted from a <em>subjective</em> (who is a merchant?) to an <em>objective</em> system (what is an act of commerce?). Spain's Commercial Code of <strong>1885</strong> (still in force) follows this hybrid approach.</li>
+          <li><strong>Today</strong>: Commercial Law revolves around the <strong>company and the entrepreneur</strong>. Shaped by the Spanish Constitution (1978), EU integration, and antitrust law.</li>
+        </ul></div>
+        <button class="etog" onclick="toggleExpand(this)"><span class="ei">▾</span> Full Notes — Medieval Origins to Modern Business Law</button>
+        <div class="fn">
+          <h4>Why Commercial Law Exists</h4>
+          <p>Commercial Law did not exist autonomously in Roman Law — the flexibility of the <em>ius gentium</em> and the praetor made it unnecessary. Its true origin lies in the Late Middle Ages, when the rise of cities and trade after feudalism created needs that Civil Law could not meet. Merchants in guilds (<em>gremios</em>) created their own law — the <em>Ius Mercatorum</em> — applied by <em>Consular Courts</em> (Consulados) based on commercial custom and equity.</p>
+          <h4>Modern Age &amp; Codification</h4>
+          <p>In the 16th–18th centuries, absolute monarchs absorbed commercial law into national ordinances (e.g., the Ordenanzas de Bilbao in Spain). The French Revolution pushed for objective systems: the French Commercial Code (1807) based liability on the <em>act of commerce</em>, not on being a merchant. Spain's Commercial Code (1885) still in force follows this hybrid trend.</p>
+          <div class="hi g"><strong>Spanish Commercial Code of 1885 (CCo)</strong>: The core text of Spanish commercial law, still in force. It declares application to acts of commerce "whether or not they are merchants who execute them." Art. 1 defines the merchant as one who, with legal capacity, habitually engages in commerce in their own name.</div>
+          <h4>Current Meaning — The Theory of the Company</h4>
+          <p>In the 20th century, doctrine (led by Wieland) replaced the artificial concept of "act of commerce" with the <strong>theory of the company and entrepreneur</strong>. Today Commercial Law is understood as the law regulating the organization and professional activity of entrepreneurs in the market. Its scope extends from traditional traders to industry, services, and the primary sector. New challenges: the Spanish Constitution (Art. 38 CE — freedom of enterprise), EU harmonization, and antitrust (competition) legislation.</p>
+        </div>
+        <div class="tlbl" style="margin-top:1rem">🃏 Key Terms — click to flip</div>
+        <div class="tgrid" id="cards-b3s1"></div>
+        <div class="qw" data-quiz="q11"><div class="qlbl">📝 Self-Test — Block III §I</div><div class="qi"></div></div>
+      </div>
+    </div>
+
+    <!-- §II Company & Entrepreneur -->
+    <div class="sc" id="b3s2">
+      <div class="sh" onclick="toggleCard(this)"><span class="snum">§ II</span><h2>The Company &amp; the Entrepreneur <em style="font-size:.75rem;color:var(--muted)">— Empresa y Empresario</em></h2><span class="schev">▾</span></div>
+      <div class="sb">
+        <div class="sumbox"><div class="sumlbl">📌 Summary</div><ul>
+          <li>The <strong>company</strong> (<em>empresa</em>) is an organization of personal, material, and intangible resources professionally directed to the market. Four elements: human factor · material/intangible assets · organization · environment.</li>
+          <li>The <strong>entrepreneur</strong> (<em>empresario</em>) organizes productive factors in their own name under risk. Four functions: Plan · Manage · Organize · Control.</li>
+          <li><strong>Universal liability</strong> (Art. 1,911 CC): the debtor answers for obligations with <em>all present and future assets</em>. Scope depends on legal form adopted.</li>
+          <li><strong>Limited Liability Entrepreneur (ERL)</strong>, Law 14/2013: individual entrepreneurs can protect their main residence (up to €300,000 / €450,000 in large cities) if registered in the Commercial Registry.</li>
+          <li><strong>Key distinction</strong>: sole proprietor (natural person, unlimited liability) vs. social entrepreneur (legal person — liability limited to company assets).</li>
+        </ul></div>
+        <button class="etog" onclick="toggleExpand(this)"><span class="ei">▾</span> Full Notes — Liability Regime &amp; Entrepreneur Types</button>
+        <div class="fn">
+          <h4>The Company as Economic &amp; Legal Unit</h4>
+          <p>The company is the fundamental engine of economic activity — an organization combining human, material, and intangible resources professionally directed to the market. Key intangibles: <strong>goodwill</strong> (<em>fondo de comercio</em>) — the value of organization above physical assets — and the customer base. Modern companies also pursue growth objectives and assume social/ethical responsibility toward stakeholders.</p>
+          <h4>Entrepreneur — From Merchant to Risk Manager</h4>
+          <p>The entrepreneur (natural or legal person) organizes productive factors in their own name and makes decisions under risky conditions. Risk can be economic (invested capital) or professional (management role). Four cyclical functions: <strong>Plan</strong> (analyse and set objectives) → <strong>Manage</strong> (direct organization toward goals) → <strong>Organize</strong> (coordinate resources) → <strong>Control</strong> (verify compliance and correct deviations).</p>
+          <h4>Corporate Liability Regime</h4>
+          <table class="ct"><thead><tr><th>Form</th><th>Liability Scope</th><th>Key Rule</th></tr></thead><tbody>
+            <tr><td>Individual Entrepreneur (<em>Autónomo</em>)</td><td>Unlimited — personal + business assets merged</td><td>Art. 1,911 CC — universal patrimonial liability</td></tr>
+            <tr><td>Capital Companies (SA/SL)</td><td>Limited to company assets — partners not liable beyond their contribution</td><td>TRLSC — limited liability shield</td></tr>
+            <tr><td>Limited Liability Entrepreneur (ERL)</td><td>Main residence protected (≤€300k / €450k in large cities)</td><td>Law 14/2013 — must register in Mercantile Registry + file accounts annually</td></tr>
+          </tbody></table>
+          <div class="hi"><strong>Married entrepreneurs:</strong> Liability may extend to the spouse's assets depending on the matrimonial property regime. This must be carefully evaluated at the start of any commercial activity — especially under the community of property (gananciales) regime.</div>
+        </div>
+        <div class="tlbl" style="margin-top:1rem">🃏 Key Terms — click to flip</div>
+        <div class="tgrid" id="cards-b3s2"></div>
+        <div class="qw" data-quiz="q12"><div class="qlbl">📝 Self-Test — Block III §II</div><div class="qi"></div></div>
+      </div>
+    </div>
+
+    <!-- §III Company Law -->
+    <div class="sc" id="b3s3">
+      <div class="sh" onclick="toggleCard(this)"><span class="snum">§ III</span><h2>Company Law <em style="font-size:.75rem;color:var(--muted)">— Derecho de Sociedades</em></h2><span class="schev">▾</span></div>
+      <div class="sb">
+        <div class="sumbox"><div class="sumlbl">📌 Summary</div><ul>
+          <li>Commercial companies are governed by <strong>numerus clausus</strong> — only the types the legislature creates exist: colectiva, comandita, SL, SA.</li>
+          <li><strong>Lifting the veil</strong> (<em>levantamiento del velo</em>): courts can pierce the legal personality of a company if it is used for fraud or to evade the law.</li>
+          <li><strong>Partnerships</strong> (<em>sociedades personalistas</em>): partners liable <em>unlimitedly, jointly and severally</em>. Key types: <em>Colectiva</em> (all partners liable) and <em>Comandita</em> (general partners unlimited, limited partners only up to their contribution).</li>
+          <li><strong>Capital companies</strong>: <strong>SL</strong> (min. €3,000, shares, closed — transfer restricted) and <strong>SA</strong> (min. €60,000, shares freely negotiable, open). Both under the TRLSC.</li>
+          <li><strong>Commercial Registry</strong>: registration is <em>constitutive</em> for capital companies (SA/SL — they don't legally exist until registered). Mandatory acts include incorporation, bylaws changes, directors, annual accounts, and dissolution.</li>
+        </ul></div>
+        <button class="etog" onclick="toggleExpand(this)"><span class="ei">▾</span> Full Notes — All Company Types, Registry &amp; Dissolution</button>
+        <div class="fn">
+          <h4>Partnerships — Sociedades Personalistas</h4>
+          <p>Based on <em>intuitu personae</em> — the personal qualities of each partner are the determining cause. Partners directly manage and assume unlimited liability.</p>
+          <ul>
+            <li><strong>Colectiva (General Partnership)</strong>: all partners manage and are liable unlimitedly, jointly, and severally (though subsidiarily — company assets must be exhausted first). A non-compete prohibition applies. Industrial partners (contributing work) share profits proportionally to the smallest capitalist partner.</li>
+            <li><strong>Comandita (Limited Partnership)</strong>: coexistence of general partners (manage, unlimited liability) and limited partners (liability limited to their contribution, cannot manage). If a limited partner includes their name in the company name, they become liable as a general partner.</li>
+          </ul>
+          <h4>Capital Companies — Sociedades de Capital (TRLSC)</h4>
+          <table class="ct"><thead><tr><th></th><th>SL (Sociedad Limitada)</th><th>SA (Sociedad Anónima)</th></tr></thead><tbody>
+            <tr><td>Min. capital</td><td>€3,000 — fully paid up at incorporation</td><td>€60,000 — only 25% needed at founding (rest = passive dividends)</td></tr>
+            <tr><td>Capital divided into</td><td>Participaciones (non-transferable securities, cannot be represented by share certificates)</td><td>Acciones (shares — negotiable, representable by securities or book entries)</td></tr>
+            <tr><td>Transfer</td><td>Restricted — closed character (maintains partner control)</td><td>Free — open/fungible, designed for capital markets</td></tr>
+            <tr><td>Target</td><td>SMEs — flexibility</td><td>Large companies, listed companies, capital market access</td></tr>
+            <tr><td>Partner liability</td><td>Limited to contribution</td><td>Limited to contribution</td></tr>
+          </tbody></table>
+          <h4>Special Commercial Companies</h4>
+          <ul>
+            <li><strong>SAE (European Public Limited Company)</strong>: for companies operating across EU Member States. Min. capital €120,000.</li>
+            <li><strong>Sociedades laborales</strong>: SA or SL where most capital is owned by workers with indefinite employment contracts.</li>
+            <li><strong>Professional Societies</strong>: joint exercise of a profession requiring a university degree + professional association registration (lawyers, architects). Majority of capital/votes must belong to professional partners.</li>
+            <li><strong>SLNE (New Company SL)</strong>: simplified SL for quick electronic formation of small companies.</li>
+            <li><strong>Sole proprietorship company</strong>: SA or SL with one single partner. Subject to strict publicity requirements.</li>
+          </ul>
+          <h4>Commercial Registry — Registro Mercantil</h4>
+          <p>Main function: legal publicity of commercial entrepreneurs' legal situations, providing security to third parties. Key distinction: registration is <strong>constitutive</strong> for capital companies (SA/SL — no legal personality without it), but merely <strong>declarative</strong> for partnerships. Mandatory registered acts: incorporation (public deed within 2 months), bylaws amendments, appointment/dismissal of directors + auditors, annual accounts deposit (balance sheet, P&amp;L, report — penalty: registry closure), structural modifications (merger, spin-off, etc.), sole proprietorship status.</p>
+          <h4>Dissolution, Liquidation &amp; Bankruptcy</h4>
+          <p><strong>Dissolution</strong>: opens the liquidation period. By operation of law (fixed term ends; capital falls below legal minimum) or by shareholders' meeting vote (e.g., losses reduce net worth to less than half of share capital). <strong>Liquidation</strong>: company retains legal personality but adds "en liquidación" to its name. Liquidators replace administrators — collect credits, pay debts, distribute remainder. <strong>Bankruptcy</strong> (<em>concurso de acreedores</em>): declaration does not automatically dissolve the company, but if a liquidation phase opens within bankruptcy proceedings, dissolution is automatic and the bankruptcy administrator takes over the liquidator's role.</p>
+        </div>
+        <div class="tlbl" style="margin-top:1rem">🃏 Key Terms — click to flip</div>
+        <div class="tgrid" id="cards-b3s3"></div>
+        <div class="qw" data-quiz="q13"><div class="qlbl">📝 Self-Test — Block III §III</div><div class="qi"></div></div>
+      </div>
+    </div>
+
+    <!-- §IV Competition & IP -->
+    <div class="sc" id="b3s4">
+      <div class="sh" onclick="toggleCard(this)"><span class="snum">§ IV</span><h2>Competition &amp; Industrial Property Law <em style="font-size:.75rem;color:var(--muted)">— Competencia y Propiedad Industrial</em></h2><span class="schev">▾</span></div>
+      <div class="sb">
+        <div class="sumbox"><div class="sumlbl">📌 Summary</div><ul>
+          <li><strong>Competition Law</strong> (Law 15/2007): protects the <em>market structure</em>, not individual competitors. Targets antitrust practices — cartels, abuse of dominant position, unjustified State aid.</li>
+          <li><strong>Unfair Competition</strong> (Law 3/1991): regulates <em>conduct</em> in commercial traffic. Any act objectively contrary to good faith is unfair — deception, confusion, servile imitation, exploitation of others' reputation.</li>
+          <li><strong>Industrial Property</strong>: protects technical creations and distinctive signs. Requires <strong>registration</strong> with the SPTO (Spanish Patent &amp; Trademark Office). Key: patents (20 years), trademarks, industrial design.</li>
+          <li><strong>Intellectual Property</strong>: protects literary, artistic, and scientific creations. No registration needed — arises automatically. Grants <strong>moral rights</strong> (authorship, integrity) + <strong>economic rights</strong> (copyright/reproduction). Corpus mysticum vs. corpus mechanicum.</li>
+        </ul></div>
+        <button class="etog" onclick="toggleExpand(this)"><span class="ei">▾</span> Full Notes — Antitrust, Unfair Competition &amp; IP Rights</button>
+        <div class="fn">
+          <h4>Market Economy &amp; Free Competition</h4>
+          <p>The market economy rests on entrepreneurial freedom. Competition Law does not protect a specific competitor — it guarantees the <strong>proper functioning of the market</strong> for all participants. Two axes: (1) <strong>Antitrust</strong> (Law 15/2007): targets agreements to exclude competitors, abuse of dominant position, unjustified public aid, and excessive concentrations; (2) <strong>Promotion of competitiveness</strong>: investment in innovation generates intangible assets requiring legal protection.</p>
+          <h4>Unfair Competition — Competencia Desleal (Law 3/1991)</h4>
+          <p>Governs behaviour in commercial traffic — any act objectively contrary to the requirements of good faith is unfair. Key acts:</p>
+          <ul>
+            <li><strong>Deception</strong>: spreading false or misleading information that distorts economic decisions of the average consumer.</li>
+            <li><strong>Confusion</strong>: preventing consumers from distinguishing an original product from an imitation — risk of association on business origin.</li>
+            <li><strong>Imitation and exploitation of reputation</strong>: free imitation is the principle, but it becomes illicit when it constitutes a servile copy that takes undue advantage of another's effort or industrial reputation.</li>
+          </ul>
+          <h4>Industrial Property — Propiedad Industrial</h4>
+          <p>Focuses on technical creations and distinctive signs. Protection requires <strong>registration</strong> with the SPTO (<em>Oficina Española de Patentes y Marcas</em>).</p>
+          <ul>
+            <li><strong>Patents</strong> (Law 11/1986): exclusive exploitation rights for <strong>20 years</strong> for inventions with industrial application. Also: utility models (improvements to existing objects).</li>
+            <li><strong>Trademarks</strong> (Law 17/2001): distinctive signs that differentiate products/services in the market. Also: commercial name (identifies the entrepreneur); establishment sign.</li>
+            <li><strong>Industrial Design</strong>: protects the aesthetic appearance of a product — key for commercial differentiation.</li>
+          </ul>
+          <h4>Intellectual Property — Propiedad Intelectual</h4>
+          <p>Protects literary, artistic, or scientific creations. Unlike industrial property, <strong>no registration required</strong> — rights arise from the act of creation. Key distinction:</p>
+          <div class="hi g"><strong>Corpus mysticum vs. Corpus mechanicum:</strong> Copyright is independent of the physical object. The corpus mysticum = the idea/creation (protected). The corpus mechanicum = the physical support (book, painting, hard drive). Buying a book does not grant copyright — it only transfers ownership of the physical object.</div>
+          <p>Two types of rights: (1) <strong>Moral rights</strong> (<em>derechos morales</em>): recognition of authorship, integrity of the work — inalienable; (2) <strong>Economic rights / Copyright</strong> (<em>derechos de explotación</em>): reproduction, distribution, public communication, transformation — can be transferred.</p>
+        </div>
+        <div class="tlbl" style="margin-top:1rem">🃏 Key Terms — click to flip</div>
+        <div class="tgrid" id="cards-b3s4"></div>
+        <div class="qw" data-quiz="q14"><div class="qlbl">📝 Self-Test — Block III §IV</div><div class="qi"></div></div>
+      </div>
+    </div>
+
+    <!-- §V Commercial Contracts -->
+    <div class="sc" id="b3s5">
+      <div class="sh" onclick="toggleCard(this)"><span class="snum">§ V</span><h2>Commercial Contracts <em style="font-size:.75rem;color:var(--muted)">— Contratos Mercantiles</em></h2><span class="schev">▾</span></div>
+      <div class="sb">
+        <div class="sumbox"><div class="sumlbl">📌 Summary</div><ul>
+          <li><strong>Commercial contracts</strong> offer a special regime for speed and security in economic traffic. Spiritualist principle: <strong>no strict form required</strong> — proved by any means (witness, document, electronic).</li>
+          <li><strong>Commercial sale</strong> (Art. 325 CCo): movable goods acquired <em>with the aim of reselling</em> for profit. Seller's key duties: delivery + conformity of goods. Buyer: pay + examine + notify defects. <strong>Incoterms</strong> = international rules defining who bears expenses, risks, and customs.</li>
+          <li><strong>Commission contract</strong>: commercial mandate. Commission agent acts for the principal. Key features: <em>prohibition of self-entry</em> + <em>retention privilege</em> over goods.</li>
+          <li><strong>Agency contract</strong> (Law 12/1992): continuous/stable independent intermediary who promotes acts of commerce. Based on <em>intuitu personae</em> + good faith. On termination: possible <strong>clientele compensation</strong> (<em>indemnización por clientela</em>).</li>
+          <li><strong>Security title</strong> (<em>título-valor</em>): a document incorporating a private right, so that its exercise and transfer require possession of the document. Types: nominative · to order (endorsement) · to bearer.</li>
+        </ul></div>
+        <button class="etog" onclick="toggleExpand(this)"><span class="ei">▾</span> Full Notes — Sale, Commission, Agency, E-contracts &amp; Securities</button>
+        <div class="fn">
+          <h4>Commercial Sale — Compraventa Mercantil (Art. 325 CCo)</h4>
+          <p>Commercial when: (1) movable goods; (2) acquired with aim of reselling; (3) profit motive. At international level, the <strong>Vienna Convention (1980)</strong> governs: seller transfers ownership of tangible movable goods in exchange for a price.</p>
+          <ul>
+            <li><strong>Seller's obligations</strong>: deliver goods (make available at agreed time/place — this transfers risk to buyer); guarantee conformity (quantity, quality, type, packaging); deliver documents (invoices, insurance, certificates of origin).</li>
+            <li><strong>Buyer's obligations</strong>: pay price (market price applies if not expressly fixed); receive goods; examine as soon as possible and notify any lack of conformity within a reasonable time.</li>
+            <li><strong>Incoterms</strong> (ICC): e.g., EXW, FOB, CIF. International rules defining who bears expenses, risks, transport, and customs. When incorporated into the contract, they acquire the force of law between parties — <em>lex mercatoria</em>.</li>
+          </ul>
+          <h4>Commission &amp; Agency Contracts</h4>
+          <table class="ct"><thead><tr><th></th><th>Commission (Comisión)</th><th>Agency (Agencia, Law 12/1992)</th></tr></thead><tbody>
+            <tr><td>Nature</td><td>Commercial mandate — specific or isolated operation</td><td>Stable/continuous relationship</td></tr>
+            <tr><td>Agent's risk</td><td>Does not assume transaction risk (unless guaranteed)</td><td>Does not assume risk (unless written guarantee agreement)</td></tr>
+            <tr><td>Key feature</td><td>Prohibition of self-entry + retention privilege over goods</td><td>Intuitu personae, loyalty, good faith</td></tr>
+            <tr><td>Termination</td><td>On completion of the order</td><td>Possible clientele compensation if agent's work continues to bring benefits</td></tr>
+          </tbody></table>
+          <div class="hi"><strong>Agent vs. Distributor:</strong> The agent promotes acts in the principal's name/account (earns commission). The distributor buys merchandise in their own name and resells it at their own risk — profit comes from the commercial margin, not a commission. This is a key distinction in commercial law.</div>
+          <h4>Electronic Contracts</h4>
+          <p>Defined by consent expressed through automatic devices or telematic networks. Spanish rule: consent exists from the moment acceptance is manifested (immediate, unlike inter absentes rule for paper contracts). Electronic documentation — e-CMR (electronic consignment note) and electronic bill of lading — have the same probative value as paper if integrity is guaranteed by reliable electronic signatures.</p>
+          <h4>Security Title — Título-Valor</h4>
+          <p>A document incorporating a private right such that the exercise and transfer of that right require possession of the document. Economic function: facilitates circulation of credit and property rights. Three categories by circulation type: (1) <strong>Nominative</strong> — designates a specific person; transmission requires notification to the issuer; (2) <strong>To order</strong> (<em>a la orden</em>) — transferable by endorsement; (3) <strong>To bearer</strong> (<em>al portador</em>) — transmitted by simple physical delivery.</p>
+          <p>In freight transport, the <strong>bill of lading</strong> (<em>conocimiento de embarque</em>) is paradigmatic: it proves the contract of carriage, proves receipt of goods on board, and grants the legitimate holder the exclusive right to claim delivery at the destination port. Possession = legal possession of the goods in transit.</p>
+        </div>
+        <div class="tlbl" style="margin-top:1rem">🃏 Key Terms — click to flip</div>
+        <div class="tgrid" id="cards-b3s5"></div>
+        <div class="qw" data-quiz="q15"><div class="qlbl">📝 Self-Test — Block III §V</div><div class="qi"></div></div>
+      </div>
+    </div>
+
+    <!-- §VI CSR -->
+    <div class="sc" id="b3s6">
+      <div class="sh" onclick="toggleCard(this)"><span class="snum">§ VI</span><h2>Corporate Social Responsibility <em style="font-size:.75rem;color:var(--muted)">— RSC / CSR</em></h2><span class="schev">▾</span></div>
+      <div class="sb">
+        <div class="sumbox"><div class="sumlbl">📌 Summary</div><ul>
+          <li><strong>CSR</strong>: voluntary integration of social and environmental concerns into business operations and stakeholder relations. Companies as <em>"corporate citizens."</em></li>
+          <li><strong>Triple Income Statement</strong>: balance of <em>economic profitability</em> + <em>social welfare improvement</em> + <em>environmental preservation</em>. Replaces the shareholder-only model.</li>
+          <li><strong>ISO 26000</strong> (2010): international CSR guidance standard. <em>Not a certifiable standard</em> — a voluntary guide. Universal applicability (all organizations). Principles: human rights, ILO conventions, UN Global Compact.</li>
+          <li><strong>Fiscal responsibility</strong>: companies must pay fair taxes in each jurisdiction. Tax transparency required by Law 11/2018 (country-by-country reporting). Avoiding tax havens = CSR commitment.</li>
+          <li><strong>Green taxes</strong>: "polluter pays" principle. Companies bear economic responsibility for environmental damage (CO₂ emissions, natural resource impact). Environmental Liability Law requires repair of damage independently of other sanctions.</li>
+        </ul></div>
+        <button class="etog" onclick="toggleExpand(this)"><span class="ei">▾</span> Full Notes — ISO 26000 Detail, Tax Responsibility &amp; Green Taxes</button>
+        <div class="fn">
+          <h4>CSR vs. RSC — Scope</h4>
+          <p>While RSC (<em>Responsabilidad Social Corporativa</em>) typically applies to business activity and SMEs, CSR has broader scope including government agencies and other institutions. Both transcend profit-seeking to integrate social and environmental concerns voluntarily into operations and stakeholder relations. Driven by social distrust following crises and corruption cases.</p>
+          <h4>ISO 26000 (2010) — Key Features</h4>
+          <ul>
+            <li><strong>Voluntary</strong>: not certifiable. Encourages commitment without limiting creativity.</li>
+            <li><strong>Multilateral creation</strong>: developed by SIS (Sweden) + ABNT (Brazil), with industry, government, workers, consumers, and NGOs.</li>
+            <li><strong>Universal</strong>: applicable to all organizations regardless of size, location, or sector.</li>
+          </ul>
+          <p><strong>Main objectives</strong>: help establish SR frameworks; support demonstration of commitment to stakeholders; promote transparency; analyse viability issues while respecting local laws. Built on the Universal Declaration of Human Rights, ILO conventions, UN Global Compact, and Rio Declaration on Environment and Development.</p>
+          <p><strong>Benefits</strong>: increased stakeholder trust; globally accepted single standard; supply chain management emphasis; tool for sustainable development and competitiveness.</p>
+          <h4>Fiscal Responsibility</h4>
+          <p>Companies have a civic duty to pay fair taxes in each jurisdiction according to value generated. Tax compliance finances the Welfare State (health, education, infrastructure) from which the company itself benefits. <strong>Law 11/2018</strong> requires country-by-country tax reporting for transparency. Socially responsible companies avoid tax havens and aggressive tax planning — understanding that erosion of social assets weakens market confidence and long-term sustainability.</p>
+          <h4>Green Taxes &amp; Environmental CSR</h4>
+          <div class="hi g"><strong>"Polluter Pays" Principle:</strong> Environmental taxes make companies assume economic responsibility for damage caused — CO₂ emissions, impact on soil/water. The Environmental Liability Law requires companies to repair damage independently of other sanctions. CSR-integrated companies use these as drivers of innovation: eco-design, energy efficiency, circular economy → reduce environmental impact AND tax burden.</div>
+        </div>
+        <div class="tlbl" style="margin-top:1rem">🃏 Key Terms — click to flip</div>
+        <div class="tgrid" id="cards-b3s6"></div>
+        <div class="qw" data-quiz="q16"><div class="qlbl">📝 Self-Test — Block III §VI</div><div class="qi"></div></div>
+      </div>
+    </div>
+
+  </div><!-- /b3 -->
+  </main>
+</div>
+
+<script>
+// ── BLOCK SWITCH ──
+function switchBlock(id, btn) {
+  document.querySelectorAll('.bpanel').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.btab').forEach(b=>b.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('on');
+  document.querySelectorAll('.nbt').forEach(n=>n.classList.add('hid'));
+  document.getElementById('nav-'+id).classList.remove('hid');
+}
+// ── COLLAPSE ──
+function toggleCard(sh){sh.closest('.sc').classList.toggle('col')}
+// ── EXPAND ──
+function toggleExpand(btn){
+  btn.classList.toggle('on');
+  btn.nextElementSibling.classList.toggle('on');
+  btn.querySelector('.ei').textContent=btn.classList.contains('on')?'▴':'▾';
+}
+
+// ── SOURCES ──
+const SOURCES=[
+  {r:'#1',n:'Constitution',es:'Constitución Española (1978)',b:'Supreme norm — all laws must conform to it. Guarantees: legal certainty (Art. 9.3 CE), private property (Art. 33 CE), freedom of enterprise (Art. 38 CE), equality (Art. 14 CE), judicial protection (Art. 24 CE). Acts as the "ceiling" for all Private Law.'},
+  {r:'#2',n:'International Treaties',es:'Tratados Internacionales',b:'Once ratified and published in the BOE (Official State Gazette), become domestic law (Art. 96 CE). Relevant for cross-border relations: international sales, transport, arbitration, IP protection. Oblige Spain to adapt domestic legislation where necessary.'},
+  {r:'#3',n:'Community / EU Law',es:'Derecho Comunitario / UE',b:'Spain in EU since 1986. EU law has primacy over domestic law in conflicts. Regulations = directly applicable without transposition. Directives = bind as to result, require national transposition. Also: Decisions (binding but specific), Opinions and Recommendations (non-binding).'},
+  {r:'#4',n:'Law (Statute)',es:'La Ley',b:'Main domestic source. State laws (Cortes Generales, nationwide) vs. Regional laws (Autonomous Parliaments, territorial — conflicts by competence principle). Organic Law (absolute majority, fundamental rights) vs. Ordinary Law (simple majority). Royal Decree-Law (urgent need, 15-day validation by Congress). Royal Legislative Decree (parliamentary delegation).'},
+  {r:'#5',n:'Regulations',es:'El Reglamento',b:'Written norms by executive power. Always subordinate to law — cannot contradict it. Develop and specify legal details. Types: executive (develop a prior law), independent (organizational/technical), exceptional (limited, temporary). Illegal regulation can be annulled.'},
+  {r:'#6',n:'Agreements / Contracts',es:'Acuerdos / Contratos',b:'Not "law" in the strict sense, but generate binding rules between parties. Pacta sunt servanda — must be fulfilled. Below law (cannot contradict it), but binding within their scope as "private law" between parties. Breach → termination, specific performance, or damages.'},
+  {r:'#7 — Subsidiary',n:'Custom',es:'La Costumbre',b:'Only applies in absence of applicable law (Art. 1 CC). Requires: (1) material element — generalized, continuous repetition; (2) opinio iuris — belief it is legally obligatory, not mere habit. Cannot be contrary to morality or public order. Must be proven before courts.'},
+  {r:'#8 — Subsidiary',n:'General Principles of Law',es:'Principios Generales del Derecho',b:'Basic ideas inspiring the legal system (good faith, prohibition of abuse of rights, unjust enrichment, pacta sunt servanda). Three functions: (1) Integrating — fill legal gaps; (2) Interpretive — guide ambiguous articles; (3) Limiting — prevent abusive use of law even if formally legal.'},
+  {r:'Auxiliary',n:'Jurisprudence',es:'Jurisprudencia',b:'Criteria by judges and courts. Not a direct source, but complements the system (Art. 6 CC). Reiterated Supreme Court doctrine establishes the meaning of law, custom, and principles. Provides predictability. Essential for understanding how institutions actually apply in practice.'},
+  {r:'Auxiliary',n:'Doctrine',es:'La Doctrina',b:'Studies, opinions and analyses by jurists and professors. Not a source — creates no mandatory rules. Has guiding and interpretive value. Influences legislative reforms. Cited by courts to reinforce interpretations.'}
+];
+const sl=document.getElementById('srclist');
+SOURCES.forEach(s=>{
+  const d=document.createElement('div');d.className='ai';
+  d.innerHTML=`<button class="atog" onclick="this.closest('.ai').classList.toggle('open')"><span class="ark">${s.r}</span><span class="an">${s.n}</span><span class="aes">${s.es}</span><span class="ach">▶</span></button><div class="ab">${s.b}</div>`;
+  sl.appendChild(d);
+});
+
+// ── FLASHCARD DATA ──
+const CARDS={
+  'b1s1':[
+    {t:'Polysemic',es:'Polisémico',h:'Why law is hard to define',d:'Having multiple meanings — "law" can mean a norm, a system, a right, or a discipline. This is why defining it requires orientation to a specific purpose.'},
+    {t:'Legal Norm',es:'Norma Jurídica',h:'Basic unit of law',d:'Mandatory conduct rule — what must/can/cannot be done. External, objective, obligatory, and coercible. Depends on behavior, not internal intention.'},
+    {t:'Coercible',es:'Coercible',h:'Key trait of legal norms',d:'The State can enforce compliance. Non-compliance → sanctions, nullity, or forced compensation. This distinguishes legal norms from moral norms.'},
+    {t:'Legal Certainty',es:'Seguridad Jurídica',h:'Art. 9.3 CE',d:'The ability to foresee the legal consequences of one\'s acts. Essential for market confidence and economic activity. Guaranteed by Art. 9.3 CE.'}
+  ],
+  'b1s2':[
+    {t:'Ius Puniendi',es:'Derecho a Castigar del Estado',h:'Why Criminal Law = Public',d:'The State\'s exclusive right to punish — prison, fines, disqualification. Reason Criminal Law is public: it protects general social interest, not just the individual victim.'},
+    {t:'Autonomy of the Will',es:'Autonomía de la Voluntad',h:'Foundation of Private Law',d:'Parties can freely set terms of their legal relationships within legal limits. Most visible in contract law — parties choose price, conditions, deadlines.'},
+    {t:'Synallagmatic',es:'Sinalagmático',h:'Bilateral reciprocal contract',d:'Both parties are simultaneously creditor AND debtor (e.g., sale: seller owes delivery; buyer owes payment). Art. 1124 CC applies for breach remedies.'}
+  ],
+  'b1s4':[
+    {t:'Subjective Element',es:'Elemento Subjetivo',h:'Who are the parties?',d:'Active subject = holds the right (creditor). Passive subject = holds the duty/obligation (debtor). Determines legal capacity and liability.'},
+    {t:'Objective Element',es:'Elemento Objetivo',h:'What is owed?',d:'Dar (give/deliver), Hacer (perform a service), No hacer (abstain from a conduct). Must be possible, lawful, and determinable.'},
+    {t:'Legal Nexus',es:'Nexo Jurídico',h:'Why does the law care?',d:'The title or cause making the bond legally relevant. Most often a contract, but can be a law, a harmful act (tort), or other legal fact.'},
+    {t:'Prescripción / Caducidad',es:'Prescription / Expiration',h:'Time extinguishes rights',d:'Prescripción: inactivity of right-holder extinguishes the action. Caducidad: strict non-extendable period lapses. Both serve legal certainty.'}
+  ],
+  'b1s5':[
+    {t:'Estado Autonómico',es:'Autonomous State',h:'Spain\'s territorial model',d:'17 Autonomous Communities with political, institutional, and regulatory autonomy via their Estatuto de Autonomía. Neither centralist nor fully federal.'},
+    {t:'Recurso de Amparo',es:'Constitutional Appeal',h:'Tribunal Constitucional',d:'Mechanism protecting fundamental rights when violated — even against State acts. Key instrument of the rule of law.'},
+    {t:'Principio de Competencia',es:'Competence Principle',h:'Territorial conflict resolution',d:'A norm is valid if the body that issued it had constitutional jurisdiction over that matter. State vs. CCAA conflicts resolved by competence, not hierarchy.'}
+  ],
+  'b2s1':[
+    {t:'Derechos Forales',es:'Foral / Regional Civil Rights',h:'Special territorial civil law',d:'Special civil laws of Aragon, Balearics, Catalonia, Galicia, Navarre, Basque Country. Apply preferentially over the Civil Code; CC fills gaps subsidiarily.'},
+    {t:'Descodificación',es:'Decodification',h:'Post-1889 trend',d:'Progressive withdrawal of matters from the Civil Code into special laws. Reinforced by EU integration. CC remains central but no longer contains all civil regulation.'},
+    {t:'Vecindad Civil',es:'Civil Neighbourhood',h:'Connects person to their civil law',d:'Determines whether a person is subject to common civil law (CC) or a regional civil law (Catalan CCC, Navarrese, Aragonese, etc.). Critical in family law and inheritance.'},
+    {t:'Codi Civil de Catalunya',es:'CCC — Catalan Civil Code',h:'6-book modern structure',d:'Catalonia\'s own civil code. 6 progressively approved books. Default matrimonial regime: separation of property vs. CC\'s community of property (gananciales).'}
+  ],
+  'b2s2':[
+    {t:'Law 8/2021',es:'Ley 8/2021 — Discapacidad',h:'Capacity reform',d:'Abolished judicial incapacitation. Everyone has legal capacity on equal terms. Replaces substitution model with support measures: voluntary, de facto guardianship (guarda de hecho), curatela, judicial defender.'},
+    {t:'Curatela',es:'Guardianship (post-2021)',h:'Main judicial support measure',d:'Post-2021 main judicial support. Does NOT replace the person\'s will — it assists decision-making. Only exceptionally can the curator act with representative functions.'},
+    {t:'Emancipation',es:'Emancipación',h:'Partial autonomy from age 16',d:'From age 16, by parental grant or judicial decision. Art. 247 CC: still needs parental consent for borrowing money, mortgaging/selling real estate, or alienating extraordinary-value goods.'},
+    {t:'Personality Rights',es:'Derechos de la Personalidad',h:'Absolute, inherent rights',d:'Rights over the person\'s own sphere — life, integrity, honour, privacy, image, name. Absolute (erga omnes). Inherent to dignity (Art. 10.1 CE). Triple protection: constitutional + criminal + civil (LO 1/1982).'}
+  ],
+  'b2s3':[
+    {t:'Pacta Sunt Servanda',es:'Contracts Must Be Fulfilled',h:'Binding force of contracts',d:'Agreements must be kept. Contracts bind parties as "private law" between them. Non-compliance → termination, specific performance, or damages.'},
+    {t:'Dolo / Culpa / FM',es:'Intent / Fault / Force Majeure',h:'Who is liable for breach?',d:'Dolo = deliberate breach (max liability). Culpa = breach without intent but lacking diligence. Caso fortuito / Fuerza mayor = external, unforeseeable → may exonerate debtor.'},
+    {t:'Forma ad Solemnitatem',es:'Form Required for Validity',h:'vs. ad probationem',d:'Required for the contract to be VALID — absence = nullity (e.g., donation of real estate Art. 633 CC, mortgage Art. 1875 CC). Ad probationem: only for proof — contract exists without it.'},
+    {t:'Anulabilidad',es:'Voidability',h:'vs. Nulidad and Rescisión',d:'Voidable contract EXISTS and produces effects until annulled. Based on vices of consent or incapacity. Only protected party can invoke. 4-year deadline (Art. 1301 CC). Curable by confirmation.'}
+  ],
+  'b2s4':[
+    {t:'Erga Omnes',es:'Against Everyone',h:'Core feature of real rights',d:'Rights in rem are enforceable against all persons. Anyone must respect the right-holder\'s power over the thing — unlike credit rights which only bind the specific debtor.'},
+    {t:'Usufruct',es:'Usufructo (Arts. 467–522 CC)',h:'Broadest enjoyment right',d:'Use someone else\'s property + collect ALL its fruits while preserving its form/substance. Owner keeps bare ownership (nuda propiedad). Temporary — for life or max 30 years for legal persons.'},
+    {t:'Usucapión',es:'Acquisitive Prescription',h:'Possession → Ownership',d:'Acquiring ownership by continuous possession as owner — public, peaceful, uninterrupted — for the legal period. Different periods for movable vs. immovable property (Arts. 1930+ CC).'},
+    {t:'Tercero Hipotecario',es:'Third Party in Good Faith',h:'Art. 34 Ley Hipotecaria',d:'Purchaser who acquires for consideration and in good faith, relying on the Land Registry, is protected even if the seller\'s title is later annulled. Cornerstone of real estate security.'}
+  ],
+  'b2s5':[
+    {t:'Sociedad de Gananciales',es:'Community of Property',h:'Default in common civil law',d:'Profits during marriage are common — split 50/50 on dissolution. Private assets (pre-marriage, inheritances, donations) remain private. Arts. 1344–1410 CC.'},
+    {t:'Separación de Bienes',es:'Separation of Property',h:'Default in Catalonia + Balearics',d:'Each spouse retains full ownership, administration, and disposition of own assets. No community property formed. Each liable for own debts. Both contribute to family burdens proportionally.'},
+    {t:'Capitulaciones Matrimoniales',es:'Marriage Agreements',h:'Arts. 1325–1335 CC',d:'Spouses choose, modify, or replace their matrimonial regime. Requires public deed (validity) + Civil Registry registration (third-party effect). Can be made before or during marriage.'},
+    {t:'Filiación',es:'Filiation',h:'Art. 108 CC — equality',d:'All children equal before law regardless of origin. By nature (marital/non-marital) or adoption. Effects: surnames, parental authority, maintenance, inheritance rights.'}
+  ]
+};
+
+// ── BLOCK III CARDS ──
+  Object.assign(CARDS,{
+  'b3s1':[
+    {t:'Ius Mercatorum',es:'Law of Merchants',h:'Medieval origin of Commercial Law',d:'Self-created law by merchant guilds in the Late Middle Ages. Based on commercial custom and applied by Consular Courts (Consulados) under the principle of equity and good faith (ex aequo et bono).'},
+    {t:'Acto de Comercio',es:'Act of Commerce',h:'Objective system (1807 onwards)',d:'The French Commercial Code (1807) shifted from "who is a merchant?" (subjective) to "what is an act of commerce?" (objective). Spanish CCo (1885) follows this hybrid: applies to acts of commerce whether or not performed by merchants.'},
+    {t:'CCo 1885',es:'Spanish Commercial Code (1885)',h:'Still in force today',d:'Spain\'s core commercial law text. Still in force. Art. 1 defines the merchant as one who habitually engages in commerce in their own name with legal capacity. Applies to acts of commerce regardless of who performs them.'},
+    {t:'Art. 38 CE',es:'Freedom of Enterprise',h:'Constitutional basis of Commercial Law',d:'The Spanish Constitution guarantees freedom of enterprise in the context of the market economy. This, along with EU integration and antitrust law, defines the current constitutional framework for Commercial Law.'}
+  ],
+  'b3s2':[
+    {t:'Fondo de Comercio',es:'Goodwill',h:'Key intangible asset',d:'The value of the organization above and beyond its physical assets — including reputation, customer base, business relationships. A key intangible that explains why a company\'s market value often exceeds its book value.'},
+    {t:'Universal Liability',es:'Responsabilidad Patrimonial Universal',h:'Art. 1,911 CC',d:'The debtor answers for obligations with ALL their present and future assets. The basic principle governing individual entrepreneurs — total confusion of personal and business assets.'},
+    {t:'ERL',es:'Empresario de Responsabilidad Limitada',h:'Law 14/2013',d:'Individual entrepreneur who can protect their main residence against business debts. Conditions: home value ≤ €300,000 (€450,000 in large cities), registered in Mercantile Registry, annual accounts filed.'},
+    {t:'Intuitu Personae',es:'Based on Personal Qualities',h:'Key to partnerships',d:'Contracts or companies where the personal qualities of the parties are the determining cause of consent. Characteristic of partnerships (sociedades personalistas) and the agency contract.'}
+  ],
+  'b3s3':[
+    {t:'Numerus Clausus',es:'Closed List of Company Types',h:'No freedom to create new types',d:'In Spanish company law, only the legislator can create company types (colectiva, comandita, SL, SA). Parties can only choose among existing types — they cannot invent new legal forms.'},
+    {t:'Levantamiento del Velo',es:'Lifting the Veil',h:'Piercing corporate personality',d:'Judicial technique allowing courts to look beyond the legal personality of a company when it is used for illicit purposes or fraud. Prevents abuse of the liability shield.'},
+    {t:'SL vs SA',es:'Sociedad Limitada vs Anónima',h:'Capital companies compared',d:'SL: min. €3,000, participaciones (non-transferable securities), closed/restricted transfer, for SMEs. SA: min. €60,000, acciones (negotiable shares), open/fungible, for large companies and capital market access.'},
+    {t:'Registro Mercantil',es:'Commercial Registry',h:'Constitutive for SA/SL',d:'Registration is constitutive for capital companies (SA/SL) — they do not legally exist until registered. For partnerships, registration is mandatory but not constitutive. Also controls legality via the registrar\'s qualification.'}
+  ],
+  'b3s4':[
+    {t:'Antitrust',es:'Defensa de la Competencia',h:'Law 15/2007',d:'Protects market structure, not individual competitors. Targets: cartels and agreements excluding competitors, abuse of dominant position, unjustified public aid, and excessive concentrations. Goal: efficient market for all.'},
+    {t:'Competencia Desleal',es:'Unfair Competition',h:'Law 3/1991',d:'Any act objectively contrary to good faith in commercial traffic. Key acts: deception, confusion (risk of association on business origin), servile imitation, and exploitation of others\' reputation.'},
+    {t:'Patent / Patente',es:'Patent — 20 years',h:'Technical invention protection',d:'Exclusive exploitation right granted for inventions with industrial application. Duration: 20 years. Requires registration with SPTO. After 20 years, the invention enters the public domain.'},
+    {t:'Corpus Mysticum / Mechanicum',es:'IP Distinction',h:'Copyright vs. physical object',d:'Corpus mysticum = the intellectual creation (the idea, the work) — protected by copyright. Corpus mechanicum = the physical support (the book, the painting). Buying the physical object does NOT transfer copyright.'}
+  ],
+  'b3s5':[
+    {t:'Incoterms',es:'International Commercial Terms (ICC)',h:'Lex mercatoria in international trade',d:'Rules developed by the ICC (e.g., EXW, FOB, CIF) defining who bears expenses, risks, transport, and customs in international sales. When incorporated into a contract, they have the force of law between parties.'},
+    {t:'Prohibición de Autoentrada',es:'Prohibition of Self-Entry',h:'Commission contract key rule',d:'A commission agent cannot buy for themselves what they were commissioned to sell, nor sell what they were commissioned to buy — unless expressly authorized by the principal.'},
+    {t:'Indemnización por Clientela',es:'Clientele Compensation',h:'Agency contract termination right',d:'On termination of an agency contract, the agent may be entitled to compensation if their previous work continues to bring substantial benefits to the principal. Especially relevant for indefinite-duration contracts.'},
+    {t:'Título-Valor',es:'Security Title / Negotiable Instrument',h:'Right incorporated in a document',d:'A document incorporating a private right such that exercise and transfer of the right require possession of the document. Types: nominative (specific person), to order (endorsement), to bearer (physical delivery).'}
+  ],
+  'b3s6':[
+    {t:'Triple Bottom Line',es:'Triple Cuenta de Resultados',h:'Beyond shareholder profit',d:'CSR demands a constant balance between three pillars: economic profitability, improvement of social welfare, and preservation of the environment. Replaces the shareholder-only model.'},
+    {t:'ISO 26000',es:'International CSR Guide (2010)',h:'Not certifiable — voluntary',d:'International CSR guidance standard. NOT a certifiable standard — it is a voluntary guide. Universal (all organizations). Developed by SIS (Sweden) + ABNT (Brazil) with multi-sector participation.'},
+    {t:'Fiscal Responsibility',es:'Responsabilidad Fiscal',h:'Law 11/2018 country-by-country reporting',d:'Companies\' civic duty to pay fair taxes in each jurisdiction. Law 11/2018 requires country-by-country tax reporting. CSR-aligned companies avoid tax havens and aggressive tax planning.'},
+    {t:'Green Taxes',es:'Impuestos Verdes',h:'"Polluter Pays" principle',d:'Environmental taxes making companies assume economic responsibility for damage (CO₂ emissions, soil/water impact). Environmental Liability Law requires repair of damage independently of other sanctions.'}
+  ]
+});
+
+// Render flashcards
+Object.entries(CARDS).forEach(([id,cards])=>{
+  const grid=document.getElementById('cards-'+id);
+  if(!grid)return;
+  cards.forEach(c=>{
+    const fc=document.createElement('div');fc.className='fc';
+    fc.onclick=()=>fc.classList.toggle('fl');
+    fc.innerHTML=`<div class="fci"><div class="fcf"><div class="ft">${c.t}</div><div class="fes">${c.es}</div><div class="fh">${c.h}</div><div class="fi">tap ↩</div></div><div class="fcb"><div class="fd">${c.d}</div></div></div>`;
+    grid.appendChild(fc);
+  });
+});
+
+// ── QUIZ DATA ──
+const QUIZZES={
+  q1:[
+    {q:'What distinguishes legal norms from moral norms?',o:['Based on internal intention','External and objective character — based on behavior performed','Only apply to corporations','They are voluntary'],a:1,e:'Legal norms have external and objective character — they depend on behavior performed, not the person\'s internal intention.'},
+    {q:'Which three purposes does Law serve?',o:['Speed, efficiency, profit','Order, justice, and legal certainty (seguridad jurídica)','Punishment, control, taxation','Freedom, equality, force'],a:1,e:'Law\'s three purposes: guarantee order, ensure justice (protect rights), and provide legal certainty — the ability to foresee legal consequences.'},
+    {q:'A contract is breached and the State imposes compensation. This demonstrates which property of legal norms?',o:['Being polysemic','Being voluntary','Being coercible','Being internal'],a:2,e:'Coercibility (coercibilidad) — the State can impose consequences (compensation, nullity, sanctions) when a legal norm is not followed.'}
+  ],
+  q2:[
+    {q:'In Public Law, relations between parties are characterized by:',o:['Legal equality between parties','Predominance of public power over the citizen','Free agreement on all terms','Absence of State intervention'],a:1,e:'Public Law involves a public body acting with superior powers — there is no equality between parties, unlike Private Law.'},
+    {q:'Why is Criminal Law classified as Public Law?',o:['It only deals with fines','Victims choose whether to prosecute','The State uses ius puniendi to protect general social interest','It only applies to companies'],a:2,e:'Criminal Law is public because it protects the general interest of society. The State acts through ius puniendi — the right to punish — regardless of victim preference.'},
+    {q:'The principle of autonomy of the will is most central to:',o:['Public Law','Criminal Law','Private Law','Constitutional Law'],a:2,e:'Autonomy of the will (autonomía de la voluntad) is the foundation of Private Law — parties can freely set the terms of their legal relationships within legal limits.'}
+  ],
+  q3:[
+    {q:'Which type of EU legal act applies directly WITHOUT needing national transposition?',o:['Directive','Recommendation','Regulation','Opinion'],a:2,e:'EU Regulations are mandatory and directly applicable in all Member States. Directives require national transposition — they bind as to result but leave implementation to each country.'},
+    {q:'Custom (costumbre) as a source of law in Spain:',o:['Overrides statutory law when more specific','Only applies in absence of applicable law','Creates rules equal to the Constitution','Is always presumed without proof'],a:1,e:'Art. 1 Civil Code: custom governs only in absence of applicable law. It is subsidiary, must be proven, and cannot be contrary to morality or public order.'},
+    {q:'What is opinio iuris?',o:['A Supreme Court doctrine about property','The community\'s belief that a practice is legally obligatory — distinguishing custom from mere habit','A type of EU directive','An organic law requirement'],a:1,e:'Opinio iuris is the psychological element of custom: the community\'s conviction that a repeated practice is obligatory — not merely habitual.'},
+    {q:'A Royal Decree-Law can be used when:',o:['Parliament has adjourned','Any minister requests it','There are extraordinary and urgent necessity circumstances','EU directives require it'],a:2,e:'The Royal Decree-Law requires extraordinary and urgent necessity (Art. 86 CE). It comes into force immediately but must be validated by Congress within 15 days.'}
+  ],
+  q4:[
+    {q:'The "passive subject" in a legal relationship is:',o:['The judge deciding the case','The party with fewer rights','The holder of the duty or obligation','The public administration'],a:2,e:'The passive subject holds the duty or obligation — the one who must perform (give, do, or not do).'},
+    {q:'Prescription (prescripción) extinguishes a right because of:',o:['A court\'s decision','Prolonged inactivity of the right-holder','A constitutional amendment','Mutual agreement'],a:1,e:'Prescription extinguishes the action due to prolonged inactivity — the right-holder failed to exercise their right within the legal timeframe. This serves legal certainty.'},
+    {q:'"No hacer" as the object of an obligation means:',o:['A refusal to sign a contract','The debtor must abstain from a specific conduct','An obligation to pay a fine','A null and void obligation'],a:1,e:'"No hacer" = the debtor must abstain from doing something. The three types are: dar (give/deliver), hacer (perform an act/service), and no hacer (abstain from conduct).'}
+  ],
+  q5:[
+    {q:'Article 1.1 CE defines Spain as:',o:['A federal republic','A social and democratic State governed by the rule of law','A centralized monarchy','A unitary presidential State'],a:1,e:'Art. 1.1 CE: "Spain is constituted as a social and democratic State governed by the rule of law." Each of the three elements has distinct legal consequences.'},
+    {q:'Which body holds Legislative Power in Spain?',o:['The Government (Consejo de Ministros)','The Cortes Generales (Congress + Senate)','The Supreme Court','The Constitutional Court'],a:1,e:'Legislative power: Cortes Generales — Congress of Deputies + Senate. They draft, debate, and approve laws. Also control the Government and approve the State Budget.'},
+    {q:'In Spain\'s territorial system, State vs. CCAA law conflicts are resolved by:',o:['Hierarchy — State law always wins','The principle of competence — the body with constitutional jurisdiction prevails','A national referendum','Senate vote alone'],a:1,e:'The principle of competence (not hierarchy) resolves territorial conflicts. The valid rule is the one enacted by whichever institution had constitutional jurisdiction over that matter.'}
+  ],
+  q6:[
+    {q:'The Spanish Civil Code was enacted in:',o:['1812','1851','1889','1978'],a:2,e:'The Spanish Civil Code was enacted in 1889. The earlier 1851 project failed to achieve full regulatory unification due to the existence of foral rights.'},
+    {q:'Which territories in Spain have their own foral civil rights?',o:['Madrid, Barcelona, Valencia','Aragon, Balearics, Catalonia, Galicia, Navarre, Basque Country','Only Catalonia and Navarre','All Autonomous Communities'],a:1,e:'The territories with foral rights are: Aragon, Balearic Islands, Catalonia, Galicia, Navarre, and the Basque Country. These apply preferentially over common civil law in their territory.'},
+    {q:'What is "descodificación" (decodification)?',o:['The process of creating the Civil Code','The progressive withdrawal of matters from the Civil Code into special laws','The reform of the Constitution','The merger of civil and commercial law'],a:1,e:'Decodification = progressive removal of matters from the CC into special laws. Reinforced by EU integration. The CC remains central but no longer contains all civil regulation.'},
+    {q:'The most visible difference between the CCC and the Spanish CC in matrimonial property is:',o:['Catalonia prohibits marriage entirely','Catalonia defaults to community of property; Spain to separation','Spain defaults to community of property (gananciales); Catalonia defaults to separation of property','Both use the same regime'],a:2,e:'The Spanish CC defaults to community of property (gananciales). The Catalan CCC defaults to separation of property (separació de béns). Major practical differences in asset distribution during marriage and on divorce.'}
+  ],
+  q7:[
+    {q:'What major change did Law 8/2021 introduce?',o:['Lowered age of majority to 16','Abolished judicial incapacitation and replaced it with support measures respecting the person\'s will','Created new contracts for disabled people','Banned emancipation'],a:1,e:'Law 8/2021 abandoned the old incapacitation model. Everyone has legal capacity on equal terms. Support measures (curatela, guarda de hecho, etc.) assist — they do not replace — the person\'s will.'},
+    {q:'From what age can emancipation occur in Spain?',o:['14','16','17','18'],a:1,e:'Emancipation is possible from age 16 (Art. 241 CC), with parental consent or by judicial grant. The emancipated minor gains autonomy but Art. 247 CC restricts major financial acts.'},
+    {q:'Personality rights are "absolute rights." What does this mean?',o:['They can never be limited by any law','They require a duty of general respect from all persons and public authorities','They only apply to adults','They can be sold or transferred'],a:1,e:'Absolute rights require a duty of general respect from everyone — both private individuals and public authorities (Art. 9.1 CE). Distinguishes them from relative rights (e.g., credit rights binding only the debtor).'},
+    {q:'The right of habitation (derecho de habitación) differs from usufruct because:',o:['It lasts longer','It covers only necessary rooms for personal residence and is non-transferable and non-seizeable','It grants all fruits of the property','It applies only to movables'],a:1,e:'Right of habitation: exclusively residential — only necessary rooms for personal/family use. Non-transferable and non-seizeable. Usufruct can be assigned or leased within limits.'}
+  ],
+  q8:[
+    {q:'What are the 3 essential elements of a contract under Art. 1261 CC?',o:['Price, delivery, and duration','Consent, object, and cause','Offer, acceptance, and registration','Parties, form, and notary'],a:1,e:'Art. 1261 CC: no contract exists unless consent (consentimiento), object (objeto), and cause (causa) all concur. Missing any one of them → nullity.'},
+    {q:'A contract has a vicious consent (intimidation). The correct legal category is:',o:['Nullity — contract is non-existent','Voidability — contract exists but can be annulled within 4 years','Rescission — contract is valid but damages may be claimed','Automatic dissolution'],a:1,e:'Vices of consent → voidability, not nullity. The voidable contract exists and produces effects until annulled by the protected party within 4 years (Art. 1301 CC).'},
+    {q:'Which contract requires a public deed for its VALIDITY (forma ad solemnitatem)?',o:['A verbal sale of a car','A lease of a flat','The donation of a flat (immovable property)','An oral service agreement'],a:2,e:'Art. 633 CC: donation of immovable property requires a public deed under penalty of nullity. This is forma ad solemnitatem — form required for validity, not just for proof.'},
+    {q:'What distinguishes rescission (rescisión) from voidability (anulabilidad)?',o:['Rescission has no time limit; voidability does','Rescission attacks a valid contract causing unjust economic damage; voidability attacks a defective contract (vicious consent/incapacity)','They are identical concepts','Voidability needs a notary; rescission does not'],a:1,e:'Rescission = valid contract, causes unjust damage → subsidiary, 4-year limit (Art. 1299 CC). Voidability = defective contract (vicious consent/incapacity) → only protected party can invoke, 4-year limit (Art. 1301 CC). Same deadline, completely different grounds.'}
+  ],
+  q9:[
+    {q:'What is the key difference between rights in rem and credit rights?',o:['Rights in rem have a time limit; credit rights do not','Rights in rem give direct power over a thing, enforceable erga omnes; credit rights only bind the debtor','Rights in rem require a public deed; credit rights do not','Credit rights are stronger than rights in rem'],a:1,e:'Rights in rem: direct, immediate power over a thing, enforceable against everyone (erga omnes). Credit rights: power only over the conduct of a specific debtor. This is the fundamental distinction.'},
+    {q:'For a mortgage to be validly constituted in Spain, what is required?',o:['Only a private written agreement','Only a public deed','A public deed AND registration in the Land Registry (registration is constitutive)','Delivery of the property to the creditor'],a:2,e:'Art. 1875 CC: for a mortgage to be validly constituted, registration in the Land Registry is essential — it is constitutive. Without registration, there is no valid mortgage. Public deed is also required.'},
+    {q:'Art. 34 of the Mortgage Law protects the "tercero hipotecario." Who is this?',o:['The bank granting the mortgage','Anyone who acquires for consideration and in good faith relying on the Land Registry, even if the seller\'s title is later annulled','The seller of a property','The public notary'],a:1,e:'The "tercero hipotecario" (third party in good faith) is protected when acquiring for consideration and in good faith from the registered owner — even if that owner\'s title is later annulled. Cornerstone of real estate security.'},
+    {q:'What is the difference between Tanteo and Retracto?',o:['They are identical','Tanteo is exercised before a transfer; Retracto is exercised after a transfer has already occurred','Retracto applies to movables; Tanteo to immovables','Tanteo requires a mortgage'],a:1,e:'Tanteo: exercise BEFORE the transfer — owner must offer to the right-holder first. Retracto (Art. 1518 CC): exercise AFTER the transfer — subrogate in buyer\'s position, reimburse price + expenses.'}
+  ],
+  q10:[
+    {q:'Art. 45 CC states the essential element of marriage is:',o:['A public ceremony before witnesses','The property regime agreement','Freely given marital consent — no marriage without it','Registration in the Civil Registry'],a:2,e:'Art. 45 CC: "there is no marriage without marital consent." Absence or vices of consent → nullity of the marriage. Consent is its essential element.'},
+    {q:'Under Art. 108 CC, what governs filiation?',o:['Marital children have more rights than non-marital','All children are equal before the law regardless of their origin (marital, non-marital, or adopted)','Only biological children can inherit','Adoption creates fewer rights than natural filiation'],a:1,e:'Art. 108 CC: all children equal before the law regardless of origin. This eliminated the old distinction between legitimate and illegitimate children.'},
+    {q:'What is the default matrimonial property regime in common civil law Spain?',o:['Separation of property','Community of property (Sociedad de Gananciales)','Participation regime','No default — always chosen by spouses'],a:1,e:'In common civil law, the default is community of property (sociedad de gananciales) — Arts. 1344–1410 CC. In Catalonia and Balearics, the default is separation of property.'},
+    {q:'Marriage agreements (capitulaciones matrimoniales) require what form to be valid?',o:['A private written agreement signed by both spouses','Registration in the Land Registry','A public deed (escritura pública)','Approval by a family court judge'],a:2,e:'Art. 1327 CC: marriage agreements must be in a public deed as a formal validity requirement. For third-party effect, they must also be registered in the Civil Registry.'}
+  ]
+};
+
+// ── QUIZ ENGINE ──
+const SCORE={tot:0,max:0};
+const L=['A','B','C','D'];
+
+document.querySelectorAll('.qw').forEach(wrap=>{
+  const qid=wrap.dataset.quiz;
+  const qs=QUIZZES[qid];if(!qs)return;
+  SCORE.max+=qs.length;
+  wrap._s={qs,cur:0,sc:0};
+  renderQ(wrap);
+});
+
+function renderQ(wrap){
+  const {qs,cur}=wrap._s;const q=qs[cur];
+  const qi=wrap.querySelector('.qi');
+  qi.innerHTML=`<div class="qq"><div class="qqt">${cur+1}. ${q.q}</div><div class="opts"></div><div class="qfb" id="fb${wrap.dataset.quiz}${cur}"></div><div class="qrow"><button class="qnxt" id="nx${wrap.dataset.quiz}${cur}" onclick="nextQ(this)">Next →</button><div class="qsc">Q ${cur+1} / ${qs.length}</div></div></div>`;
+  const opts=qi.querySelector('.opts');
+  q.o.forEach((o,i)=>{
+    const b=document.createElement('button');b.className='opt';
+    b.innerHTML=`<span class="ol">${L[i]}</span>${o}`;
+    b.onclick=()=>pickA(b,i,q.a,wrap,q.e);
+    opts.appendChild(b);
+  });
+}
+
+function pickA(btn,picked,correct,wrap,exp){
+  const opts=btn.closest('.opts').querySelectorAll('.opt');
+  opts.forEach((b,i)=>{b.disabled=true;if(i===correct)b.classList.add('ok');if(i===picked&&picked!==correct)b.classList.add('bad');});
+  const fb=wrap.querySelector('.qfb');fb.classList.add('on');
+  if(picked===correct){wrap._s.sc++;fb.className='qfb on ok';fb.textContent='✓ Correct! '+exp;}
+  else{fb.className='qfb on bad';fb.textContent='✗ Not quite. '+exp;}
+  const nx=wrap.querySelector('.qnxt');if(nx)nx.style.display='inline-block';
+  updateProg();
+}
+
+function nextQ(btn){
+  const wrap=btn.closest('.qw');const s=wrap._s;
+  s.cur++;
+  if(s.cur<s.qs.length)renderQ(wrap);
+  else showResult(wrap,s);
+}
+
+function showResult(wrap,s){
+  const pct=Math.round((s.sc/s.qs.length)*100);
+  const msg=pct===100?'Perfect! 🎉':pct>=70?'Good work — review missed items.':'Keep studying — re-read the notes above.';
+  wrap.querySelector('.qi').innerHTML=`<div class="qres on"><div class="qrs">${s.sc} / ${s.qs.length}</div><div class="qrm">${msg}</div><button class="qrst" onclick="restartQ(this)">↺ Try Again</button></div>`;
+  SCORE.tot+=s.sc;updateProg();
+}
+
+function restartQ(btn){
+  const wrap=btn.closest('.qw');const s=wrap._s;
+  SCORE.tot-=s.sc;s.sc=0;s.cur=0;renderQ(wrap);updateProg();
+}
+
+function updateProg(){
+  const p=SCORE.max>0?Math.min(100,Math.round((SCORE.tot/SCORE.max)*100)):0;
+  document.getElementById('pf').style.width=p+'%';
+  document.getElementById('pp').textContent=p+'%';
+}
+
+// ── ACTIVE NAV ──
+const navLinks=document.querySelectorAll('.snav a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  document.querySelectorAll('.sc').forEach(s=>{if(window.scrollY>=s.offsetTop-140)cur=s.id;});
+  navLinks.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur));
+});
+</script>
+</body>
+</html>
