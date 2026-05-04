@@ -36,7 +36,7 @@ header p{color:var(--muted);font-size:.85rem}
 @media(max-width:768px){.layout{grid-template-columns:1fr}.snav{display:none}}
 
 /* SIDEBAR */
-.snav{position:sticky;top:50px;align-self:start;padding:.75rem .75rem .75rem 0;max-height:calc(100vh - 56px);overflow-y:auto}
+.snav{position:sticky;top:50px;align-self:start;padding:.75rem .75rem .75rem 0;max-height:calc(100vh - 50px);overflow-y:auto;border-right:1px solid var(--bord)}
 .snav::-webkit-scrollbar{width:3px}.snav::-webkit-scrollbar-thumb{background:var(--bord)}
 .nbt{margin-bottom:1.2rem}
 .nbt.hid{display:none}
@@ -96,7 +96,8 @@ header p{color:var(--muted);font-size:.85rem}
 .pill.b{border-color:rgba(74,127,165,.4);color:#8bbfd8;background:rgba(74,127,165,.07)}
 
 /* TABLE */
-.ct{width:100%;border-collapse:collapse;font-size:.8rem;margin:.75rem 0}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.75rem 0}
+.ct{width:100%;border-collapse:collapse;font-size:.8rem;margin:0}
 .ct th{background:var(--surf2);color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.07em;text-transform:uppercase;padding:.45rem .75rem;border:1px solid var(--bord);text-align:left}
 .ct td{padding:.45rem .75rem;border:1px solid var(--bord);color:#cdc9bc;vertical-align:top}
 .ct tr:nth-child(even) td{background:rgba(255,255,255,.02)}
@@ -104,7 +105,7 @@ header p{color:var(--muted);font-size:.85rem}
 /* FLASHCARDS */
 .tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:.6rem;margin:1rem 0}
 .tlbl{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
-.fc{background:var(--surf2);border:1px solid var(--bord);border-radius:8px;cursor:pointer;perspective:1000px;height:118px;transition:transform .1s}
+.fc{background:var(--surf2);border:1px solid var(--bord);border-radius:8px;cursor:pointer;perspective:1000px;height:155px;transition:transform .1s}
 .fc:hover{transform:scale(1.01)}
 .fci{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,.2,.2,1)}
 .fc.fl .fci{transform:rotateY(180deg)}
@@ -990,6 +991,41 @@ const QUIZZES={
     {q:'Under Art. 108 CC, what governs filiation?',o:['Marital children have more rights than non-marital','All children are equal before the law regardless of their origin (marital, non-marital, or adopted)','Only biological children can inherit','Adoption creates fewer rights than natural filiation'],a:1,e:'Art. 108 CC: all children equal before the law regardless of origin. This eliminated the old distinction between legitimate and illegitimate children.'},
     {q:'What is the default matrimonial property regime in common civil law Spain?',o:['Separation of property','Community of property (Sociedad de Gananciales)','Participation regime','No default — always chosen by spouses'],a:1,e:'In common civil law, the default is community of property (sociedad de gananciales) — Arts. 1344–1410 CC. In Catalonia and Balearics, the default is separation of property.'},
     {q:'Marriage agreements (capitulaciones matrimoniales) require what form to be valid?',o:['A private written agreement signed by both spouses','Registration in the Land Registry','A public deed (escritura pública)','Approval by a family court judge'],a:2,e:'Art. 1327 CC: marriage agreements must be in a public deed as a formal validity requirement. For third-party effect, they must also be registered in the Civil Registry.'}
+  ],
+  q11:[
+    {q:'Commercial Law originated in:',o:['Ancient Rome','The Late Middle Ages','The French Revolution','19th-century codification'],a:1,e:'Commercial Law\'s true origin is the Late Middle Ages. The rise of cities and trade created needs Civil Law could not meet — merchants in guilds created the Ius Mercatorum, applied by Consular Courts.'},
+    {q:'The Ius Mercatorum was applied by:',o:['National civil courts','The Crown\'s chancellery','Consular Courts (Consulados) based on commercial custom','The Church'],a:2,e:'The Ius Mercatorum was applied by Consular Courts (Consulados), operating on equity and good faith (ex aequo et bono) — autonomous from royal courts and formal procedural law.'},
+    {q:'Spain\'s Commercial Code (CCo) was enacted in:',o:['1807','1851','1885','1978'],a:2,e:'Spain\'s Commercial Code was enacted in 1885 and remains in force today. Art. 1 defines the merchant as one who habitually engages in commerce in their own name with legal capacity.'},
+    {q:'Art. 38 CE guarantees:',o:['Right to education','Freedom of enterprise in the market economy','Criminal procedure rights','Right to housing'],a:1,e:'Art. 38 CE: the Spanish Constitution guarantees freedom of enterprise in the context of a market economy. This is the constitutional foundation of modern Commercial Law.'}
+  ],
+  q12:[
+    {q:'Art. 1,911 CC establishes universal patrimonial liability, meaning:',o:['Only company assets cover debts','Liability is capped at €300,000','The debtor answers for obligations with ALL present and future assets','Partners share liability equally'],a:2,e:'Art. 1,911 CC: the debtor answers for obligations with all present and future assets. For individual entrepreneurs (autónomos), personal and business assets merge — there is no liability shield.'},
+    {q:'The ERL (Limited Liability Entrepreneur) under Law 14/2013 can protect their main residence if:',o:['Value exceeds €500,000','Value is ≤ €300,000 (€450,000 in large cities) AND registered in the Mercantile Registry','Any property regardless of value','Only if they have no other real estate'],a:1,e:'ERL conditions: (1) home value ≤ €300,000 (or €450,000 in large cities); (2) registered in the Mercantile Registry; (3) annual accounts filed. All three conditions must be met simultaneously.'},
+    {q:'"Intuitu personae" contracts or companies are those where:',o:['Capital contributions are the sole determining factor','The personal qualities of the parties are the essential cause of consent','Registration is constitutive','Liability is always limited to the contribution'],a:1,e:'"Intuitu personae" = based on personal qualities. Characteristic of partnerships (sociedades personalistas) and the agency contract — the identity and qualities of each party are determinant.'}
+  ],
+  q13:[
+    {q:'"Numerus clausus" in Spanish company law means:',o:['Companies must have a minimum number of shareholders','Only the legislator can create company types — parties cannot invent new legal forms','The number of shares is fixed at incorporation','All companies must have limited liability'],a:1,e:'Numerus clausus: commercial company types are fixed by law. The only options are colectiva, comandita, SL, and SA. Parties must choose from this closed list — they cannot create new types.'},
+    {q:'What is the minimum capital for an SL (Sociedad Limitada)?',o:['€1,000','€3,000','€60,000','€120,000'],a:1,e:'Minimum capital for an SL: €3,000, fully paid up at incorporation. For an SA: €60,000 (only 25% needed at founding). The SL is designed for SMEs; the SA for larger companies and capital markets.'},
+    {q:'Registration in the Commercial Registry is "constitutive" for SA/SL. This means:',o:['Voluntary, not legally required','The company does not legally exist until it is registered','Required only for tax purposes','Declarative — the company exists from the public deed date'],a:1,e:'Constitutive registration: an SA or SL has NO legal personality until registered in the Commercial Registry. Without registration, the company simply does not exist as a separate legal entity.'},
+    {q:'"Levantamiento del velo" allows courts to:',o:['Dissolve a company immediately','Pierce corporate personality when it is used for fraud or to evade the law','Reduce share capital automatically','Grant shares to creditors'],a:1,e:'Lifting the veil (levantamiento del velo): courts can look beyond the limited liability shield when the company structure is used for illicit purposes or fraud, holding partners or directors personally liable.'}
+  ],
+  q14:[
+    {q:'Competition Law (Law 15/2007) protects:',o:['Individual competitors from any market disadvantage','The market structure — proper functioning for all participants','Only Spanish companies on their home market','Consumers exclusively, not businesses'],a:1,e:'Competition Law does not protect a specific competitor — it guarantees the proper functioning of the market for all participants. Targets: cartels, abuse of dominant position, unjustified State aid, excessive concentrations.'},
+    {q:'A patent grants exclusive exploitation rights for:',o:['10 years','15 years','20 years','Indefinitely, while fees are paid'],a:2,e:'Patents (Law 11/1986) grant exclusive exploitation rights for 20 years from filing. Requires registration with the SPTO. After 20 years, the invention enters the public domain and anyone can use it freely.'},
+    {q:'Intellectual property (copyright) rights arise:',o:['After registration with the SPTO','After an ISBN is assigned','Automatically from the act of creation — no registration required','Only after 5 years of documented use'],a:2,e:'Unlike industrial property, intellectual property requires NO registration. Rights arise automatically from the act of creation, protecting literary, artistic, and scientific works from the moment they are made.'},
+    {q:'The "corpus mechanicum" in intellectual property refers to:',o:['The intellectual creation / idea protected by copyright','The physical support (book, canvas, hard drive)','The copyright registration certificate','The distribution license between author and publisher'],a:1,e:'Corpus mechanicum = the physical object (the book, the painting, the hard drive). Corpus mysticum = the intellectual creation itself. Buying the physical object does NOT transfer copyright — only the support changes hands.'}
+  ],
+  q15:[
+    {q:'Incoterms (e.g., EXW, FOB, CIF) are:',o:['Spanish domestic rules on commercial contracts','ICC international rules defining who bears expenses, risks, transport, and customs','EU regulations on electronic contracts','Internal bank guidelines for letters of credit'],a:1,e:'Incoterms are developed by the ICC (International Chamber of Commerce). When incorporated into a contract, they acquire the force of law between parties — a key example of lex mercatoria in international trade.'},
+    {q:'The key distinction between a commission agent and a distributor is:',o:['Only agents pay VAT; distributors do not','The agent acts in the principal\'s name earning a commission; the distributor buys and resells at their own risk earning a margin','Agents have unlimited liability; distributors do not','Only distributors must register in the Mercantile Registry'],a:1,e:'Agent: acts in the principal\'s name/account — earns a commission. Distributor: buys merchandise in their own name and resells at their own risk — profit comes from the commercial margin, not a commission.'},
+    {q:'A "título-valor" transmitted by endorsement is categorized as:',o:['Nominative — designates a specific person','To bearer — transmitted by physical delivery','To order (a la orden) — transferred by endorsement','Electronic — transmitted only by digital signature'],a:2,e:'A título-valor "to order" (a la orden) is transferred by endorsement — a signed declaration on the instrument authorizing transfer to another party. The bill of exchange (letra de cambio) is the classic example.'},
+    {q:'The "prohibición de autoentrada" in commission contracts means:',o:['The agent cannot physically enter the principal\'s premises','The commission agent cannot buy for themselves what they were commissioned to sell','Only one commission per transaction is permitted','Principals cannot terminate commission contracts unilaterally'],a:1,e:'Prohibition of self-entry: a commission agent instructed to sell cannot buy for themselves, nor sell what they were commissioned to buy — unless the principal expressly authorizes it. Prevents conflicts of interest.'}
+  ],
+  q16:[
+    {q:'ISO 26000 (2010) is best described as:',o:['A certifiable management system standard for companies','A voluntary guidance document on social responsibility — NOT certifiable','An EU directive on mandatory CSR reporting','A Spanish law on corporate sustainability'],a:1,e:'ISO 26000: NOT a certifiable standard — it is voluntary guidance on social responsibility, universally applicable to all organizations regardless of size, location, or sector. Encourages commitment without limiting creativity.'},
+    {q:'The "Triple Bottom Line" in CSR requires companies to balance:',o:['Three types of financial statements','Three levels of management hierarchy','Economic profitability, social welfare improvement, and environmental preservation','Three categories of stakeholders: shareholders, creditors, and employees'],a:2,e:'The Triple Bottom Line (Triple Cuenta de Resultados): constant balance of (1) economic profitability, (2) improvement of social welfare, and (3) environmental preservation — replacing the shareholder-only model of business.'},
+    {q:'Law 11/2018 introduced in Spain:',o:['Compulsory ISO 26000 certification for listed companies','Country-by-country tax reporting requirements','A ban on all offshore tax arrangements','Mandatory environmental impact assessments for all companies'],a:1,e:'Law 11/2018: requires country-by-country tax reporting to ensure fiscal transparency — companies must show where value is generated and taxes paid in each jurisdiction. Central to Spain\'s fiscal responsibility CSR framework.'},
+    {q:'The "polluter pays" principle in environmental CSR means:',o:['Only governments are responsible for industrial pollution','Companies bear economic responsibility for environmental damage through taxes and liability to repair','Consumers pay higher prices to cover all environmental costs','Pollution is permissible if disclosed in annual reports'],a:1,e:'"Polluter pays": companies assume economic responsibility for damage caused — CO₂ emissions, soil/water impact. The Environmental Liability Law requires repair of damage independently of other sanctions. CSR-integrated companies use this as a driver of eco-innovation.'}
   ]
 };
 
@@ -1060,6 +1096,9 @@ window.addEventListener('scroll',()=>{
   document.querySelectorAll('.sc').forEach(s=>{if(window.scrollY>=s.offsetTop-140)cur=s.id;});
   navLinks.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur));
 });
+
+// ── TABLE WRAPPERS ──
+document.querySelectorAll('.ct').forEach(t=>{const w=document.createElement('div');w.className='tw';t.parentNode.insertBefore(w,t);w.appendChild(t);});
 </script>
 </body>
 </html>
