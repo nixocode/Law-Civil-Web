@@ -6,23 +6,24 @@
 <title>Law & Civil Law — Study Guide</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0e0f14;--surf:#15161e;--surf2:#1c1d29;--bord:#2a2b3d;--gold:#c9a84c;--gdim:#8a6f30;--cream:#ede8da;--muted:#7a7c95;--blue:#4a7fa5;--red:#a04040;--grn:#3a7a5a;--pur:#7a5aa5;--r:10px}
+:root{--bg:#0a0b12;--surf:rgba(21,22,35,0.7);--surf2:rgba(28,29,45,0.6);--surf-solid:#15161e;--surf2-solid:#1c1d29;--bord:rgba(255,255,255,0.08);--bord-glow:rgba(201,168,76,0.15);--gold:#c9a84c;--gdim:#8a6f30;--cream:#ede8da;--muted:#7a7c95;--blue:#4a7fa5;--red:#a04040;--grn:#3a7a5a;--pur:#7a5aa5;--r:14px;--glass:rgba(255,255,255,0.03);--glass-blur:blur(20px);--glass-border:1px solid rgba(255,255,255,0.08);--glow-gold:0 0 30px rgba(201,168,76,0.08)}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--cream);font-family:'Crimson Pro',Georgia,serif;font-size:17px;line-height:1.75}
+body{background:var(--bg);color:var(--cream);font-family:'Crimson Pro',Georgia,serif;font-size:17px;line-height:1.75;min-height:100vh;position:relative}
+body::before{content:'';position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse at 20% 0%,rgba(201,168,76,0.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 100%,rgba(74,127,165,0.05) 0%,transparent 50%),radial-gradient(ellipse at 50% 50%,rgba(122,90,165,0.04) 0%,transparent 60%);pointer-events:none}
 
 /* HEADER */
-header{background:linear-gradient(135deg,#0a0b10,#12131c,#1a1225);border-bottom:1px solid var(--bord);padding:2rem;text-align:center;position:relative;overflow:hidden}
-header::before{content:'';position:absolute;top:-50px;left:50%;transform:translateX(-50%);width:500px;height:180px;background:radial-gradient(ellipse,rgba(201,168,76,.1),transparent 70%);pointer-events:none}
+header{background:linear-gradient(135deg,rgba(10,11,16,0.9),rgba(18,19,28,0.85),rgba(26,18,37,0.8));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06);padding:2rem;text-align:center;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;top:-50px;left:50%;transform:translateX(-50%);width:500px;height:180px;background:radial-gradient(ellipse,rgba(201,168,76,.15),transparent 70%);pointer-events:none}
 .htag{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;margin-bottom:.5rem}
 header h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);color:var(--cream);margin-bottom:.3rem}
 header h1 span{color:var(--gold);font-style:italic}
 header p{color:var(--muted);font-size:.85rem}
 
 /* BLOCK TABS */
-.btabs{background:var(--surf);border-bottom:1px solid var(--bord);display:flex;align-items:center;padding:0 1.5rem;position:sticky;top:0;z-index:200;backdrop-filter:blur(10px)}
+.btabs{background:rgba(21,22,35,0.85);border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;padding:0 1.5rem;position:sticky;top:0;z-index:200;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 2px 20px rgba(0,0,0,0.3)}
 .btab{padding:.7rem 1.3rem;background:none;border:none;border-bottom:3px solid transparent;color:var(--muted);cursor:pointer;font-family:'Crimson Pro',serif;font-size:.92rem;font-weight:600;transition:all .2s;white-space:nowrap}
 .btab:hover{color:var(--cream)}
-.btab.on{color:var(--gold);border-bottom-color:var(--gold)}
+.btab.on{color:var(--gold);border-bottom-color:var(--gold);background:rgba(201,168,76,0.08);border-radius:6px 6px 0 0}
 .btab .bdg{font-family:'JetBrains Mono',monospace;font-size:.55rem;background:rgba(201,168,76,.15);color:var(--gdim);border-radius:3px;padding:.1rem .3rem;margin-left:.35rem;vertical-align:middle}
 .tsp{flex:1}
 .pw{display:flex;align-items:center;gap:.55rem}
@@ -33,10 +34,10 @@ header p{color:var(--muted);font-size:.85rem}
 
 /* LAYOUT */
 .layout{display:grid;grid-template-columns:215px 1fr;max-width:1160px;margin:0 auto;padding:1.5rem 1rem;gap:0}
-@media(max-width:768px){.layout{grid-template-columns:1fr}.snav{display:none}}
+@media(max-width:768px){.layout{grid-template-columns:1fr;padding:1rem .5rem}}
 
 /* SIDEBAR */
-.snav{position:sticky;top:50px;align-self:start;padding:.75rem .75rem .75rem 0;max-height:calc(100vh - 50px);overflow-y:auto;border-right:1px solid var(--bord)}
+.snav{position:sticky;top:50px;align-self:start;padding:.75rem .75rem .75rem 0;max-height:calc(100vh - 50px);overflow-y:auto;border-right:1px solid rgba(255,255,255,0.06);background:rgba(14,15,22,0.4);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:0 0 var(--r) 0}
 .snav::-webkit-scrollbar{width:3px}.snav::-webkit-scrollbar-thumb{background:var(--bord)}
 .nbt{margin-bottom:1.2rem}
 .nbt.hid{display:none}
@@ -50,10 +51,11 @@ header p{color:var(--muted);font-size:.85rem}
 .bpanel{display:none}.bpanel.on{display:block}
 
 /* SECTION CARD */
-.sc{background:var(--surf);border:1px solid var(--bord);border-radius:var(--r);margin-bottom:1.4rem;overflow:hidden}
-.sh{padding:1.1rem 1.6rem;border-bottom:1px solid var(--bord);background:linear-gradient(135deg,var(--surf2),var(--surf));display:flex;align-items:center;gap:.75rem;cursor:pointer;user-select:none}
-.sh:hover{background:linear-gradient(135deg,#222436,var(--surf2))}
-.snum{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--gold);background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.3);border-radius:4px;padding:.18rem .4rem;white-space:nowrap}
+.sc{background:var(--surf);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);border:var(--glass-border);border-radius:var(--r);margin-bottom:1.4rem;overflow:hidden;box-shadow:var(--glow-gold),0 4px 24px rgba(0,0,0,0.3);transition:transform .2s,box-shadow .2s;animation:fadeSlideIn .4s ease-out}
+.sc:hover{transform:translateY(-1px);box-shadow:0 0 40px rgba(201,168,76,0.12),0 8px 32px rgba(0,0,0,0.4)}
+.sh{padding:1.1rem 1.6rem;border-bottom:1px solid rgba(255,255,255,0.06);background:linear-gradient(135deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:flex;align-items:center;gap:.75rem;cursor:pointer;user-select:none}
+.sh:hover{background:linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))}
+.snum{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--gold);background:linear-gradient(135deg,rgba(201,168,76,0.15),rgba(201,168,76,0.05));border:1px solid rgba(201,168,76,.25);border-radius:4px;padding:.18rem .4rem;white-space:nowrap}
 .sh h2{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--cream);flex:1}
 .schev{color:var(--muted);transition:transform .3s;font-size:.78rem}
 .sc.col .schev{transform:rotate(-90deg)}
@@ -61,11 +63,12 @@ header p{color:var(--muted);font-size:.85rem}
 .sc.col .sb{display:none}
 
 /* SUMMARY */
-.sumbox{background:linear-gradient(135deg,rgba(74,127,165,.08),rgba(74,127,165,.03));border:1px solid rgba(74,127,165,.22);border-radius:8px;padding:.9rem 1.1rem;margin-bottom:1.1rem}
+.sumbox{position:relative;background:rgba(74,127,165,0.06);border:none;border-radius:10px;padding:.9rem 1.1rem;margin-bottom:1.1rem;overflow:hidden}
+.sumbox::before{content:'';position:absolute;inset:0;border-radius:10px;padding:1px;background:linear-gradient(135deg,rgba(74,127,165,0.4),rgba(74,127,165,0.1),transparent);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
 .sumlbl{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.14em;color:var(--blue);text-transform:uppercase;margin-bottom:.55rem}
 .sumbox ul{list-style:none;display:flex;flex-direction:column;gap:.35rem}
-.sumbox ul li{font-size:.85rem;color:#b8cfe0;display:flex;gap:.45rem;line-height:1.5}
-.sumbox ul li::before{content:'→';color:var(--blue);flex-shrink:0;font-size:.78rem;margin-top:.1rem}
+.sumbox ul li{font-size:.85rem;color:#b8cfe0;line-height:1.5;padding-left:1.2rem;position:relative}
+.sumbox ul li::before{content:'→';color:var(--blue);font-size:.78rem;position:absolute;left:0;top:.1rem}
 .sumbox ul li strong{color:#d0e8f4}
 
 /* EXPAND */
@@ -86,17 +89,19 @@ header p{color:var(--muted);font-size:.85rem}
 .sb h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--gold);margin:1.2rem 0 .45rem;border-bottom:1px solid var(--bord);padding-bottom:.2rem}
 .sb h4{font-family:'Crimson Pro',serif;font-weight:600;font-size:.92rem;color:var(--cream);margin:.85rem 0 .3rem}
 .div{height:1px;background:linear-gradient(90deg,transparent,var(--bord),transparent);margin:1.1rem 0}
-.hi{border-left:3px solid var(--blue);border-radius:0 6px 6px 0;padding:.65rem .95rem;margin:.7rem 0;font-size:.83rem;color:#b8cfe0;background:rgba(74,127,165,.07)}
+.hi{border-left:3px solid var(--blue);border-radius:0 8px 8px 0;padding:.65rem .95rem;margin:.7rem 0;font-size:.83rem;color:#b8cfe0;background:rgba(74,127,165,0.06);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .hi.g{border-left-color:var(--gold);background:rgba(201,168,76,.06);color:#d4c89a}
 .hi.p{border-left-color:var(--pur);background:rgba(122,90,165,.06);color:#c4b0e0}
 .hi strong{color:#d0e8f4}.hi.g strong{color:var(--gold)}
 .pills{display:flex;flex-wrap:wrap;gap:.35rem;margin:.55rem 0}
-.pill{background:var(--surf2);border:1px solid var(--bord);border-radius:20px;padding:.18rem .65rem;font-size:.73rem;color:#cdc9bc}
+.pill{background:rgba(255,255,255,0.03);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:.18rem .65rem;font-size:.73rem;color:#cdc9bc}
 .pill.g{border-color:var(--gdim);color:var(--gold);background:rgba(201,168,76,.07)}
 .pill.b{border-color:rgba(74,127,165,.4);color:#8bbfd8;background:rgba(74,127,165,.07)}
 
 /* TABLE */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.75rem 0}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.75rem 0;position:relative}
+.tw::after{content:'';position:absolute;top:0;right:0;bottom:0;width:20px;background:linear-gradient(to left,var(--bg),transparent);pointer-events:none;opacity:0;transition:opacity .3s}
+.tw.scrollable::after{opacity:1}
 .ct{width:100%;border-collapse:collapse;font-size:.8rem;margin:0}
 .ct th{background:var(--surf2);color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.07em;text-transform:uppercase;padding:.45rem .75rem;border:1px solid var(--bord);text-align:left}
 .ct td{padding:.45rem .75rem;border:1px solid var(--bord);color:#cdc9bc;vertical-align:top}
@@ -105,12 +110,13 @@ header p{color:var(--muted);font-size:.85rem}
 /* FLASHCARDS */
 .tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:.6rem;margin:1rem 0}
 .tlbl{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
-.fc{background:var(--surf2);border:1px solid var(--bord);border-radius:8px;cursor:pointer;perspective:1000px;height:155px;transition:transform .1s}
-.fc:hover{transform:scale(1.01)}
-.fci{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,.2,.2,1)}
+.fc{background:rgba(28,29,45,0.5);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.06);border-radius:10px;cursor:pointer;perspective:1000px;min-height:155px;transition:transform .2s,border-color .2s,box-shadow .2s}
+.fc:hover{transform:scale(1.02);border-color:rgba(201,168,76,0.2);box-shadow:0 0 20px rgba(201,168,76,0.08)}
+.fci{position:relative;width:100%;min-height:155px;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,.2,.2,1)}
 .fc.fl .fci{transform:rotateY(180deg)}
-.fcf,.fcb{position:absolute;inset:0;backface-visibility:hidden;border-radius:8px;padding:.75rem;display:flex;flex-direction:column;justify-content:center}
-.fcf{background:var(--surf2)}.fcb{background:#1a1f2e;transform:rotateY(180deg)}
+.fcf{position:relative;backface-visibility:hidden;border-radius:10px;padding:.75rem;display:flex;flex-direction:column;justify-content:center;min-height:155px}
+.fcb{position:absolute;inset:0;backface-visibility:hidden;border-radius:10px;padding:.75rem;display:flex;flex-direction:column;justify-content:center;overflow-y:auto;transform:rotateY(180deg)}
+.fcf{background:rgba(28,29,45,0.5)}.fcb{background:linear-gradient(135deg,rgba(26,31,50,0.95),rgba(20,24,40,0.95))}
 .ft{font-family:'Playfair Display',serif;font-size:.92rem;color:var(--cream);margin-bottom:.2rem}
 .fes{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--gdim)}
 .fh{font-size:.68rem;color:var(--muted);font-style:italic;margin-top:.25rem}
@@ -119,9 +125,9 @@ header p{color:var(--muted);font-size:.85rem}
 
 /* ACCORDION */
 .alist{margin:.75rem 0}
-.ai{border:1px solid var(--bord);border-radius:7px;margin-bottom:.35rem;overflow:hidden}
-.atog{width:100%;background:var(--surf2);border:none;padding:.7rem .95rem;text-align:left;color:var(--cream);cursor:pointer;display:flex;align-items:center;gap:.65rem;font-family:'Crimson Pro',serif;font-size:.88rem;transition:background .2s}
-.atog:hover{background:#222436}
+.ai{border:1px solid rgba(255,255,255,0.06);border-radius:8px;margin-bottom:.35rem;overflow:hidden;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.atog{width:100%;background:rgba(28,29,45,0.6);border:none;padding:.7rem .95rem;text-align:left;color:var(--cream);cursor:pointer;display:flex;align-items:center;gap:.65rem;font-family:'Crimson Pro',serif;font-size:.88rem;transition:background .2s}
+.atog:hover{background:rgba(34,36,54,0.8)}
 .ark{font-family:'JetBrains Mono',monospace;font-size:.56rem;background:rgba(201,168,76,.15);color:var(--gold);border-radius:3px;padding:.1rem .38rem;white-space:nowrap}
 .an{flex:1;font-weight:600}
 .aes{font-size:.72rem;color:var(--gdim);font-style:italic}
@@ -131,13 +137,14 @@ header p{color:var(--muted);font-size:.85rem}
 .ai.open .ab{display:block}
 
 /* QUIZ */
-.qw{background:linear-gradient(135deg,#0f1420,#141824);border:1px solid var(--bord);border-radius:var(--r);padding:1.1rem;margin-top:1.1rem}
+.qw{position:relative;background:rgba(15,20,32,0.6);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:none;border-radius:var(--r);padding:1.1rem;margin-top:1.1rem;overflow:hidden}
+.qw::before{content:'';position:absolute;inset:0;border-radius:var(--r);padding:1px;background:linear-gradient(135deg,rgba(201,168,76,0.3),rgba(201,168,76,0.05),transparent);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
 .qlbl{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.85rem}
 .qq{margin-bottom:1.1rem}
 .qqt{font-family:'Playfair Display',serif;font-size:.93rem;color:var(--cream);margin-bottom:.65rem}
 .opts{display:flex;flex-direction:column;gap:.32rem}
-.opt{background:var(--surf2);border:1px solid var(--bord);border-radius:5px;padding:.45rem .8rem;color:#cdc9bc;cursor:pointer;text-align:left;font-family:'Crimson Pro',serif;font-size:.83rem;transition:all .2s;display:flex;align-items:flex-start;gap:.45rem}
-.opt:hover:not(:disabled){background:#222436;border-color:var(--blue);color:var(--cream)}
+.opt{background:rgba(28,29,45,0.5);border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:.45rem .8rem;color:#cdc9bc;cursor:pointer;text-align:left;font-family:'Crimson Pro',serif;font-size:.83rem;transition:all .2s;display:flex;align-items:flex-start;gap:.45rem}
+.opt:hover:not(:disabled){background:rgba(74,127,165,0.12);border-color:rgba(74,127,165,0.4);color:var(--cream);box-shadow:0 0 15px rgba(74,127,165,0.1)}
 .opt.ok{background:rgba(58,122,90,.2);border-color:var(--grn);color:#9decc0}
 .opt.bad{background:rgba(160,64,64,.2);border-color:var(--red);color:#f0a0a0}
 .opt:disabled{cursor:default}
@@ -156,6 +163,141 @@ header p{color:var(--muted);font-size:.85rem}
 .qrm{color:var(--muted);font-size:.83rem;margin-bottom:.75rem}
 .qrst{background:rgba(201,168,76,.1);border:1px solid var(--gdim);color:var(--gold);padding:.38rem 1.1rem;border-radius:5px;cursor:pointer;font-family:'Crimson Pro',serif;font-size:.88rem;transition:all .2s}
 .qrst:hover{background:rgba(201,168,76,.2)}
+.qfb{word-wrap:break-word;overflow-wrap:break-word}
+
+/* ANIMATIONS */
+@keyframes fadeSlideIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes correctPulse{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+@keyframes urgentPulse{from{opacity:1}to{opacity:.6}}
+.opt.ok{animation:correctPulse .4s ease}
+
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;gap:4px;position:fixed;top:60px;left:12px;z-index:301;background:rgba(28,29,45,0.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:10px;cursor:pointer;transition:all .2s}
+.hamburger:hover{border-color:var(--gold)}
+.hamburger span{display:block;width:20px;height:2px;background:var(--gold);border-radius:1px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+.snav-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);z-index:299;display:none;opacity:0;transition:opacity .3s}
+.snav-overlay.open{display:block;opacity:1}
+
+/* GLASS SELECT & BUTTON (games) */
+.glass-select{background:rgba(28,29,45,0.6);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:var(--cream);padding:.5rem .8rem;font-family:'Crimson Pro',serif;font-size:.88rem;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23c9a84c' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .6rem center;padding-right:2rem}
+.glass-select:focus{outline:none;border-color:var(--gold)}
+.glass-select option{background:#1c1d29;color:var(--cream)}
+.glass-btn{background:rgba(201,168,76,0.1);border:1px solid var(--gdim);color:var(--gold);padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-family:'Crimson Pro',serif;font-size:.88rem;font-weight:600;transition:all .2s}
+.glass-btn:hover{background:rgba(201,168,76,0.2);box-shadow:0 0 15px rgba(201,168,76,0.15)}
+.game-tab .bdg{background:rgba(122,90,165,0.2);color:var(--pur)}
+
+/* SCENARIO GAME */
+.scenario-intro{text-align:center;padding:1rem}
+.scenario-controls{display:flex;gap:.75rem;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:1rem}
+.role-picker{display:flex;gap:.4rem}
+.role-btn{background:rgba(28,29,45,0.6);border:1px solid rgba(255,255,255,0.1);color:var(--muted);padding:.45rem .9rem;border-radius:6px;cursor:pointer;font-family:'Crimson Pro',serif;font-size:.85rem;transition:all .2s}
+.role-btn:hover,.role-btn.active{background:rgba(201,168,76,0.1);border-color:var(--gold);color:var(--gold)}
+.scenario-stage{margin-top:1rem}
+.scenario-step{animation:fadeSlideIn .4s ease-out}
+.scenario-prompt{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--cream);margin-bottom:.5rem}
+.scenario-context{font-size:.85rem;color:var(--muted);margin-bottom:1rem;font-style:italic;padding:.6rem .9rem;background:rgba(122,90,165,0.06);border-left:3px solid var(--pur);border-radius:0 8px 8px 0}
+.scenario-choice{display:block;width:100%;background:rgba(28,29,45,0.5);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:.7rem 1rem;color:#cdc9bc;cursor:pointer;text-align:left;font-family:'Crimson Pro',serif;font-size:.88rem;transition:all .2s;margin-bottom:.4rem}
+.scenario-choice:hover{background:rgba(74,127,165,0.12);border-color:rgba(74,127,165,0.4);box-shadow:0 0 12px rgba(74,127,165,0.1)}
+.scenario-choice.correct{background:rgba(58,122,90,0.2);border-color:var(--grn);color:#9decc0;animation:correctPulse .4s ease}
+.scenario-choice.wrong{background:rgba(160,64,64,0.2);border-color:var(--red);color:#f0a0a0}
+.scenario-choice:disabled{cursor:default;opacity:.7}
+.scenario-feedback{margin-top:.7rem;padding:.7rem .9rem;border-radius:8px;font-size:.85rem;line-height:1.5;animation:fadeSlideIn .3s ease-out}
+.scenario-feedback.ok{background:rgba(58,122,90,0.12);color:#9decc0;border-left:3px solid var(--grn)}
+.scenario-feedback.bad{background:rgba(160,64,64,0.12);color:#f0a0a0;border-left:3px solid var(--red)}
+.article-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.62rem;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);color:var(--gold);border-radius:4px;padding:.1rem .4rem;margin:.15rem .15rem 0 0}
+.scenario-result{text-align:center;padding:1.5rem;animation:fadeSlideIn .4s ease-out}
+.scenario-result .qrs{font-family:'Playfair Display',serif;font-size:2.1rem;color:var(--gold);margin-bottom:.4rem}
+.scenario-next{margin-top:.8rem}
+.scenario-img{width:100%;border-radius:10px;border:1px solid rgba(255,255,255,0.08);margin-bottom:1rem;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.scenario-img:hover{transform:scale(1.01);box-shadow:0 4px 24px rgba(0,0,0,0.4)}
+.scenario-img-caption{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--muted);text-align:center;margin-top:-.6rem;margin-bottom:.8rem;letter-spacing:.06em}
+.slide-lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:9999;display:flex;align-items:center;justify-content:center;cursor:zoom-out;animation:fadeSlideIn .2s ease-out}
+.slide-lightbox img{max-width:92vw;max-height:90vh;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.5)}
+.scenario-step-img{width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.06);margin:.6rem 0;transition:transform .2s;cursor:pointer}
+.scenario-step-img:hover{transform:scale(1.01)}
+
+/* DRAG & DROP GAME */
+.dd-controls{display:flex;gap:.75rem;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:1rem}
+.dd-arena{min-height:200px}
+.dd-columns{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.dd-col-title{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+.dd-item{background:rgba(28,29,45,0.6);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:.55rem .8rem;color:#cdc9bc;cursor:grab;font-size:.85rem;transition:all .2s;user-select:none;margin-bottom:.35rem}
+.dd-item:hover{border-color:rgba(201,168,76,0.3);background:rgba(201,168,76,0.06)}
+.dd-item.dragging{opacity:.4;transform:scale(1.03)}
+.dd-item.placed{cursor:default;opacity:.5}
+.dd-zone{min-height:42px;border:2px dashed rgba(255,255,255,0.08);border-radius:8px;padding:.4rem .6rem;margin-bottom:.35rem;transition:all .2s;display:flex;align-items:center;font-size:.82rem;color:var(--muted)}
+.dd-zone.over{border-color:rgba(201,168,76,0.4);background:rgba(201,168,76,0.06);box-shadow:0 0 12px rgba(201,168,76,0.1)}
+.dd-zone.correct{border-color:var(--grn);background:rgba(58,122,90,0.15);border-style:solid;color:#9decc0;animation:correctPulse .4s ease}
+.dd-zone.wrong{border-color:var(--red);background:rgba(160,64,64,0.1);animation:shake .4s ease}
+.dd-zone .dd-placed-text{color:var(--cream)}
+.dd-ghost{position:fixed;z-index:9999;pointer-events:none;background:rgba(201,168,76,0.15);border:1px solid var(--gold);border-radius:8px;padding:.55rem .8rem;color:var(--gold);font-size:.85rem;font-family:'Crimson Pro',serif;box-shadow:0 4px 20px rgba(0,0,0,0.3)}
+.dd-buckets{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1rem}
+.dd-bucket{flex:1;min-width:140px;background:rgba(28,29,45,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:.6rem;min-height:120px}
+.dd-bucket-title{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;text-align:center}
+.dd-pool{display:flex;flex-wrap:wrap;gap:.35rem;justify-content:center;margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06)}
+.dd-result{text-align:center;padding:1rem;animation:fadeSlideIn .4s ease-out}
+
+/* TIMED CHALLENGE */
+.tc-controls{display:flex;gap:.75rem;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:1rem}
+.tc-arena{position:relative}
+.tc-hud{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:.5rem}
+.tc-timer-bar{height:4px;border-radius:2px;background:rgba(255,255,255,0.06);margin-bottom:1rem;overflow:hidden}
+.tc-timer-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gdim));border-radius:2px;transition:width 1s linear}
+.tc-timer-fill.urgent{background:linear-gradient(90deg,var(--red),#c04040);animation:urgentPulse .5s infinite alternate}
+.tc-score{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--gold)}
+.tc-combo{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--pur);transition:all .2s}
+.tc-combo.hot{color:#ff9500;text-shadow:0 0 8px rgba(255,149,0,0.4);font-size:.82rem}
+.tc-time{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--muted)}
+.tc-time.urgent{color:var(--red);animation:urgentPulse .5s infinite alternate}
+.tc-question{animation:fadeSlideIn .25s ease-out}
+.tc-result{text-align:center;padding:1.5rem;animation:fadeSlideIn .4s ease-out}
+.tc-result .qrs{font-family:'Playfair Display',serif;font-size:2.1rem;color:var(--gold);margin-bottom:.3rem}
+.tc-result .tc-best-label{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--gdim);letter-spacing:.1em;text-transform:uppercase;margin-top:.5rem}
+.tc-leaderboard{margin-top:1rem}
+.tc-lb-title{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+.tc-lb-table{width:100%;border-collapse:collapse;font-size:.8rem}
+.tc-lb-table th{background:rgba(28,29,45,0.6);color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;padding:.4rem .6rem;border:1px solid rgba(255,255,255,0.06);text-align:left}
+.tc-lb-table td{padding:.4rem .6rem;border:1px solid rgba(255,255,255,0.06);color:#cdc9bc}
+
+/* ═══ MOBILE RESPONSIVE ═══ */
+@media(max-width:768px){
+  .snav{display:block;position:fixed;top:0;left:0;width:280px;height:100vh;background:rgba(14,15,22,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:300;padding:1rem;transform:translateX(-100%);transition:transform .3s ease;overflow-y:auto;border-right:1px solid rgba(255,255,255,0.08);border-radius:0}
+  .snav.open{transform:translateX(0)}
+  .hamburger{display:flex}
+  .btabs{flex-wrap:wrap;padding:.5rem .75rem;gap:.25rem}
+  .btab{padding:.45rem .65rem;font-size:.8rem}
+  .tsp{display:none}
+  .pw{width:100%;justify-content:center;padding:.35rem 0;order:10}
+  header{padding:1.2rem .75rem}
+  .sh{padding:.85rem .85rem;min-height:52px}
+  .sb{padding:.9rem .85rem}
+  .sumbox{padding:.7rem .8rem}
+  .qw{padding:.85rem}
+  .htag,.nbtitle,.ark,.snum{font-size:.72rem}
+  .bdg,.pl,.pp,.tlbl,.fes,.fi,.qlbl,.ol,.qsc{font-size:.68rem}
+  .fd{font-size:.82rem}
+  .opt{font-size:.88rem;padding:.55rem .9rem;min-height:44px}
+  .atog{font-size:.92rem;padding:.85rem 1rem;min-height:48px}
+  .etog{padding:.55rem 1.1rem;min-height:44px;font-size:.88rem}
+  .sumbox ul li{font-size:.9rem}
+  .qnxt,.qrst{min-height:44px;padding:.5rem 1.2rem}
+  .qfb{font-size:.82rem;padding:.5rem .65rem}
+  .tgrid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+  .dd-columns{grid-template-columns:1fr}
+  .dd-buckets{flex-direction:column}
+  .scenario-controls{flex-direction:column;gap:.5rem}
+  .tc-hud{font-size:.75rem}
+}
+@media(max-width:550px){
+  .ct{font-size:.78rem}
+  .ct th,.ct td{padding:.4rem .5rem}
+  .btab{padding:.4rem .5rem;font-size:.75rem}
+  .btab .bdg{display:none}
+}
 </style>
 </head>
 <body>
@@ -170,6 +312,9 @@ header p{color:var(--muted);font-size:.85rem}
   <button class="btab on" onclick="switchBlock('b1',this)">Block I <span class="bdg">Intro to Law</span></button>
   <button class="btab" onclick="switchBlock('b2',this)">Block II <span class="bdg">Civil Law</span></button>
   <button class="btab" onclick="switchBlock('b3',this)">Block III <span class="bdg">Commercial Law</span></button>
+  <button class="btab game-tab" onclick="switchBlock('scenarios',this)">Scenarios <span class="bdg">Game</span></button>
+  <button class="btab game-tab" onclick="switchBlock('dragdrop',this)">Match <span class="bdg">Game</span></button>
+  <button class="btab game-tab" onclick="switchBlock('timed',this)">Timed <span class="bdg">Game</span></button>
   <div class="tsp"></div>
   <div class="pw">
     <span class="pl">PROGRESS</span>
@@ -179,6 +324,8 @@ header p{color:var(--muted);font-size:.85rem}
 </div>
 
 <div class="layout">
+  <button class="hamburger" id="hamburger" onclick="toggleMobileNav()"><span></span><span></span><span></span></button>
+  <div class="snav-overlay" id="snav-overlay" onclick="closeMobileNav()"></div>
   <nav class="snav" id="snav">
     <div class="nbt" id="nav-b1">
       <div class="nbtitle">Block I · Intro to Law</div>
@@ -233,6 +380,27 @@ header p{color:var(--muted);font-size:.85rem}
         <li class="sub"><a href="#b3s5">↳ Electronic Contracts &amp; Securities</a></li>
         <li><a href="#b3s6">VI. CSR</a></li>
         <li class="sub"><a href="#b3s6">↳ ISO 26000 / Tax / Green</a></li>
+      </ul>
+    </div>
+    <div class="nbt hid" id="nav-scenarios">
+      <div class="nbtitle">Scenario Simulator</div>
+      <ul>
+        <li><a href="#" onclick="event.preventDefault()">Choose a block and role</a></li>
+        <li class="sub"><a href="#" onclick="event.preventDefault()">Play as Judge or Lawyer</a></li>
+      </ul>
+    </div>
+    <div class="nbt hid" id="nav-dragdrop">
+      <div class="nbtitle">Drag & Drop Match</div>
+      <ul>
+        <li><a href="#" onclick="event.preventDefault()">Terms & Definitions</a></li>
+        <li><a href="#" onclick="event.preventDefault()">Category Sorting</a></li>
+      </ul>
+    </div>
+    <div class="nbt hid" id="nav-timed">
+      <div class="nbtitle">Timed Challenge</div>
+      <ul>
+        <li><a href="#" onclick="event.preventDefault()">All Blocks / Per Block</a></li>
+        <li class="sub"><a href="#" onclick="event.preventDefault()">Beat your best score!</a></li>
       </ul>
     </div>
   </nav>
@@ -784,6 +952,70 @@ header p{color:var(--muted);font-size:.85rem}
     </div>
 
   </div><!-- /b3 -->
+
+  <!-- ═══════════ SCENARIO SIMULATOR ═══════════ -->
+  <div class="bpanel" id="scenarios">
+    <div class="sc">
+      <div class="sh"><span class="snum">GAME</span><h2>Legal Scenario Simulator</h2></div>
+      <div class="sb">
+        <div class="scenario-intro">
+          <p>Work through real legal scenarios. Choose a block, pick your role, and apply the concepts you've studied to resolve cases step by step.</p>
+          <div class="scenario-controls">
+            <select id="scenario-block" class="glass-select">
+              <option value="b1">Block I — Intro to Law</option>
+              <option value="b2">Block II — Civil Law</option>
+              <option value="b3">Block III — Commercial Law</option>
+            </select>
+            <div class="role-picker">
+              <button class="role-btn active" id="role-judge" onclick="pickRole('judge')">Judge</button>
+              <button class="role-btn" id="role-lawyer" onclick="pickRole('lawyer')">Lawyer</button>
+            </div>
+            <button class="glass-btn" onclick="startScenario()">Start Case</button>
+          </div>
+        </div>
+        <div id="scenario-stage" class="scenario-stage"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ DRAG & DROP ═══════════ -->
+  <div class="bpanel" id="dragdrop">
+    <div class="sc">
+      <div class="sh"><span class="snum">GAME</span><h2>Drag &amp; Drop Matching</h2></div>
+      <div class="sb">
+        <div class="dd-controls">
+          <select id="dd-category" class="glass-select" onchange="updateDDOptions()">
+            <option value="terms">Terms to Definitions</option>
+            <option value="categories">Sort into Categories</option>
+          </select>
+          <select id="dd-block" class="glass-select"></select>
+          <button class="glass-btn" onclick="startDragDrop()">Start</button>
+        </div>
+        <div id="dd-arena" class="dd-arena"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ TIMED CHALLENGE ═══════════ -->
+  <div class="bpanel" id="timed">
+    <div class="sc">
+      <div class="sh"><span class="snum">GAME</span><h2>Timed Challenge</h2></div>
+      <div class="sb">
+        <div class="tc-controls" id="tc-controls">
+          <select id="tc-block" class="glass-select">
+            <option value="all">All Blocks</option>
+            <option value="b1">Block I — Intro to Law</option>
+            <option value="b2">Block II — Civil Law</option>
+            <option value="b3">Block III — Commercial Law</option>
+          </select>
+          <button class="glass-btn" onclick="startTimed()">Start Challenge</button>
+        </div>
+        <div id="tc-arena" class="tc-arena"></div>
+        <div id="tc-leaderboard" class="tc-leaderboard"></div>
+      </div>
+    </div>
+  </div>
+
   </main>
 </div>
 
@@ -1099,6 +1331,589 @@ window.addEventListener('scroll',()=>{
 
 // ── TABLE WRAPPERS ──
 document.querySelectorAll('.ct').forEach(t=>{const w=document.createElement('div');w.className='tw';t.parentNode.insertBefore(w,t);w.appendChild(t);});
+document.querySelectorAll('.tw').forEach(w=>{if(w.scrollWidth>w.clientWidth)w.classList.add('scrollable');});
+
+// ── MOBILE NAV ──
+function toggleMobileNav(){
+  document.getElementById('snav').classList.toggle('open');
+  document.getElementById('snav-overlay').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+}
+function closeMobileNav(){
+  document.getElementById('snav').classList.remove('open');
+  document.getElementById('snav-overlay').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+document.querySelectorAll('.snav a').forEach(a=>a.addEventListener('click',closeMobileNav));
+
+// ══════════════════════════════════════════
+// ═══ SCENARIO SIMULATOR ═══
+// ══════════════════════════════════════════
+let scenarioRole='judge';
+function pickRole(role){
+  scenarioRole=role;
+  document.getElementById('role-judge').classList.toggle('active',role==='judge');
+  document.getElementById('role-lawyer').classList.toggle('active',role==='lawyer');
+}
+
+const SCENARIOS={
+  b1:[
+    {title:'The Contested Custom',img:'slides/commercial-02.png',imgCaption:'Evolution of Commercial Law — from custom to codification',
+    context:'In a small coastal town in Andalucía, fishermen have followed a practice for over 80 years: whoever arrives first at the dock each morning gets the best mooring spot. Pedro, a new fisherman, ignores this and takes a prime spot. The Fishermen\'s Guild wants to enforce the custom legally.',
+    steps:[
+      {prompt:'Can this long-standing practice be enforced as a legal custom?',
+       roleCtx:{judge:'As the judge, determine whether this practice meets the legal requirements of custom as a source of law.',lawyer:'Advise the Fishermen\'s Guild on whether they can rely on custom to enforce their traditional practice.'},
+       choices:[
+        {text:'Yes — it qualifies as custom: it is a repeated practice with opinio iuris (belief it is legally binding)',correct:true,articles:['Art. 1 CC'],feedback:'Correct. Custom requires: (1) generalized, continuous repetition of the practice, AND (2) opinio iuris — the community\'s belief that it is legally obligatory. Both elements appear present here.'},
+        {text:'No — customs cannot be enforced because they are not written law',correct:false,articles:['Art. 1 CC'],feedback:'Not quite. Art. 1 CC recognizes custom as a subsidiary source of law. It applies in the absence of applicable written law. Custom is a real, enforceable legal source.'},
+        {text:'Yes — any tradition older than 50 years automatically becomes law',correct:false,articles:['Art. 1 CC'],feedback:'Incorrect. There is no automatic time threshold. Custom requires both a material element (repeated practice) and a psychological element (opinio iuris). Age alone is insufficient.'}
+       ]},
+      {prompt:'The town council recently passed a local ordinance regulating mooring spots. Does the custom still apply?',
+       roleCtx:{judge:'Determine the hierarchy between the local regulation and the pre-existing custom.',lawyer:'Advise whether the Guild can still invoke the custom despite the new ordinance.'},
+       choices:[
+        {text:'The ordinance prevails — custom only applies in the absence of applicable law',correct:true,articles:['Art. 1.3 CC'],feedback:'Correct. Art. 1.3 CC: custom only governs "in the absence of applicable law." Since the ordinance (a regulation) now covers mooring, the custom is displaced. Written law has primacy over custom.'},
+        {text:'The custom prevails because it existed first — earlier sources have priority',correct:false,articles:['Art. 1.3 CC'],feedback:'Incorrect. In Spanish law, the hierarchy of sources means written law always prevails over custom. Custom is subsidiary — it fills gaps, it doesn\'t override legislation.'},
+        {text:'Both apply simultaneously and Pedro can choose which to follow',correct:false,articles:['Art. 1.3 CC'],feedback:'Incorrect. Sources of law follow a strict hierarchy. When a law exists, custom cannot compete with it. There is no "choice" between them.'}
+       ]}
+    ],maxScore:2},
+    {title:'The Royal Decree-Law Challenge',
+    context:'Spain faces an unprecedented drought. The Government issues a Royal Decree-Law restricting water usage for agriculture, affecting thousands of farmers. A farming association argues the decree is unconstitutional because it restricts property rights (Art. 33 CE) without parliamentary debate.',
+    steps:[
+      {prompt:'Can the Government use a Royal Decree-Law to restrict water usage?',
+       roleCtx:{judge:'Evaluate whether the requirements for a Royal Decree-Law are met in this situation.',lawyer:'Advise the farming association on the legality of the Government\'s decree.'},
+       choices:[
+        {text:'Yes — extraordinary and urgent necessity justifies a Royal Decree-Law under Art. 86 CE',correct:true,articles:['Art. 86 CE'],feedback:'Correct. Art. 86 CE allows the Government to issue Royal Decree-Laws in cases of extraordinary and urgent necessity. A severe drought affecting water supply qualifies as an urgent situation requiring immediate executive action.'},
+        {text:'No — only Parliament can restrict fundamental rights through Organic Laws',correct:false,articles:['Art. 86 CE','Art. 81 CE'],feedback:'Partially correct reasoning but wrong conclusion. While Art. 86 CE does prohibit Royal Decree-Laws from affecting fundamental rights in Title I Chapter 2 Section 1, property rights (Art. 33 CE) are in Section 2 — so they CAN be regulated by Royal Decree-Law.'},
+        {text:'No — the Executive branch cannot create any binding legal norms',correct:false,articles:['Art. 86 CE','Art. 97 CE'],feedback:'Incorrect. The Executive can create binding norms through Royal Decree-Laws (Art. 86 CE) and Royal Legislative Decrees (delegated legislation). The separation of powers includes checks, but is not absolute.'}
+       ]},
+      {prompt:'The decree must be validated by Congress within 15 days. Congress fails to vote. What happens?',
+       roleCtx:{judge:'Determine the legal consequences of Congress\'s failure to validate the decree.',lawyer:'Advise your clients on the status of the restrictions now that Congress has not acted.'},
+       choices:[
+        {text:'The Royal Decree-Law is automatically repealed — it loses all effect',correct:true,articles:['Art. 86.2 CE'],feedback:'Correct. Art. 86.2 CE requires Congress to expressly validate or repeal the decree within 15 days. Failure to validate means the decree is repealed. The water restrictions would lose their legal basis.'},
+        {text:'It remains in force indefinitely — silence means consent',correct:false,articles:['Art. 86.2 CE'],feedback:'Incorrect. The Constitution requires EXPRESS validation. Silence is not consent — the 15-day deadline is mandatory. This is a constitutional safeguard ensuring democratic control over emergency executive powers.'},
+        {text:'It stays in force for 6 months before automatic expiry',correct:false,articles:['Art. 86.2 CE'],feedback:'Incorrect. There is no 6-month grace period. The deadline is strictly 15 days. If Congress does not validate, the decree is repealed immediately.'}
+       ]}
+    ],maxScore:2}
+  ],
+  b2:[
+    {title:'The Intimidated Seller',img:'slides/autonomy-person-02.png',imgCaption:'The physical person at the center of all legal relationships',
+    context:'María, a 72-year-old widow, owns a valuable apartment in Madrid. Her nephew Andrés pressures her into selling it to him at half its market value, threatening to "make her life miserable" and cut all family contact if she refuses. María signs the sale contract but later wants to undo it.',
+    steps:[
+      {prompt:'What type of contract defect is present here?',
+       roleCtx:{judge:'Identify the legal defect in the contract between María and Andrés.',lawyer:'Advise María on what legal grounds she can challenge the contract.'},
+       choices:[
+        {text:'Voidability (anulabilidad) — the consent was vitiated by intimidation',correct:true,articles:['Art. 1267 CC','Art. 1301 CC'],feedback:'Correct. Intimidation (intimidación) is a vice of consent under Art. 1267 CC. The contract exists but is voidable — María can request annulment within 4 years (Art. 1301 CC). The threat of serious harm to create fear constitutes intimidation.'},
+        {text:'Absolute nullity — the contract is void from the start',correct:false,articles:['Art. 1261 CC'],feedback:'Not quite. Nullity applies when an essential element is MISSING (consent, object, or cause) or the cause/object is illegal. Here, consent EXISTS but is vitiated. The correct category is voidability, not nullity.'},
+        {text:'Rescission — the contract is valid but causes unjust economic damage',correct:false,articles:['Art. 1291 CC'],feedback:'Close but incorrect. While there IS economic damage (half-price sale), rescission applies to inherently valid contracts that cause unjust harm in specific assessed cases. Here, the consent itself is defective (intimidation), making this a voidability case.'}
+       ]},
+      {prompt:'María waits 5 years before taking legal action. What is the outcome?',
+       roleCtx:{judge:'Apply the relevant prescription/expiration period to María\'s claim.',lawyer:'Advise María whether she still has a viable legal action.'},
+       choices:[
+        {text:'Her claim is time-barred — the 4-year period under Art. 1301 CC has expired',correct:true,articles:['Art. 1301 CC'],feedback:'Correct. Art. 1301 CC: the action to annul a voidable contract expires after 4 years. For intimidation, the period runs from when the intimidation ceases. After 5 years, María\'s right to challenge has lapsed.'},
+        {text:'She can still act — there is no time limit on challenging invalid contracts',correct:false,articles:['Art. 1301 CC'],feedback:'Incorrect. While absolute NULLITY has no time limit (imprescriptible), VOIDABILITY has a strict 4-year deadline under Art. 1301 CC. This distinction between nullity and voidability is a key exam topic.'},
+        {text:'She can still act because the contract was confirmed by passage of time',correct:false,articles:['Art. 1310 CC'],feedback:'Incorrect reasoning. Passage of time without action does not "confirm" the contract — it simply means the right to challenge expires. Confirmation (Art. 1310 CC) requires an affirmative act by the protected party.'}
+       ]}
+    ],maxScore:2},
+    {title:'The Disputed Property',img:'slides/rem-directpower-02.png',imgCaption:'Credit Rights vs Rights in Rem — direct power over a thing',
+    context:'Carlos buys an apartment from Elena, who is registered as the owner in the Land Registry. Carlos pays full market price and acts in good faith. Two months later, a court declares that Elena\'s original title was fraudulent — she never had valid ownership.',
+    steps:[
+      {prompt:'Is Carlos protected as a third party acquirer in good faith?',img:'slides/rem-characteristics-03.png',
+       roleCtx:{judge:'Apply Art. 34 of the Mortgage Law to determine whether Carlos retains ownership.',lawyer:'Advise Carlos on whether his acquisition is legally protected despite Elena\'s fraudulent title.'},
+       choices:[
+        {text:'Yes — Art. 34 LH protects Carlos as a "tercero hipotecario" who acquired for consideration, in good faith, relying on the Registry',correct:true,articles:['Art. 34 LH'],feedback:'Correct. Art. 34 LH protects the third party who: (1) acquires for consideration (Carlos paid full price); (2) acts in good faith (no knowledge of fraud); (3) relies on the Land Registry (Elena was registered). Carlos keeps the apartment.'},
+        {text:'No — since Elena\'s title was fraudulent, all subsequent transfers are automatically void',correct:false,articles:['Art. 34 LH'],feedback:'Incorrect. This is precisely what Art. 34 LH prevents. The Land Registry\'s principle of public faith (fe pública registral) protects good-faith acquirers even when the prior title is later annulled. This is the cornerstone of real estate transaction security.'},
+        {text:'Only if Carlos re-registers the property within 30 days',correct:false,articles:['Art. 34 LH'],feedback:'Incorrect. While registration is important, there is no specific 30-day deadline for Art. 34 protection. The key requirements are: onerous acquisition, good faith, and reliance on the Registry at the time of purchase.'}
+       ]},
+      {prompt:'What if Carlos received the apartment as a gift from Elena instead of buying it?',
+       roleCtx:{judge:'Reconsider Art. 34 LH protection given the gratuitous nature of the transfer.',lawyer:'Advise Carlos on whether the gift changes his legal position.'},
+       choices:[
+        {text:'Carlos loses Art. 34 protection — it requires acquisition "for consideration" (onerous)',correct:true,articles:['Art. 34 LH'],feedback:'Correct. Art. 34 LH requires onerous acquisition (for consideration). A gift/donation is gratuitous — Carlos did not pay anything. Without the "for consideration" requirement, Art. 34 protection does not apply, and the true owner can reclaim the property.'},
+        {text:'Carlos is still protected — good faith is sufficient regardless of how he acquired it',correct:false,articles:['Art. 34 LH'],feedback:'Incorrect. Good faith alone is not sufficient. Art. 34 LH has FOUR cumulative requirements: (1) acquire from the registered owner, (2) for consideration, (3) in good faith, (4) register the acquisition. All four must be met simultaneously.'},
+        {text:'Gifts cannot involve real estate, so the scenario is impossible',correct:false,articles:['Art. 633 CC'],feedback:'Incorrect. Art. 633 CC allows donations of real estate — they require a public deed. The issue here is not the validity of gifts but whether Art. 34 LH protects gratuitous acquisitions (it does not).'}
+       ]}
+    ],maxScore:2},
+    {title:'The Disputed Marriage',img:'slides/family-marriage-04.png',imgCaption:'Marriage as a strictly regulated bilateral juridical act — Consent, Capacity, Form',
+    context:'Javier (19) and Lucía (17, emancipated) want to marry. Lucía\'s parents object but she has been legally emancipated since age 16. After the wedding, Javier dies unexpectedly and his family disputes whether Lucía has inheritance rights, arguing the marriage was invalid.',
+    steps:[
+      {prompt:'Is Lucía\'s marriage to Javier valid despite her being 17?',img:'slides/family-pillars-03.png',
+       roleCtx:{judge:'Evaluate whether Lucía meets the legal capacity requirements for marriage under Spanish law.',lawyer:'Advise Lucía\'s family on whether her marriage is legally valid.'},
+       choices:[
+        {text:'Yes — emancipated minors from age 16 can marry; emancipation removes the age impediment',correct:true,articles:['Art. 46 CC','Art. 241 CC'],feedback:'Correct. Art. 46 CC lists unemancipated minors as having an impediment to marriage. Since Lucía is emancipated (Art. 241 CC), this impediment is removed. Her marriage is valid.'},
+        {text:'No — marriage requires age 18 regardless of emancipation status',correct:false,articles:['Art. 46 CC'],feedback:'Incorrect. Art. 46 CC prohibits marriage for unemancipated minors, not all minors. Emancipation specifically grants the capacity to marry. The key distinction is emancipated vs. unemancipated.'},
+        {text:'Yes, but only with parental consent since she is under 18',correct:false,articles:['Art. 46 CC'],feedback:'Incorrect. Once emancipated, Lucía does not need parental consent to marry. Emancipation grants partial legal autonomy. While Art. 247 CC restricts certain financial acts, marriage is not among them.'}
+       ]},
+      {prompt:'After Javier\'s death, his family claims Lucía has no inheritance rights because they were married under the Catalan regime. Which default matrimonial regime applies?',img:'slides/family-bedrock-02.png',
+       roleCtx:{judge:'Determine which matrimonial regime governs Javier and Lucía\'s marriage and its inheritance consequences.',lawyer:'Advise Lucía on her property and inheritance rights as surviving spouse.'},
+       choices:[
+        {text:'The default regime depends on their vecindad civil — common law Spain defaults to gananciales, Catalonia to separation of property',correct:true,articles:['Arts. 1344–1410 CC','CCC'],feedback:'Correct. The applicable matrimonial regime depends on the spouses\' vecindad civil. If common civil law applies: gananciales (community of property). If Catalan: separación de bienes. Either way, Lucía has inheritance rights as surviving spouse — the matrimonial regime affects property division, not inheritance entitlement.'},
+        {text:'All Spanish marriages automatically use community of property (gananciales)',correct:false,articles:['Arts. 1344–1410 CC'],feedback:'Incorrect. Spain has multiple civil law systems. The default regime varies: gananciales in common civil law territories, separation of property in Catalonia and the Balearics. Spouses can also choose via capitulaciones matrimoniales.'},
+        {text:'Since they didn\'t sign a marriage contract, no regime applies',correct:false,articles:['Art. 1316 CC'],feedback:'Incorrect. Art. 1316 CC provides that in absence of capitulaciones matrimoniales, the default legal regime automatically applies. Every marriage has a property regime — choosing one is optional, but a default always kicks in.'}
+       ]}
+    ],maxScore:2}
+  ],
+  b3:[
+    {title:'The Hidden Partner',img:'slides/corporate-05.png',imgCaption:'The Comanditaria: when a limited partner manages, their liability shield drops',
+    context:'A Sociedad Comanditaria (limited partnership) called "García & López S.Com." operates a restaurant chain. Marta is a limited partner (socia comanditaria) who contributed €50,000. Her name does not appear in the company name. However, Marta has been actively managing the restaurants, signing contracts with suppliers, and negotiating leases.',
+    steps:[
+      {prompt:'What is the legal consequence of Marta\'s active management of the business?',img:'slides/corporate-04.png',
+       roleCtx:{judge:'Determine Marta\'s liability exposure given her conduct as a limited partner.',lawyer:'Advise Marta on the legal risks she faces for managing the business.'},
+       choices:[
+        {text:'Marta loses her limited liability — she becomes liable as a general partner for her management acts',correct:true,articles:['Art. 148 CCo'],feedback:'Correct. In a Sociedad Comanditaria, limited partners are PROHIBITED from managing. By actively managing (signing contracts, negotiating), Marta has exceeded her role. She becomes liable as a general partner — meaning unlimited, joint and several liability for company debts.'},
+        {text:'No consequence — limited partners can manage if the general partners allow it',correct:false,articles:['Art. 148 CCo'],feedback:'Incorrect. The prohibition on limited partner management is a LEGAL rule, not a contractual one. Even if general partners "allow" it, the law imposes unlimited liability on the limited partner who manages. This protects third parties who deal with the company.'},
+        {text:'She only loses the €50,000 she contributed — her liability is always capped',correct:false,articles:['Art. 148 CCo'],feedback:'Incorrect. The €50,000 cap applies ONLY if Marta stays within her role as a limited partner. By managing, she has breached the fundamental rule of the Comanditaria — her liability now extends to ALL her personal assets, just like a general partner.'}
+       ]},
+      {prompt:'A supplier sues the company for €200,000 in unpaid debts. The company\'s assets total €80,000. Who pays the remaining €120,000?',img:'slides/commercial-05.png',
+       roleCtx:{judge:'Determine the liability allocation among the partners for the company\'s debts.',lawyer:'Advise the supplier on who they can pursue for the remaining debt.'},
+       choices:[
+        {text:'The general partners (García & López) AND Marta are all personally liable for the full remaining amount',correct:true,articles:['Art. 127 CCo','Art. 148 CCo'],feedback:'Correct. General partners have unlimited, joint and several, subsidiary liability. Since Marta managed the business, she is treated as a general partner. After company assets are exhausted (€80,000), all three are personally liable for the remaining €120,000 — the creditor can pursue any or all of them.'},
+        {text:'Only the general partners pay — Marta\'s management role is an internal matter',correct:false,articles:['Art. 148 CCo'],feedback:'Incorrect. Marta\'s breach of the management prohibition has EXTERNAL effects — it changes her liability vis-à-vis third-party creditors. The supplier can pursue Marta personally alongside the general partners.'},
+        {text:'The debt is extinguished after the company\'s assets are used — partners have no further obligation',correct:false,articles:['Art. 127 CCo'],feedback:'Incorrect. In partnerships (sociedades personalistas), partners have subsidiary but UNLIMITED personal liability. Company assets are used first, but if insufficient, partners\' personal assets cover the rest. This is the key difference from capital companies (SA/SL).'}
+       ]}
+    ],maxScore:2},
+    {title:'The Copied Design',img:'slides/trade-01.png',imgCaption:'The commercial landscape where competition and trade intersect',
+    context:'TechStyle SL designs and sells premium smartphone cases. They discover that CheapCopy SA has been manufacturing nearly identical cases, copying the distinctive pattern and color scheme that TechStyle has used for 3 years. CheapCopy\'s cases sell at half the price.',
+    steps:[
+      {prompt:'Under which area of Commercial Law should TechStyle pursue legal action?',
+       roleCtx:{judge:'Identify the applicable legal framework for this dispute.',lawyer:'Advise TechStyle on the strongest legal basis for their claim.'},
+       choices:[
+        {text:'Unfair Competition (Law 3/1991) — servile imitation and exploitation of reputation',correct:true,articles:['Law 3/1991'],feedback:'Correct. The Unfair Competition Act (Law 3/1991) prohibits servile imitation that takes undue advantage of another\'s effort and reputation. While free imitation is the general principle, it becomes illicit when it creates confusion about business origin or constitutes a parasitic copy.'},
+        {text:'Criminal Law — copying a product design is always a crime',correct:false,articles:['Law 3/1991'],feedback:'Incorrect. Product design copying is primarily a Commercial Law (civil) matter, not criminal. Criminal IP offenses have higher thresholds. The Unfair Competition Act provides the most direct remedy here.'},
+        {text:'Contract Law — CheapCopy breached an implied agreement not to copy',correct:false,articles:['Law 3/1991'],feedback:'Incorrect. There is no contract between TechStyle and CheapCopy. This is a market conduct issue (competitors, not contracting parties). Unfair Competition law governs behavior in commercial traffic between competitors.'}
+       ]},
+      {prompt:'TechStyle also has a registered industrial design with the SPTO. Does this change their legal position?',
+       roleCtx:{judge:'Assess how the registered design affects the legal analysis.',lawyer:'Advise TechStyle on the additional protection the registration provides.'},
+       choices:[
+        {text:'Yes — the registered design gives TechStyle exclusive rights to the aesthetic appearance, with stronger protection than unfair competition alone',correct:true,articles:['Law 20/2003'],feedback:'Correct. A registered industrial design (Law 20/2003) gives exclusive rights to the product\'s appearance. Registration provides stronger protection: the right is exclusive and absolute (no need to prove confusion or bad faith). TechStyle can pursue BOTH industrial design infringement AND unfair competition simultaneously.'},
+        {text:'No — registration is irrelevant because design is not the same as a patent',correct:false,articles:['Law 20/2003'],feedback:'Incorrect. Industrial design protection is distinct from patents but equally valid. Patents protect technical inventions; industrial designs protect aesthetic appearance. Both require registration with the SPTO and grant exclusive rights.'},
+        {text:'No — industrial designs only protect functional features, not aesthetic ones',correct:false,articles:['Law 20/2003'],feedback:'Incorrect — it\'s exactly the opposite. Industrial design specifically protects the AESTHETIC appearance of a product (form, contour, colors, texture). Functional features are the domain of patents and utility models.'}
+       ]}
+    ],maxScore:2}
+  ]
+};
+
+let scenarioState={scenario:null,step:0,score:0,choices:[]};
+
+function startScenario(){
+  const block=document.getElementById('scenario-block').value;
+  const pool=SCENARIOS[block];
+  if(!pool||!pool.length)return;
+  const s=pool[Math.floor(Math.random()*pool.length)];
+  scenarioState={scenario:s,step:0,score:0,choices:[]};
+  renderScenarioStep();
+}
+
+function renderScenarioStep(){
+  const {scenario,step}=scenarioState;
+  const stage=document.getElementById('scenario-stage');
+  if(step>=scenario.steps.length){showScenarioResult();return;}
+  const st=scenario.steps[step];
+  const roleLabel=scenarioRole==='judge'?'As the Judge':'As the Lawyer';
+  let html=`<div class="scenario-step">
+    <div class="hi p" style="margin-bottom:.8rem"><strong>${scenario.title}</strong> — Step ${step+1} of ${scenario.steps.length}</div>`;
+  if(step===0){
+    html+=`<p style="margin-bottom:.8rem;font-size:.9rem;color:#cdc9bc">${scenario.context}</p>`;
+    if(scenario.img)html+=`<img class="scenario-img" src="${scenario.img}" alt="${scenario.title}" onclick="openLightbox(this.src)">`;
+    if(scenario.imgCaption)html+=`<div class="scenario-img-caption">${scenario.imgCaption}</div>`;
+  }
+  if(st.img)html+=`<img class="scenario-step-img" src="${st.img}" alt="Step ${step+1}" onclick="openLightbox(this.src)">`;
+  html+=`<div class="scenario-context"><strong>${roleLabel}:</strong> ${st.roleCtx[scenarioRole]}</div>
+    <div class="scenario-prompt">${st.prompt}</div>
+    <div id="scenario-choices">`;
+  st.choices.forEach((c,i)=>{
+    html+=`<button class="scenario-choice" onclick="pickScenarioChoice(${i})">${c.text}</button>`;
+  });
+  html+=`</div><div id="scenario-fb"></div></div>`;
+  stage.innerHTML=html;
+}
+
+function openLightbox(src){
+  const lb=document.createElement('div');
+  lb.className='slide-lightbox';
+  lb.innerHTML=`<img src="${src}">`;
+  lb.onclick=()=>lb.remove();
+  document.body.appendChild(lb);
+  document.addEventListener('keydown',function esc(e){if(e.key==='Escape'){lb.remove();document.removeEventListener('keydown',esc);}},{once:true});
+}
+
+function pickScenarioChoice(idx){
+  const {scenario,step}=scenarioState;
+  const st=scenario.steps[step];
+  const choice=st.choices[idx];
+  const btns=document.querySelectorAll('#scenario-choices .scenario-choice');
+  btns.forEach((b,i)=>{
+    b.disabled=true;
+    if(st.choices[i].correct)b.classList.add('correct');
+    if(i===idx&&!choice.correct)b.classList.add('wrong');
+  });
+  if(choice.correct)scenarioState.score++;
+  scenarioState.choices.push({step,idx,correct:choice.correct});
+  let fbHtml=`<div class="scenario-feedback ${choice.correct?'ok':'bad'}">
+    <strong>${choice.correct?'Correct!':'Not quite.'}</strong> ${choice.feedback}<br>
+    <div style="margin-top:.4rem">${choice.articles.map(a=>`<span class="article-tag">${a}</span>`).join('')}</div>
+  </div>
+  <button class="glass-btn scenario-next" style="margin-top:.7rem" onclick="nextScenarioStep()">
+    ${step+1<scenario.steps.length?'Next Step →':'See Results'}
+  </button>`;
+  document.getElementById('scenario-fb').innerHTML=fbHtml;
+}
+
+function nextScenarioStep(){
+  scenarioState.step++;
+  renderScenarioStep();
+}
+
+function showScenarioResult(){
+  const {scenario,score,choices}=scenarioState;
+  const pct=Math.round((score/scenario.maxScore)*100);
+  const msg=pct===100?'Perfect legal reasoning!':pct>=50?'Good work — review the articles you missed.':'Keep studying the relevant concepts.';
+  let html=`<div class="scenario-result">
+    <div class="qrs">${score} / ${scenario.maxScore}</div>
+    <div class="qrm">${msg}</div>
+    <button class="glass-btn" onclick="startScenario()" style="margin-top:.7rem">Play Another Case</button>
+  </div>`;
+  document.getElementById('scenario-stage').innerHTML=html;
+}
+
+// ══════════════════════════════════════════
+// ═══ DRAG & DROP MATCHING ═══
+// ══════════════════════════════════════════
+const DRAGDROP_DATA={
+  terms:{
+    b1:[
+      {term:'Ius Puniendi',def:'State\'s exclusive right to punish — basis of Criminal Law as Public Law'},
+      {term:'Autonomía de la Voluntad',def:'Parties freely set terms of their legal relationships within legal limits'},
+      {term:'Seguridad Jurídica',def:'Ability to foresee legal consequences of one\'s acts (Art. 9.3 CE)'},
+      {term:'Opinio Iuris',def:'Community\'s belief that a repeated practice is legally obligatory'},
+      {term:'Prescripción',def:'Inactivity of right-holder over time extinguishes the legal action'},
+      {term:'Norma Jurídica',def:'Mandatory conduct rule — external, objective, obligatory and coercible'}
+    ],
+    b2:[
+      {term:'Anulabilidad',def:'Contract exists but can be annulled within 4 years for vices of consent'},
+      {term:'Nulidad',def:'Contract is "born dead" — missing essential element or illegal cause'},
+      {term:'Curatela',def:'Main judicial support measure post-2021 — assists, does not replace will'},
+      {term:'Erga Omnes',def:'Right enforceable against all persons — core feature of real rights'},
+      {term:'Tercero Hipotecario',def:'Good faith acquirer protected by Art. 34 LH even if seller\'s title annulled'},
+      {term:'Gananciales',def:'Default matrimonial regime — profits during marriage split 50/50'}
+    ],
+    b3:[
+      {term:'Numerus Clausus',def:'Only the legislator can create company types — closed list'},
+      {term:'Levantamiento del Velo',def:'Courts pierce corporate personality when used for fraud'},
+      {term:'Incoterms',def:'ICC rules defining who bears expenses, risks, transport in international sales'},
+      {term:'Título-Valor',def:'Document incorporating a right — exercise requires possession of the document'},
+      {term:'Fondo de Comercio',def:'Goodwill — value of organization above physical assets'},
+      {term:'ISO 26000',def:'Voluntary (non-certifiable) international CSR guidance standard'}
+    ]
+  },
+  categories:{
+    pubpriv:{title:'Public vs Private Law',buckets:['Public Law','Private Law'],
+      items:[
+        {text:'Constitutional Law',b:0},{text:'Civil Law',b:1},{text:'Criminal Law',b:0},
+        {text:'Commercial Law',b:1},{text:'Administrative Law',b:0},{text:'Tax Law',b:0},
+        {text:'Contract Law',b:1},{text:'Family Law',b:1}
+      ]},
+    invalidity:{title:'Nullity vs Voidability vs Rescission',buckets:['Nullity','Voidability','Rescission'],
+      items:[
+        {text:'Missing essential element',b:0},{text:'Intimidation of consent',b:1},
+        {text:'Valid but causes unjust damage',b:2},{text:'Illegal cause',b:0},
+        {text:'Error in consent',b:1},{text:'No time limit to challenge',b:0},
+        {text:'4-year limit, only protected party invokes',b:1},{text:'Subsidiary remedy',b:2}
+      ]},
+    companies:{title:'SL vs SA',buckets:['SL (Sociedad Limitada)','SA (Sociedad Anónima)'],
+      items:[
+        {text:'Min. capital €3,000',b:0},{text:'Min. capital €60,000',b:1},
+        {text:'Participaciones (non-transferable)',b:0},{text:'Acciones (negotiable shares)',b:1},
+        {text:'Restricted transfer — closed',b:0},{text:'Free transfer — open',b:1},
+        {text:'Designed for SMEs',b:0},{text:'Capital market access',b:1}
+      ]}
+  }
+};
+
+let ddState={items:[],zones:[],correct:0,total:0,mode:''};
+let ddDragEl=null,ddGhost=null;
+
+function updateDDOptions(){
+  const cat=document.getElementById('dd-category').value;
+  const sel=document.getElementById('dd-block');
+  sel.innerHTML='';
+  if(cat==='terms'){
+    sel.innerHTML='<option value="b1">Block I</option><option value="b2">Block II</option><option value="b3">Block III</option>';
+  }else{
+    Object.entries(DRAGDROP_DATA.categories).forEach(([k,v])=>{
+      sel.innerHTML+=`<option value="${k}">${v.title}</option>`;
+    });
+  }
+}
+updateDDOptions();
+
+function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+function startDragDrop(){
+  const cat=document.getElementById('dd-category').value;
+  const block=document.getElementById('dd-block').value;
+  const arena=document.getElementById('dd-arena');
+  arena.innerHTML='';
+  ddState={items:[],zones:[],correct:0,total:0,mode:cat};
+  if(cat==='terms')renderTermMatch(block,arena);
+  else renderCategorySort(block,arena);
+}
+
+function renderTermMatch(block,arena){
+  const data=DRAGDROP_DATA.terms[block];
+  if(!data)return;
+  const shuffled=shuffle(data);
+  ddState.total=shuffled.length;
+  let html=`<div class="dd-columns"><div><div class="dd-col-title">Terms — drag to match</div><div id="dd-terms">`;
+  shuffled.forEach((d,i)=>{
+    html+=`<div class="dd-item" draggable="true" data-idx="${i}" data-answer="${data.indexOf(d)}">${d.term}</div>`;
+  });
+  html+=`</div></div><div><div class="dd-col-title">Definitions</div><div id="dd-defs">`;
+  data.forEach((d,i)=>{
+    html+=`<div class="dd-zone" data-target="${i}"><span class="dd-zone-label">${d.def}</span></div>`;
+  });
+  html+=`</div></div></div>`;
+  arena.innerHTML=html;
+  initDragHandlers();
+}
+
+function renderCategorySort(key,arena){
+  const data=DRAGDROP_DATA.categories[key];
+  if(!data)return;
+  const shuffled=shuffle(data.items);
+  ddState.total=shuffled.length;
+  let html=`<div class="dd-col-title" style="text-align:center;margin-bottom:.5rem">${data.title}</div><div class="dd-buckets">`;
+  data.buckets.forEach((b,i)=>{
+    html+=`<div class="dd-bucket" data-bucket="${i}"><div class="dd-bucket-title">${b}</div><div class="dd-bucket-items" data-bucket="${i}"></div></div>`;
+  });
+  html+=`</div><div class="dd-pool" id="dd-pool">`;
+  shuffled.forEach((item,i)=>{
+    html+=`<div class="dd-item" draggable="true" data-idx="${i}" data-answer="${item.b}">${item.text}</div>`;
+  });
+  html+=`</div>`;
+  arena.innerHTML=html;
+  initDragHandlers();
+}
+
+function initDragHandlers(){
+  document.querySelectorAll('.dd-item:not(.placed)').forEach(el=>{
+    el.addEventListener('dragstart',e=>{
+      ddDragEl=el;el.classList.add('dragging');
+      e.dataTransfer.effectAllowed='move';
+      e.dataTransfer.setData('text/plain','');
+    });
+    el.addEventListener('dragend',()=>{el.classList.remove('dragging');ddDragEl=null;});
+    el.addEventListener('touchstart',handleTouchStart,{passive:false});
+    el.addEventListener('touchmove',handleTouchMove,{passive:false});
+    el.addEventListener('touchend',handleTouchEnd,{passive:false});
+  });
+  const zones=ddState.mode==='terms'?
+    document.querySelectorAll('.dd-zone'):
+    document.querySelectorAll('.dd-bucket-items');
+  zones.forEach(z=>{
+    z.addEventListener('dragover',e=>{e.preventDefault();z.classList.add('over');});
+    z.addEventListener('dragleave',()=>z.classList.remove('over'));
+    z.addEventListener('drop',e=>{
+      e.preventDefault();z.classList.remove('over');
+      if(ddDragEl)handleDDDrop(ddDragEl,z);
+    });
+  });
+}
+
+function handleDDDrop(item,zone){
+  const answer=parseInt(item.dataset.answer);
+  const target=parseInt(zone.dataset.target!==undefined?zone.dataset.target:zone.dataset.bucket);
+  const isCorrect=answer===target;
+  if(isCorrect){
+    ddState.correct++;
+    zone.classList.add('correct');
+    if(ddState.mode==='terms'){
+      zone.innerHTML=`<span class="dd-placed-text">${item.textContent} → ✓</span>`;
+    }else{
+      const placed=document.createElement('div');
+      placed.className='dd-item placed';placed.textContent=item.textContent;
+      zone.appendChild(placed);
+    }
+    item.remove();
+  }else{
+    zone.classList.add('wrong');
+    setTimeout(()=>zone.classList.remove('wrong'),600);
+  }
+  if(ddState.correct>=ddState.total)showDDResult();
+}
+
+function handleTouchStart(e){
+  const el=e.target.closest('.dd-item');
+  if(!el||el.classList.contains('placed'))return;
+  ddDragEl=el;
+  const t=e.touches[0];
+  ddGhost=document.createElement('div');
+  ddGhost.className='dd-ghost';
+  ddGhost.textContent=el.textContent;
+  ddGhost.style.left=t.clientX-50+'px';
+  ddGhost.style.top=t.clientY-20+'px';
+  document.body.appendChild(ddGhost);
+  el.classList.add('dragging');
+  e.preventDefault();
+}
+
+function handleTouchMove(e){
+  if(!ddGhost)return;
+  const t=e.touches[0];
+  ddGhost.style.left=t.clientX-50+'px';
+  ddGhost.style.top=t.clientY-20+'px';
+  const zones=ddState.mode==='terms'?
+    document.querySelectorAll('.dd-zone'):
+    document.querySelectorAll('.dd-bucket-items');
+  zones.forEach(z=>{
+    const r=z.getBoundingClientRect();
+    if(t.clientX>=r.left&&t.clientX<=r.right&&t.clientY>=r.top&&t.clientY<=r.bottom)z.classList.add('over');
+    else z.classList.remove('over');
+  });
+  e.preventDefault();
+}
+
+function handleTouchEnd(e){
+  if(!ddGhost||!ddDragEl)return;
+  const t=e.changedTouches[0];
+  const zones=ddState.mode==='terms'?
+    document.querySelectorAll('.dd-zone'):
+    document.querySelectorAll('.dd-bucket-items');
+  let dropped=false;
+  zones.forEach(z=>{
+    z.classList.remove('over');
+    const r=z.getBoundingClientRect();
+    if(!dropped&&t.clientX>=r.left&&t.clientX<=r.right&&t.clientY>=r.top&&t.clientY<=r.bottom){
+      handleDDDrop(ddDragEl,z);dropped=true;
+    }
+  });
+  ddDragEl.classList.remove('dragging');
+  ddGhost.remove();ddGhost=null;ddDragEl=null;
+}
+
+function showDDResult(){
+  const arena=document.getElementById('dd-arena');
+  arena.innerHTML=`<div class="dd-result">
+    <div class="qrs">${ddState.correct} / ${ddState.total}</div>
+    <div class="qrm">All matched correctly!</div>
+    <button class="glass-btn" onclick="startDragDrop()" style="margin-top:.7rem">Play Again</button>
+  </div>`;
+}
+
+// ══════════════════════════════════════════
+// ═══ TIMED CHALLENGE ═══
+// ══════════════════════════════════════════
+const QUIZ_BLOCK_MAP={b1:['q1','q2','q3','q4','q5'],b2:['q6','q7','q8','q9','q10'],b3:['q11','q12','q13','q14','q15','q16']};
+let timedState={questions:[],current:0,score:0,combo:0,maxCombo:0,multiplier:1,timeLeft:60,timer:null};
+
+function startTimed(){
+  const block=document.getElementById('tc-block').value;
+  let pool=[];
+  const keys=block==='all'?[...QUIZ_BLOCK_MAP.b1,...QUIZ_BLOCK_MAP.b2,...QUIZ_BLOCK_MAP.b3]:QUIZ_BLOCK_MAP[block];
+  keys.forEach(k=>{if(QUIZZES[k])QUIZZES[k].forEach(q=>pool.push({...q}));});
+  pool=shuffle(pool);
+  timedState={questions:pool,current:0,score:0,combo:0,maxCombo:0,multiplier:1,timeLeft:60,timer:null};
+  document.getElementById('tc-controls').style.display='none';
+  renderTimedQ();
+  timedState.timer=setInterval(tickTimer,1000);
+}
+
+function renderTimedQ(){
+  const {questions,current,score,combo,multiplier,timeLeft}=timedState;
+  if(current>=questions.length){endTimed();return;}
+  const q=questions[current];
+  const arena=document.getElementById('tc-arena');
+  const pct=(timeLeft/60)*100;
+  const comboClass=combo>=3?'hot':'';
+  const timeClass=timeLeft<=10?'urgent':'';
+  let html=`<div class="tc-timer-bar"><div class="tc-timer-fill ${timeClass}" style="width:${pct}%"></div></div>
+    <div class="tc-hud">
+      <div class="tc-score">Score: ${score}</div>
+      <div class="tc-combo ${comboClass}">${combo>0?`Combo: ${combo}x | ×${multiplier.toFixed(1)}`:''}</div>
+      <div class="tc-time ${timeClass}">${timeLeft}s</div>
+    </div>
+    <div class="tc-question">
+      <div class="qqt" style="margin-bottom:.6rem">${current+1}. ${q.q}</div>
+      <div class="opts">`;
+  q.o.forEach((o,i)=>{
+    html+=`<button class="opt" onclick="pickTimedAnswer(${i},${q.a})"><span class="ol">${L[i]}</span>${o}</button>`;
+  });
+  html+=`</div></div>`;
+  arena.innerHTML=html;
+}
+
+function pickTimedAnswer(picked,correct){
+  const opts=document.querySelectorAll('#tc-arena .opt');
+  opts.forEach((b,i)=>{b.disabled=true;if(i===correct)b.classList.add('ok');if(i===picked&&picked!==correct)b.classList.add('bad');});
+  if(picked===correct){
+    timedState.combo++;
+    if(timedState.combo>timedState.maxCombo)timedState.maxCombo=timedState.combo;
+    timedState.multiplier=1+Math.floor(timedState.combo/3)*0.5;
+    timedState.score+=Math.round(10*timedState.multiplier);
+  }else{
+    timedState.combo=0;timedState.multiplier=1;
+  }
+  timedState.current++;
+  setTimeout(renderTimedQ,500);
+}
+
+function tickTimer(){
+  timedState.timeLeft--;
+  if(timedState.timeLeft<=0){endTimed();return;}
+  const fill=document.querySelector('.tc-timer-fill');
+  const timeEl=document.querySelector('.tc-time');
+  if(fill){
+    fill.style.width=(timedState.timeLeft/60)*100+'%';
+    if(timedState.timeLeft<=10)fill.classList.add('urgent');
+  }
+  if(timeEl){
+    timeEl.textContent=timedState.timeLeft+'s';
+    if(timedState.timeLeft<=10)timeEl.classList.add('urgent');
+  }
+}
+
+function endTimed(){
+  clearInterval(timedState.timer);
+  const {score,current,maxCombo}=timedState;
+  const block=document.getElementById('tc-block').value;
+  saveBest(block,score);
+  const arena=document.getElementById('tc-arena');
+  const best=loadBests()[block];
+  arena.innerHTML=`<div class="tc-result">
+    <div class="qrs">${score}</div>
+    <div class="qrm">${current} questions answered | Best combo: ${maxCombo}x</div>
+    ${best?`<div class="tc-best-label">Personal Best: ${best.score} (${best.date})</div>`:''}
+    <button class="glass-btn" onclick="resetTimed()" style="margin-top:.7rem">Play Again</button>
+  </div>`;
+  renderLeaderboard();
+}
+
+function resetTimed(){
+  document.getElementById('tc-controls').style.display='flex';
+  document.getElementById('tc-arena').innerHTML='';
+}
+
+function saveBest(block,score){
+  const key='law-timed-best';
+  const bests=JSON.parse(localStorage.getItem(key)||'{}');
+  if(!bests[block]||score>bests[block].score){
+    bests[block]={score,date:new Date().toISOString().slice(0,10)};
+    localStorage.setItem(key,JSON.stringify(bests));
+  }
+}
+function loadBests(){return JSON.parse(localStorage.getItem('law-timed-best')||'{}');}
+
+function renderLeaderboard(){
+  const bests=loadBests();
+  const lb=document.getElementById('tc-leaderboard');
+  const labels={all:'All Blocks',b1:'Block I',b2:'Block II',b3:'Block III'};
+  let html=`<div class="tc-lb-title">Personal Bests</div><table class="tc-lb-table"><thead><tr><th>Block</th><th>Score</th><th>Date</th></tr></thead><tbody>`;
+  Object.entries(labels).forEach(([k,v])=>{
+    const b=bests[k];
+    html+=`<tr><td>${v}</td><td>${b?b.score:'—'}</td><td>${b?b.date:'—'}</td></tr>`;
+  });
+  html+=`</tbody></table>`;
+  lb.innerHTML=html;
+}
+renderLeaderboard();
 </script>
 </body>
 </html>
